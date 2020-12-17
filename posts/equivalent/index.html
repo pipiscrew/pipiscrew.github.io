@@ -1,0 +1,1367 @@
+<!DOCTYPE html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="theme" content="Chirpy v2.6.2"><meta name="generator" content="Jekyll v4.1.1" /><meta property="og:title" content="Equivalent to phpinfo() in ASP.NET" /><meta name="author" content="PipisCrew" /><meta property="og:locale" content="en_US" /><meta name="description" content="1st solution" /><meta property="og:description" content="1st solution" /><link rel="canonical" href="/posts/equivalent/" /><meta property="og:url" content="/posts/equivalent/" /><meta property="og:site_name" content="PipisCrew" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2015-09-29T00:00:00+08:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Equivalent to phpinfo() in ASP.NET" /><meta name="twitter:site" content="@pipiscrew" /><meta name="twitter:creator" content="@PipisCrew" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"@type":"BlogPosting","url":"/posts/equivalent/","headline":"Equivalent to phpinfo() in ASP.NET","dateModified":"2015-09-29T00:00:00+08:00","datePublished":"2015-09-29T00:00:00+08:00","author":{"@type":"Person","name":"PipisCrew"},"mainEntityOfPage":{"@type":"WebPage","@id":"/posts/equivalent/"},"description":"1st solution","@context":"https://schema.org"}</script><title>Equivalent to phpinfo() in ASP.NET | PipisCrew</title><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon.png"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon-precomposed.png"><link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/manifest.json"><meta name='msapplication-config' content='/assets/img/favicons/browserconfig.xml'><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/assets/img/favicons/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="cdn.jsdelivr.net"><link rel="dns-prefetch" href="cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"><link rel="preload" href="/assets/css/post.css" as="style"><link rel="stylesheet" href="/assets/css/post.css"><link rel="preload" as="style" href="/assets/css/lib/bootstrap-toc.min.css"><link rel="stylesheet" href="/assets/css/lib/bootstrap-toc.min.css" /> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="/assets/js/post.min.js"></script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column"><div id="nav-wrapper"><div id="profile-wrapper" class="d-flex flex-column"><div id="avatar" class="d-flex justify-content-center"> <a href="/" alt="avatar"> <img src="/assets/img/sample/avatar.jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="profile-text mt-3"><div class="site-title"> <a href="/">PipisCrew</a></div><div class="site-subtitle font-italic">A text-focused Jekyll theme.</div></div></div><ul class="nav flex-column"><li class="nav-item d-flex justify-content-center "> <a href="/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/categories/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/tags/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/archives/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/about/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul></div><div class="sidebar-bottom d-flex flex-wrap justify-content-around mt-4"> <span id="mode-toggle-wrapper"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.updateMermaid(); }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer) ) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } updateMermaid() { if (typeof mermaid !== "undefined") { let expectedTheme = (this.modeStatus === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } this.updateMermaid(); } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span> <span class="icon-border"></span> <a href="https://github.com/pipiscrew" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com/pipiscrew" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['example','doamin.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>Equivalent to phpinfo() in ASP.NET</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>Equivalent to phpinfo() in ASP.NET</h1><div class="post-meta text-muted d-flex flex-column"><div> Posted <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Tue, Sep 29, 2015, 12:00 AM +0800" > Sep 29, 2015 <i class="unloaded">2015-09-29T00:00:00+08:00</i> </span> by <span class="author"> PipisCrew </span></div></div><div class="post-content"><h2 id="1st-solution">1st solution</h2><hr /><p>An empty page with this header should do the trick:</p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>
+<span class="o">&lt;%</span><span class="p">@</span> <span class="nx">Page</span> <span class="nx">Trace</span><span class="o">=</span><span class="dl">"</span><span class="s2">true</span><span class="dl">"</span>  <span class="nx">Language</span><span class="o">=</span><span class="dl">"</span><span class="s2">C#</span><span class="dl">"</span> 
+    <span class="nx">ContentType</span><span class="o">=</span><span class="dl">"</span><span class="s2">text/html</span><span class="dl">"</span> <span class="nx">ResponseEncoding</span><span class="o">=</span><span class="dl">"</span><span class="s2">utf-8</span><span class="dl">"</span> <span class="o">%&gt;</span>
+</pre></table></code></div></div><hr /><h2 id="2nd-solution">2nd solution</h2><hr /><p>aspnetsysinfo - <a href="https://code.google.com/p/aspnetsysinfo/">https://code.google.com/p/aspnetsysinfo/</a></p><p>```js //test.aspx &lt;%@ Page Language=”C#” AutoEventWireup=”true” %&gt; &lt;%@ Import Namespace=”System.Runtime.InteropServices” %&gt; &lt;%@ Import Namespace=”System.IO” %&gt; &lt;%@ Import Namespace=”System.Data” %&gt; &lt;%@ Import Namespace=”System.Reflection” %&gt; &lt;%@ Import Namespace=”System.Collections” %&gt;</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+</pre><td class="rouge-code"><pre>&lt;style type="text/css"&gt;
+  a:link {color: #000099; text-decoration: none; background-color: #ffffff;}
+  a:hover {text-decoration: underline;}
+  body {font-family: Georgia, "Times New Roman", Times, serif; text-align: center}
+  table {margin-left: auto; margin-right: auto; text-align: left; border-collapse: collapse; border:0;}
+  td, th {border: 1px solid #000000; font-size: 75%; vertical-align: baseline;}
+  .title {font-size: 150%;}
+  .section {text-align: center;}
+  .header {text-align: center; background-color: #9999cc; font-weight: bold; color: #000000;}
+  .name {background-color: #ccccff; font-weight: bold; color: #000000;}
+  .value {background-color: #cccccc; color: #000000;}
+  .value_true {background-color: #cccccc; color: #00ff00;}
+  .value_false {background-color: #cccccc; color: #ff0000;}
+&lt;/style&gt;
+
+&lt;div id="divCenter" class="center" runat="server"&gt;&lt;/div&gt;
+
+#region Assistance Class
+public class SystemInfo
+{
+    [DllImport("kernel32", CharSet = CharSet.Auto, SetLastError = true)]
+    internal static extern void GetSystemInfo(ref CpuInfo cpuinfo);
+    [DllImport("kernel32", CharSet = CharSet.Auto, SetLastError = true)]
+    internal static extern void GlobalMemoryStatus(ref MemoryInfo meminfo);
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct CpuInfo
+    {
+        public uint dwOemId;
+        public uint dwPageSize;
+        public uint lpMinimumApplicationAddress;
+        public uint lpMaximumApplicationAddress;
+        public uint dwActiveProcessorMask;
+        public uint dwNumberOfProcessors;
+        public uint dwProcessorType;
+        public uint dwAllocationGranularity;
+        public uint dwProcessorLevel;
+        public uint dwProcessorRevision;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct MemoryInfo
+    {
+        public uint dwLength;
+        public uint dwMemoryLoad;
+        public uint dwTotalPhys;
+        public uint dwAvailPhys;
+        public uint dwTotalPageFile;
+        public uint dwAvailPageFile;
+        public uint dwTotalVirtual;
+        public uint dwAvailVirtual;
+    }
+
+    public static MemoryInfo Memory
+    {
+        get
+        {
+            MemoryInfo obj = new MemoryInfo();
+            GlobalMemoryStatus(ref obj);
+            return obj;
+        }
+    }
+
+    public static CpuInfo Cpu
+    {
+        get
+        {
+            CpuInfo obj = new CpuInfo();
+            GetSystemInfo(ref obj);
+            return obj;
+        }
+    }
+
+}
+#endregion
+
+#region Get Information Function
+
+private DataTable GetSystemInfo()
+{
+    DataTable table = GenerateDataTable("System Information");
+    //	Server Name
+    Assign(table, "Server Name", Server.MachineName);
+    Assign(table, "Server IP", Request.ServerVariables["LOCAl_ADDR"]);
+    Assign(table, "Server Domain", Request.ServerVariables["Server_Name"]);
+    Assign(table, "Server Port", Request.ServerVariables["Server_Port"]);
+    //	Web Server
+    Assign(table, "Web Server Version", Request.ServerVariables["Server_SoftWare"]);
+    //	Path
+    Assign(table, "Virtual Request Path", Request.FilePath);
+    Assign(table, "Physical Request Path", Request.PhysicalPath);
+    Assign(table, "Virtual Application Root Path", Request.ApplicationPath);
+    Assign(table, "Physical Application Root Path", Request.PhysicalApplicationPath);
+    //	Platform
+    OperatingSystem os = Environment.OSVersion;
+    string text = string.Empty;
+    switch (os.Platform)
+    {
+        case PlatformID.Win32Windows:
+            switch (os.Version.Minor)
+            {
+                case 0:
+                    text = "Microsoft Windows 95";
+                    break;
+                case 10:
+                    text = "Microsoft Windows 98";
+                    break;
+                case 90:
+                    text = "Microsoft Windows Millennium Edition";
+                    break;
+                default:
+                    text = "Microsoft Windows 95 or later";
+                    break;
+            }
+            break;
+        case PlatformID.Win32NT:
+            switch (os.Version.Major)
+            {
+                case 3:
+                    text = "Microsoft Windows NT 3.51";
+                    break;
+                case 4:
+                    text = "Microsoft Windows NT 4.0";
+                    break;
+                case 5:
+                    switch (os.Version.Minor)
+                    {
+                        case 0:
+                            text = "Microsoft Windows 2000";
+                            break;
+                        case 1:
+                            text = "Microsoft Windows XP";
+                            break;
+                        case 2:
+                            text = "Microsoft Windows 2003";
+                            break;
+                        default:
+                            text = "Microsoft NT 5.x";
+                            break;
+                    }
+                    break;
+                case 6:
+                    text = "Microsoft Windows Vista or 2008 Server";
+                    break;
+            }
+            break;
+        default:
+            if ((int)os.Platform &gt; 3)
+            {
+                string name = "/proc/version";
+                if (File.Exists(name))
+                {
+                    using (StreamReader reader = new StreamReader(name))
+                    {
+                        text = reader.ReadToEnd().Trim();
+                    }
+                }
+            }
+            break;
+    }
+    text = string.Format("{0} -- {1}", text, os.ToString());
+    Assign(table, "Operating System", text);
+    Assign(table, "Operating System Installation Directory", Environment.SystemDirectory);
+    Assign(table, ".Net Version", Environment.Version.ToString());
+    Assign(table, ".Net Language", System.Globalization.CultureInfo.InstalledUICulture.EnglishName);
+    Assign(table, "Server Current Time", DateTime.Now.ToString());
+    Assign(table, "System Uptime", TimeSpan.FromMilliseconds(Environment.TickCount).ToString());
+    Assign(table, "Script Timeout", TimeSpan.FromSeconds(Server.ScriptTimeout).ToString());
+    return table;
+}
+
+private void GetSystemStorageInfo_DriveInfo(DataTable table)
+{
+    try
+    {
+        Type typeDriveInfo = Type.GetType("System.IO.DriveInfo");
+        MethodInfo get_drives = typeDriveInfo.GetMethod("GetDrives");
+        object result = get_drives.Invoke(null, null);
+
+        foreach (object o in (IEnumerable)result)
+        {
+            try
+            {
+                //  Use reflection to call DriveInfo.GetProperties() to make 1.x compiler don't complain.
+                PropertyInfo[] props = typeDriveInfo.GetProperties();
+                bool is_ready = (bool)typeDriveInfo.GetProperty("IsReady").GetValue(o, null);
+                string name = string.Empty;
+                string volume_label = string.Empty;
+                string drive_format = string.Empty;
+                string drive_type = string.Empty;
+                ulong total_free_space = 0;
+                ulong total_space = 0;
+                foreach (PropertyInfo prop in props)
+                {
+                    switch (prop.Name)
+                    {
+                        case "Name":
+                            name = (string)prop.GetValue(o, null);
+                            break;
+                        case "VolumeLabel":
+                            if (is_ready)
+                                volume_label = (string)prop.GetValue(o, null);
+                            break;
+                        case "DriveFormat":
+                            if (is_ready)
+                                drive_format = (string)prop.GetValue(o, null);
+                            break;
+                        case "DriveType":
+                            drive_type = prop.GetValue(o, null).ToString();
+                            break;
+                        case "TotalFreeSpace":
+                            if (is_ready)
+                                total_free_space = (ulong)(long)prop.GetValue(o, null);
+                            break;
+                        case "TotalSize":
+                            if (is_ready)
+                                total_space = (ulong)(long)prop.GetValue(o, null);
+                            break;
+                    }
+                }
+
+                string label = string.Empty;
+                string size = string.Empty;
+
+                if (is_ready)
+                {
+                    label = string.Format("{0} - &lt;{1}&gt; [{2}] - {3,-10}", name, volume_label, drive_format, drive_type);
+                    if (total_space &gt; 0 &amp;&amp; total_space != ulong.MaxValue &amp;&amp; total_space != int.MaxValue)
+                    {
+                        size = string.Format("Free {0} / Total {1}", FormatNumber(total_free_space), FormatNumber(total_space));
+                    }
+                }
+                else
+                {
+                    label = string.Format("{0} {1,-10}", name, drive_type);
+                }
+
+                Assign(table, label, size);
+            }
+            catch (Exception) { }
+        }
+    }
+    catch (Exception) { }
+}
+private void GetSystemStorageInfo_WMI(DataTable table)
+{
+    try
+    {
+        //  Use reflection to call WMI to make Mono compiler don't complain about assembly reference
+        Assembly dSystemManangement = Assembly.Load("System.Management, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A");
+        if (dSystemManangement == null) return;
+
+        Type tManagementObjectSearcher = dSystemManangement.GetType("System.Management.ManagementObjectSearcher");
+        if (dSystemManangement == null) return;
+
+        MethodInfo mGet = tManagementObjectSearcher.GetMethod("Get", new Type[] { });
+
+        ConstructorInfo ctor = tManagementObjectSearcher.GetConstructor(new Type[] { typeof(string) });
+
+        object searcher = ctor.Invoke(new object[] { "Select * From Win32_LogicalDisk" });
+        if (dSystemManangement == null) return;
+
+        object disks = mGet.Invoke(searcher, null);
+
+        //  ManagementObject
+        Type tManagementObject = dSystemManangement.GetType("System.Management.ManagementObject");
+
+        foreach (object disk in (IEnumerable)disks)
+        {
+            try
+            {
+                PropertyInfo prop = tManagementObject.GetProperty("Item", new Type[] { typeof(string) });
+                uint i_drive_type = (uint)prop.GetValue(disk, new object[] { "DriveType" });
+                string drive_type = string.Empty;
+                switch (i_drive_type)
+                {
+                    case 1:
+                        drive_type = "No Root Directory";
+                        break;
+                    case 2:
+                        drive_type = "Removable Disk";
+                        break;
+                    case 3:
+                        drive_type = "Local Disk";
+                        break;
+                    case 4:
+                        drive_type = "Network Drive";
+                        break;
+                    case 5:
+                        drive_type = "Compact Disc";
+                        break;
+                    case 6:
+                        drive_type = "RAM Disk";
+                        break;
+                    default:
+                        drive_type = "Unknown";
+                        break;
+                }
+                string name = prop.GetValue(disk, new object[] { "Name" }) as string;
+                string volume_label = prop.GetValue(disk, new object[] { "VolumeName" }) as string;
+                string filesystem = prop.GetValue(disk, new object[] { "FileSystem" }) as string;
+
+                string free_space = string.Empty;
+                try { free_space = FormatNumber((ulong)prop.GetValue(disk, new object[] { "FreeSpace" })); }
+                catch (Exception) { }
+
+                string total_space = string.Empty;
+                try { total_space = FormatNumber((ulong)prop.GetValue(disk, new object[] { "Size" })); }
+                catch (Exception) { }
+
+                string left = string.Format("{0} - &lt;{1}&gt; [{2}] - {3,-10}",
+						name,
+						volume_label,
+						filesystem,
+						drive_type
+					);
+
+                string right = ((free_space == null || free_space == "") ? string.Empty : string.Format("Free {0} / Total {1}", free_space, total_space));
+
+                Assign(table, left, right);
+            }
+            catch (Exception exception) { Assign(table, "Exception Occurs", exception.ToString()); }
+        }
+    }
+    catch (Exception exception) { Assign(table, "Exception Occurs", exception.ToString()); }
+}
+private DataTable GetSystemStorageInfo()
+{
+    DataTable table = GenerateDataTable("Storage Information");
+
+    try { Assign(table, "Logical Driver Information", string.Join(", ", Directory.GetLogicalDrives())); }
+    catch (Exception) { }
+
+    if (Environment.Version.Major &gt;= 2)
+    {
+        GetSystemStorageInfo_DriveInfo(table);
+    }
+    else
+    {
+        if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+        {
+            GetSystemStorageInfo_WMI(table);
+        }
+    }
+
+    return table;
+}
+private void GetSystemMemoryInfo_proc(DataTable table)
+{
+    string name = "/proc/meminfo";
+    if (File.Exists(name))
+    {
+        using (StreamReader reader = new StreamReader(name, Encoding.ASCII))
+        {
+            Hashtable ht = new Hashtable();
+            string line = string.Empty;
+            while ((line = reader.ReadLine()) != null)
+            {
+                string[] item = line.Split(":".ToCharArray());
+                if (item.Length == 2)
+                {
+                    string k = item[0].Trim();
+                    string v = item[1].Trim();
+                    ht.Add(k, v);
+                }
+            }
+            Assign(table, "Physical Memory Size", string.Format("{0}", ht["MemTotal"]));
+            Assign(table, "Physical Free Memory Size", string.Format("{0}", ht["MemFree"]));
+            Assign(table, "Swap Total Size", string.Format("{0}", ht["SwapTotal"]));
+            Assign(table, "Swap Free Size", string.Format("{0}", ht["SwapFree"]));
+        }
+    }
+}
+private DataTable GetSystemMemoryInfo()
+{
+    DataTable table = GenerateDataTable("Memory Information"); ;
+    Assign(table, "Current Working Set", FormatNumber((ulong)Environment.WorkingSet));
+    try
+    {
+        if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+        {
+            SystemInfo.MemoryInfo memory = SystemInfo.Memory;
+            Assign(table, "Physical Memory Size", FormatNumber(memory.dwTotalPhys));
+            Assign(table, "Physical Free Memory Size", FormatNumber(memory.dwAvailPhys));
+            Assign(table, "PageFile Size", FormatNumber(memory.dwTotalPageFile));
+            Assign(table, "Available PageFile Size", FormatNumber(memory.dwAvailPageFile));
+            Assign(table, "Virtual Memory Size", FormatNumber(memory.dwTotalVirtual));
+            Assign(table, "Available Memory Size", FormatNumber(memory.dwAvailVirtual));
+            Assign(table, "Memory Load", string.Format("{0} %", memory.dwMemoryLoad.ToString("N")));
+        }
+        else if ((int)Environment.OSVersion.Platform &gt; 3)
+        {
+            GetSystemMemoryInfo_proc(table);
+        }
+    }
+    catch (Exception) { }
+    return table;
+}
+private void GetSystemProcessorInfo_WMI(DataTable table)
+{
+    //  Use reflection to call WMI to make Mono compiler don't complain about assembly reference
+    Assembly dSystemManangement = Assembly.Load("System.Management, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A");
+    if (dSystemManangement == null) return;
+
+    Type tManagementObjectSearcher = dSystemManangement.GetType("System.Management.ManagementObjectSearcher");
+    if (dSystemManangement == null) return;
+
+    MethodInfo mGet = tManagementObjectSearcher.GetMethod("Get", new Type[] { });
+
+    ConstructorInfo ctor = tManagementObjectSearcher.GetConstructor(new Type[] { typeof(string) });
+
+    object searcher = ctor.Invoke(new object[] { "Select * From Win32_Processor" });
+    if (dSystemManangement == null) return;
+
+    object processors = mGet.Invoke(searcher, null);
+
+    //  ManagementObject
+    Type tManagementObject = dSystemManangement.GetType("System.Management.ManagementObject");
+    foreach (object processor in (IEnumerable)processors)
+    {
+        try
+        {
+            try
+            {
+                PropertyInfo prop = tManagementObject.GetProperty("Item", new Type[] { typeof(string) });
+                StringBuilder sb = new StringBuilder();
+                //  Unique ID
+                string name = (string)prop.GetValue(processor, new object[] { "Name" });
+                sb.Append(name);
+                //  Clock Speed
+                uint clock_speed = (uint)prop.GetValue(processor, new object[] { "CurrentClockSpeed" });
+                //  Max Clock Speed
+                uint max_clock_speed = (uint)prop.GetValue(processor, new object[] { "MaxClockSpeed" });
+                sb.AppendFormat(" - {0} MHz / {1} MHz", clock_speed, max_clock_speed);
+                //  Current Voltage
+                ushort i_current_voltage = (ushort)prop.GetValue(processor, new object[] { "CurrentVoltage" });
+                double current_voltage = 0;
+                if (((uint)i_current_voltage &amp; 0x80) == 0)
+                {
+                    current_voltage = (double)(i_current_voltage &amp; 0x7F) / 10.0;
+                }
+                else
+                {
+                    try
+                    {
+                        uint caps = (uint)prop.GetValue(processor, new object[] { "VoltageCaps" });
+                        switch (caps &amp; 0xF)
+                        {
+                            case 1:
+                                current_voltage = 5;
+                                break;
+                            case 2:
+                                current_voltage = 3.3;
+                                break;
+                            case 3:
+                                current_voltage = 2.9;
+                                break;
+                        }
+                    }
+                    catch (Exception) { }
+                }
+                if (current_voltage &gt; 0)
+                {
+                    sb.AppendFormat(" - {0}v", current_voltage);
+                }
+                //  Load Percentage 
+                ushort load_percentage = (ushort)prop.GetValue(processor, new object[] { "LoadPercentage" });
+                sb.AppendFormat(" - Load = {0} %", load_percentage);
+                Assign(table, "Processor", sb.ToString());
+            }
+            catch (Exception exception) { Assign(table, "Exception Occurs", exception.ToString()); }
+        }
+        catch (Exception) { }
+    }
+}
+private void GetSystemProcessorInfo_proc(DataTable table)
+{
+    string name = "/proc/cpuinfo";
+    if (File.Exists(name))
+    {
+        using (StreamReader reader = new StreamReader(name, Encoding.ASCII))
+        {
+            ArrayList processors = new ArrayList();
+            Hashtable ht = new Hashtable();
+            string line = string.Empty;
+            while ((line = reader.ReadLine()) != null)
+            {
+                if (line.Trim().Length == 0)
+                {
+                    processors.Add(ht);
+                    ht = new Hashtable();
+                }
+                string[] item = line.Split(":".ToCharArray());
+                if (item.Length == 2)
+                {
+                    string k = item[0].Trim();
+                    string v = item[1].Trim();
+                    ht.Add(k, v);
+                }
+            }
+
+            foreach (Hashtable processor in processors)
+            {
+                string n = string.Format("Processor {0}", processor["processor"]);
+                string v = string.Format("{0}{1}", processor["model name"],
+										 (processor["cpu MHz"] != null) ? string.Format(" - {0} MHz", processor["cpu MHz"]) : string.Empty);
+                Assign(table, n, v);
+            }
+        }
+    }
+}
+private DataTable GetSystemProcessorInfo()
+{
+    DataTable table = GenerateDataTable("Processor Information");
+    try
+    {
+        if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+        {
+            Assign(table, "Number of Processors", Environment.GetEnvironmentVariable("NUMBER_OF_PROCESSORS"));
+            Assign(table, "Processor Id", Environment.GetEnvironmentVariable("PROCESSOR_IDENTIFIER"));
+            SystemInfo.CpuInfo cpu = SystemInfo.Cpu;
+            Assign(table, "Processor Type", cpu.dwProcessorType.ToString());
+            Assign(table, "Processor Level", cpu.dwProcessorLevel.ToString());
+            Assign(table, "Processor OEM Id", cpu.dwOemId.ToString());
+            Assign(table, "Page Size", cpu.dwPageSize.ToString());
+            GetSystemProcessorInfo_WMI(table);
+        }
+        else if ((int)Environment.OSVersion.Platform &gt; 3)
+        {
+            GetSystemProcessorInfo_proc(table);
+        }
+    }
+    catch (Exception) { }
+    return table;
+}
+
+private DataTable GetServerVariables()
+{
+    DataTable table = GenerateDataTable("Server Variables");
+    foreach (string key in Request.ServerVariables.AllKeys)
+    {
+        Assign(table, key, Request.ServerVariables[key]);
+    }
+    return table;
+}
+private DataTable GetEnvironmentVariables()
+{
+    DataTable table = GenerateDataTable("Environment Variables");
+    foreach (DictionaryEntry de in System.Environment.GetEnvironmentVariables())
+    {
+        Assign(table, de.Key.ToString(), de.Value.ToString());
+    }
+    return table;
+}
+
+private DataTable GetSystemObjectInfo()
+{
+    DataTable table = GenerateDataTable("System COM Component Information");
+    Assign(table, "Adodb.Connection", TestObject("Adodb.Connection").ToString());
+    Assign(table, "Adodb.RecordSet", TestObject("Adodb.RecordSet").ToString());
+    Assign(table, "Adodb.Stream", TestObject("Adodb.Stream").ToString());
+    Assign(table, "Scripting.FileSystemObject", TestObject("Scripting.FileSystemObject").ToString());
+    Assign(table, "Microsoft.XMLHTTP", TestObject("Microsoft.XMLHTTP").ToString());
+    Assign(table, "WScript.Shell", TestObject("WScript.Shell").ToString());
+    Assign(table, "MSWC.AdRotator", TestObject("MSWC.AdRotator").ToString());
+    Assign(table, "MSWC.BrowserType", TestObject("MSWC.BrowserType").ToString());
+    Assign(table, "MSWC.NextLink", TestObject("MSWC.NextLink").ToString());
+    Assign(table, "MSWC.Tools", TestObject("MSWC.Tools").ToString());
+    Assign(table, "MSWC.Status", TestObject("MSWC.Status").ToString());
+    Assign(table, "MSWC.Counters", TestObject("MSWC.Counters").ToString());
+    Assign(table, "IISSample.ContentRotator", TestObject("IISSample.ContentRotator").ToString());
+    Assign(table, "IISSample.PageCounter", TestObject("IISSample.PageCounter").ToString());
+    Assign(table, "MSWC.PermissionChecker", TestObject("MSWC.PermissionChecker").ToString());
+    return table;
+}
+private DataTable GetMailObjectInfo()
+{
+    DataTable table = GenerateDataTable("Mail COM Component Information");
+    Assign(table, "JMail.SMTPMail", TestObject("JMail.SMTPMail").ToString());
+    Assign(table, "JMail.Message", TestObject("JMail.Message").ToString());
+    Assign(table, "CDONTS.NewMail", TestObject("CDONTS.NewMail").ToString());
+    Assign(table, "CDO.Message", TestObject("CDO.Message").ToString());
+    Assign(table, "Persits.MailSender", TestObject("Persits.MailSender").ToString());
+    Assign(table, "SMTPsvg.Mailer", TestObject("SMTPsvg.Mailer").ToString());
+    Assign(table, "DkQmail.Qmail", TestObject("DkQmail.Qmail").ToString());
+    Assign(table, "SmtpMail.SmtpMail.1", TestObject("SmtpMail.SmtpMail.1").ToString());
+    Assign(table, "Geocel.Mailer.1", TestObject("Geocel.Mailer.1").ToString());
+    return table;
+}
+private DataTable GetUploadObjectInfo()
+{
+    DataTable table = GenerateDataTable("Upload COM Component Information");
+    Assign(table, "LyfUpload.UploadFile", TestObject("LyfUpload.UploadFile").ToString());
+    Assign(table, "Persits.Upload", TestObject("Persits.Upload").ToString());
+    Assign(table, "Ironsoft.UpLoad", TestObject("Ironsoft.UpLoad").ToString());
+    Assign(table, "aspcn.Upload", TestObject("aspcn.Upload").ToString());
+    Assign(table, "SoftArtisans.FileUp", TestObject("SoftArtisans.FileUp").ToString());
+    Assign(table, "SoftArtisans.FileManager", TestObject("SoftArtisans.FileManager").ToString());
+    Assign(table, "Dundas.Upload", TestObject("Dundas.Upload").ToString());
+    Assign(table, "w3.upload", TestObject("w3.upload").ToString());
+    return table;
+}
+private DataTable GetGraphicsObjectInfo()
+{
+    DataTable table = GenerateDataTable("Graphics COM Component Information");
+    Assign(table, "SoftArtisans.ImageGen", TestObject("SoftArtisans.ImageGen").ToString());
+    Assign(table, "W3Image.Image", TestObject("W3Image.Image").ToString());
+    Assign(table, "Persits.Jpeg", TestObject("Persits.Jpeg").ToString());
+    Assign(table, "XY.Graphics", TestObject("XY.Graphics").ToString());
+    Assign(table, "Ironsoft.DrawPic", TestObject("Ironsoft.DrawPic").ToString());
+    Assign(table, "Ironsoft.FlashCapture", TestObject("Ironsoft.FlashCapture").ToString());
+    return table;
+}
+private DataTable GetOtherObjectInfo()
+{
+    DataTable table = GenerateDataTable("Other COM Component Information");
+    Assign(table, "dyy.zipsvr", TestObject("dyy.zipsvr").ToString());
+    Assign(table, "hin2.com_iis", TestObject("hin2.com_iis").ToString());
+    Assign(table, "Socket.TCP", TestObject("Socket.TCP").ToString());
+    return table;
+}
+
+private DataTable GetSessionInfo()
+{
+    DataTable table = GenerateDataTable("Session Information");
+    Assign(table, "Session Count", Session.Contents.Count.ToString());
+    Assign(table, "Application Count", Application.Contents.Count.ToString());
+    return table;
+}
+private DataTable GetRequestHeaderInfo()
+{
+    DataTable table = GenerateDataTable("Request Headers");
+    foreach (string key in Request.Headers.AllKeys)
+    {
+        Assign(table, key, Request.Headers[key]);
+    }
+    return table;
+}
+
+#endregion
+
+#region Helper Methods
+
+private string FormatNumber(ulong value)
+{
+    if (value &lt; 4*1024){="" return="" string.format("{0}="" bytes",="" value);="" }="" else="" if="" (value=""&gt;&lt; (long)4="" *="" 1024="" *="" 1024)="" {="" return="" string.format("{0}="" kb",="" (value="" (double)((long)1024)).tostring("n"));="" }="" else="" if="" (value=""&gt;&lt; (long)4="" *="" 1024="" *="" 1024="" *="" 1024)="" {="" return="" string.format("{0}="" mb",="" (value="" (double)((long)1024="" *="" 1024)).tostring("n"));="" }="" else="" if="" (value=""&gt;&lt; (long)4="" *="" 1024="" *="" 1024="" *="" 1024="" *="" 1024)="" {="" return="" string.format("{0}="" gb",="" (value="" (double)((long)1024="" *="" 1024="" *="" 1024)).tostring("n"));="" }="" else="" {="" return="" string.format("{0}="" tb",="" (value="" (double)((long)1024="" *="" 1024="" *="" 1024="" *="" 1024)).tostring("n"));="" }="" }="" private="" datatable="" generatedatatable(string="" name)="" {="" datatable="" table="new" datatable(name);="" table.columns.add("name",="" typeof(string));="" table.columns.add("value",="" typeof(string));="" return="" table;="" }="" private="" bool="" testobject(string="" progid)="" {="" try="" {="" server.createobject(progid);="" return="" true;="" }="" catch="" (exception)="" {="" return="" false;="" }="" }="" private="" void="" assign(datatable="" table,="" string="" name,="" string="" value)="" {="" datarow="" row="table.NewRow();" row["name"]="name;" row["value"]="value;" table.rows.add(row);="" }="" private="" void="" loadinformation(datatable="" table)="" {="" datagrid="" grid="new" datagrid();="" boundcolumn="" col;="" col="new" boundcolumn();="" col.datafield="Name" ;="" col.headertext="Name" ;="" col.itemstyle.cssclass="name" ;="" grid.columns.add(col);="" col="new" boundcolumn();="" col.datafield="Value" ;="" col.headertext="Value" ;="" col.itemstyle.cssclass="value" ;="" grid.columns.add(col);="" grid.autogeneratecolumns="false;" grid.headerstyle.cssclass="header" ;="" grid.datasource="new" dataview(table);="" grid.databind();="" foreach(datagriditem="" item="" in="" grid.items)="" {="" if(item.cells.count="=" 2){="" tablecell="" cell="item.Cells[1];" change="" true/false="" style="" switch="" (cell.text.tolower())="" {="" case="" "true":="" cell.cssclass="value_true" ;="" break;="" case="" "false":="" cell.cssclass="value_false" ;="" break;="" }="" wrap=""&gt;
+</pre></table></code></div></div><p>for text contain newline. if (cell.Text.IndexOf(Environment.NewLine) &gt;= 0) { cell.Text = string.Format(“&lt;pre&gt;{0}&lt;/pre&gt;”, cell.Text); } } }</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre><td class="rouge-code"><pre>        HtmlGenericControl title = new HtmlGenericControl("h1");
+        title.InnerText = Server.HtmlEncode(table.TableName);
+        title.Attributes.Add("class", "title");
+
+        HtmlGenericControl div = new HtmlGenericControl("div");
+        div.Attributes.Add("class", "section");
+        div.Controls.Add(new HtmlGenericControl("p"));
+        div.Controls.Add(title);
+        div.Controls.Add(grid);
+        div.Controls.Add(new HtmlGenericControl("p"));
+
+        divCenter.Controls.Add(div);
+    }
+
+    #endregion
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        LoadInformation(GetSystemInfo());
+        LoadInformation(GetSystemProcessorInfo());
+        LoadInformation(GetSystemMemoryInfo());
+        LoadInformation(GetSystemStorageInfo());
+        LoadInformation(GetRequestHeaderInfo());
+        LoadInformation(GetServerVariables());
+        LoadInformation(GetEnvironmentVariables());
+        LoadInformation(GetSessionInfo());
+        LoadInformation(GetSystemObjectInfo());
+        LoadInformation(GetMailObjectInfo());
+        LoadInformation(GetUploadObjectInfo());
+        LoadInformation(GetGraphicsObjectInfo());
+        LoadInformation(GetOtherObjectInfo());
+    }
+
+``` &lt;/{1}&gt;&lt;/{1}&gt;
+</pre></table></code></div></div><p>origin - http://www.pipiscrew.com/?p=2046 equivalent-to-phpinfo-in-asp-net</p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/uncategorized/'>Uncategorized</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=Equivalent to phpinfo() in ASP.NET - PipisCrew&url=/posts/equivalent/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=Equivalent to phpinfo() in ASP.NET - PipisCrew&u=/posts/equivalent/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=Equivalent to phpinfo() in ASP.NET - PipisCrew&url=/posts/equivalent/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"></div><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/4-days-wit/"><div class="card-body"> <span class="timeago small" > Sep 16, 2017 <i class="unloaded">2017-09-16T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>o4 days without a cigarette</h3><div class="text-muted small"><p> https://www.reddit.com/r/funny/comments/703qhj/4_days_without_a_cigarette_and_a_coworker_told_me/ origin - http://www.pipiscrew.com/?p=9929 4-days-without-a-cigarette</p></div></div></a></div><div class="card"> <a href="/posts/rise-in-ra/"><div class="card-body"> <span class="timeago small" > Oct 12, 2017 <i class="unloaded">2017-10-12T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Rise in radioactivity across Europe puzzles scientists</h3><div class="text-muted small"><p> http://www.independent.co.uk/news/world/europe/radioactivity-europe-rise-cause-puzzle-a7992956.html origin - http://www.pipiscrew.com/?p=10440 rise-in-radioactivity-across-europe-puzzles-scientists</p></div></div></a></div><div class="card"> <a href="/posts/cineform-g/"><div class="card-body"> <span class="timeago small" > Oct 26, 2017 <i class="unloaded">2017-10-26T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>CineForm Goes Open Source</h3><div class="text-muted small"><p> http://cineform.blogspot.com/2017/10/cineform-goes-open-source.html https://gopro.github.io/cineform-sdk/ origin - http://www.pipiscrew.com/?p=10666 cineform-goes-open-source</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/aspnet-app/" class="btn btn-outline-primary"><p>o[asp.net] Application Life Cycle Overview</p></a> <a href="/posts/head-tag-h/" class="btn btn-outline-primary"><p>head tag has a runat=-server- attribute</p></a></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script> <script type="text/javascript"> const imgs = document.querySelectorAll('#post-wrapper img'); const observer = lozad(imgs); observer.observe(); </script><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2020 <a href="https://twitter.com/pipiscrew">pipiscrew</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy/" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-xl-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"><div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>{categories}</div><div><i class="fa fa-tag fa-fw"></i>{tags}</div></div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>' }); </script>

@@ -1,0 +1,391 @@
+<!DOCTYPE html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="theme" content="Chirpy v2.6.2"><meta name="generator" content="Jekyll v4.1.1" /><meta property="og:title" content="Expandable Listview with checkboxes" /><meta name="author" content="PipisCrew" /><meta property="og:locale" content="en_US" /><meta name="description" content="reference - http://www.androidhive.info/2013/07/android-expandable-list-view-tutorial/" /><meta property="og:description" content="reference - http://www.androidhive.info/2013/07/android-expandable-list-view-tutorial/" /><link rel="canonical" href="/posts/expandable/" /><meta property="og:url" content="/posts/expandable/" /><meta property="og:site_name" content="PipisCrew" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2016-02-27T00:00:00+08:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Expandable Listview with checkboxes" /><meta name="twitter:site" content="@pipiscrew" /><meta name="twitter:creator" content="@PipisCrew" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"@type":"BlogPosting","url":"/posts/expandable/","headline":"Expandable Listview with checkboxes","dateModified":"2016-02-27T00:00:00+08:00","datePublished":"2016-02-27T00:00:00+08:00","author":{"@type":"Person","name":"PipisCrew"},"mainEntityOfPage":{"@type":"WebPage","@id":"/posts/expandable/"},"description":"reference - http://www.androidhive.info/2013/07/android-expandable-list-view-tutorial/","@context":"https://schema.org"}</script><title>Expandable Listview with checkboxes | PipisCrew</title><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon.png"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon-precomposed.png"><link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/manifest.json"><meta name='msapplication-config' content='/assets/img/favicons/browserconfig.xml'><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/assets/img/favicons/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="cdn.jsdelivr.net"><link rel="dns-prefetch" href="cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"><link rel="preload" href="/assets/css/post.css" as="style"><link rel="stylesheet" href="/assets/css/post.css"><link rel="preload" as="style" href="/assets/css/lib/bootstrap-toc.min.css"><link rel="stylesheet" href="/assets/css/lib/bootstrap-toc.min.css" /> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="/assets/js/post.min.js"></script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column"><div id="nav-wrapper"><div id="profile-wrapper" class="d-flex flex-column"><div id="avatar" class="d-flex justify-content-center"> <a href="/" alt="avatar"> <img src="/assets/img/sample/avatar.jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="profile-text mt-3"><div class="site-title"> <a href="/">PipisCrew</a></div><div class="site-subtitle font-italic">A text-focused Jekyll theme.</div></div></div><ul class="nav flex-column"><li class="nav-item d-flex justify-content-center "> <a href="/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/categories/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/tags/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/archives/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/about/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul></div><div class="sidebar-bottom d-flex flex-wrap justify-content-around mt-4"> <span id="mode-toggle-wrapper"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.updateMermaid(); }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer) ) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } updateMermaid() { if (typeof mermaid !== "undefined") { let expectedTheme = (this.modeStatus === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } this.updateMermaid(); } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span> <span class="icon-border"></span> <a href="https://github.com/pipiscrew" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com/pipiscrew" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['example','doamin.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>Expandable Listview with checkboxes</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>Expandable Listview with checkboxes</h1><div class="post-meta text-muted d-flex flex-column"><div> Posted <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Sat, Feb 27, 2016, 12:00 AM +0800" > Feb 27, 2016 <i class="unloaded">2016-02-27T00:00:00+08:00</i> </span> by <span class="author"> PipisCrew </span></div></div><div class="post-content"><p>reference - <a href="http://www.androidhive.info/2013/07/android-expandable-list-view-tutorial/">http://www.androidhive.info/2013/07/android-expandable-list-view-tutorial/</a></p><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://www.pipiscrew.com/wp-content/uploads/2016/02/Snap111.png" alt="Snap111" /></p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="c1">//@activity</span>
+    <span class="o">&lt;</span><span class="nx">linearlayout</span> <span class="nx">android</span><span class="p">:</span><span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">@+id/frag_settings_row02_categories_child</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_width</span><span class="o">=</span><span class="dl">"</span><span class="s2">fill_parent</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_height</span><span class="o">=</span><span class="dl">"</span><span class="s2">wrap_content</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">orientation</span><span class="o">=</span><span class="dl">"</span><span class="s2">vertical</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">padding</span><span class="o">=</span><span class="dl">"</span><span class="s2">20dp</span><span class="dl">"</span><span class="o">&gt;</span>
+
+        <span class="o">&lt;</span><span class="nx">expandablelistview</span> <span class="nx">android</span><span class="p">:</span><span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">@+id/frag_settings_row02_categories_explstv</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_width</span><span class="o">=</span><span class="dl">"</span><span class="s2">wrap_content</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_height</span><span class="o">=</span><span class="dl">"</span><span class="s2">wrap_content</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_margin</span><span class="o">=</span><span class="dl">"</span><span class="s2">5dip</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/expandablelistview</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/linearlayout</span><span class="err">&gt;
+</span></pre></table></code></div></div><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre><td class="rouge-code"><pre><span class="c1">//@the row</span>
+<span class="o">&lt;</span><span class="p">?</span><span class="nx">xml</span> <span class="nx">version</span><span class="o">=</span><span class="dl">"</span><span class="s2">1.0</span><span class="dl">"</span> <span class="nx">encoding</span><span class="o">=</span><span class="dl">"</span><span class="s2">utf-8</span><span class="dl">"</span><span class="p">?</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">relativelayout</span> <span class="nx">xmlns</span><span class="p">:</span><span class="nx">android</span><span class="o">=</span><span class="dl">"</span><span class="s2">http://schemas.android.com/apk/res/android</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_width</span><span class="o">=</span><span class="dl">"</span><span class="s2">match_parent</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_height</span><span class="o">=</span><span class="dl">"</span><span class="s2">match_parent</span><span class="dl">"</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="nx">linearlayout</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_width</span><span class="o">=</span><span class="dl">"</span><span class="s2">wrap_content</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_height</span><span class="o">=</span><span class="dl">"</span><span class="s2">wrap_content</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">baselinealigned</span><span class="o">=</span><span class="dl">"</span><span class="s2">false</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_marginleft</span><span class="o">=</span><span class="dl">"</span><span class="s2">35dp</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">orientation</span><span class="o">=</span><span class="dl">"</span><span class="s2">horizontal</span><span class="dl">"</span><span class="o">&gt;</span>
+
+        <span class="o">&lt;</span><span class="nx">textview</span> <span class="nx">android</span><span class="p">:</span><span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">@+id/frag_settings_row_detail_02_categories_row_title</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_width</span><span class="o">=</span><span class="dl">"</span><span class="s2">wrap_content</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_height</span><span class="o">=</span><span class="dl">"</span><span class="s2">wrap_content</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">textsize</span><span class="o">=</span><span class="dl">"</span><span class="s2">15sp</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/textview</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/linearlayout</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="nx">checkbox</span> <span class="nx">android</span><span class="p">:</span><span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">@+id/frag_settings_row_detail_02_categories_row_check</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_width</span><span class="o">=</span><span class="dl">"</span><span class="s2">wrap_content</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_height</span><span class="o">=</span><span class="dl">"</span><span class="s2">wrap_content</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">focusable</span><span class="o">=</span><span class="dl">"</span><span class="s2">false</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">layout_alignparentright</span><span class="o">=</span><span class="dl">"</span><span class="s2">true</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">gravity</span><span class="o">=</span><span class="dl">"</span><span class="s2">right</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/checkbox</span><span class="err">&gt;
+</span>
+<span class="o">&lt;</span><span class="sr">/relativelayout</span><span class="err">&gt;
+</span></pre></table></code></div></div><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="nx">CREATE</span> <span class="nx">TABLE</span> <span class="p">[</span><span class="nx">categories</span><span class="p">]</span>
+<span class="p">(</span><span class="nx">id</span> <span class="nx">INTEGER</span><span class="p">,</span>
+<span class="nx">category_name</span> <span class="nx">TEXT</span><span class="p">,</span>
+<span class="nx">parent_id</span> <span class="nx">INTEGER</span><span class="p">);</span>
+</pre></table></code></div></div><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+</pre><td class="rouge-code"><pre><span class="c1">//fragment.java</span>
+<span class="kr">public</span> <span class="kd">class</span> <span class="nx">Frag_Settings</span> <span class="kd">extends</span> <span class="nx">Fragment</span> <span class="kr">implements</span> <span class="nx">OnItemClickListener</span> <span class="p">{</span>
+
+	<span class="c1">// ////////////expandable</span>
+	<span class="kr">private</span> <span class="nx">Frag_Settings_Categories_Adapter</span> <span class="nx">listAdapter</span><span class="p">;</span>
+	<span class="kr">private</span> <span class="nx">ExpandableListView</span> <span class="nx">expListView</span><span class="p">;</span>
+	<span class="kr">private</span> <span class="nx">List</span><span class="o">&lt;</span><span class="nx">frag_settings_categories</span><span class="o">&gt;</span> <span class="nx">listHeader_Categories</span><span class="p">;</span>
+	<span class="kr">private</span> <span class="nx">HashMap</span><span class="o">&lt;</span><span class="nx">frag_settings_categories</span><span class="p">,</span><span class="o">&gt;&lt;</span><span class="sr">/frag_settings_categories,&gt;&lt;frag_settings_categories&gt;&gt; listDataChild</span><span class="err">;
+</span>	<span class="c1">// ////////////expandable</span>
+
+	<span class="p">@</span><span class="nd">Override</span>
+	<span class="kr">public</span> <span class="k">void</span> <span class="nx">onActivityCreated</span><span class="p">(</span><span class="nx">Bundle</span> <span class="nx">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">super</span><span class="p">.</span><span class="nx">onActivityCreated</span><span class="p">(</span><span class="nx">savedInstanceState</span><span class="p">);</span>
+
+		<span class="nx">expListView</span> <span class="o">=</span> <span class="p">(</span><span class="nx">ExpandableListView</span><span class="p">)</span> <span class="nx">getActivity</span><span class="p">().</span><span class="nx">findViewById</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">frag_settings_row02_categories_explstv</span><span class="p">);</span>
+		<span class="nx">listHeader_Categories</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayList</span><span class="o">&lt;</span><span class="nx">frag_settings_categories</span><span class="o">&gt;</span><span class="p">();</span>
+		<span class="nx">listDataChild</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HashMap</span><span class="o">&lt;</span><span class="nx">frag_settings_categories</span><span class="p">,</span><span class="o">&gt;&lt;</span><span class="sr">/frag_settings_categories,&gt;&lt;frag_settings_categories&gt;&gt;</span><span class="se">()</span><span class="err">;
+</span>
+		<span class="nx">listAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Frag_Settings_Categories_Adapter</span><span class="p">(</span><span class="nx">getActivity</span><span class="p">(),</span> <span class="nx">listHeader_Categories</span><span class="p">,</span> <span class="nx">listDataChild</span><span class="p">);</span>
+		<span class="nx">expListView</span><span class="p">.</span><span class="nx">setAdapter</span><span class="p">(</span><span class="nx">listAdapter</span><span class="p">);</span>
+
+		<span class="c1">//fetch recordset by DBASE</span>
+		<span class="nx">CategoriesDatasource</span> <span class="nx">categories_datasource</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CategoriesDatasource</span><span class="p">(</span><span class="nx">getActivity</span><span class="p">());</span>
+
+		<span class="c1">// get HEAD CATEGORY (categories - parent_id=0)</span>
+		<span class="k">for</span> <span class="p">(</span><span class="nx">Categories</span> <span class="nx">d</span> <span class="p">:</span> <span class="nx">categories_datasource</span><span class="p">.</span><span class="nx">getAllCategoriess</span><span class="p">())</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getparent_id</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+				<span class="nx">listHeader_Categories</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Frag_Settings_Categories</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getid</span><span class="p">(),</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getcategory_name</span><span class="p">(),</span> <span class="kc">false</span><span class="p">));</span>
+		<span class="p">}</span>
+
+		<span class="c1">// get HEAD CHILD ITEMS (sub_categories - parent_id = cat_head)</span>
+		<span class="nx">List</span><span class="o">&lt;</span><span class="nx">frag_settings_categories</span><span class="o">&gt;</span> <span class="nx">child_Categories</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="nx">Frag_Settings_Categories</span> <span class="nx">cat_head</span> <span class="p">:</span> <span class="nx">listHeader_Categories</span><span class="p">)</span> <span class="p">{</span>
+
+			<span class="c1">// each time instantiate the list</span>
+			<span class="nx">child_Categories</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayList</span><span class="o">&lt;</span><span class="nx">frag_settings_categories</span><span class="o">&gt;</span><span class="p">();</span>
+
+			<span class="c1">// get all sub_categories has parent the cat_head</span>
+			<span class="k">for</span> <span class="p">(</span><span class="nx">Categories</span> <span class="nx">sub_cat</span> <span class="p">:</span> <span class="nx">categories_datasource</span><span class="p">.</span><span class="nx">getAllCategoriess</span><span class="p">())</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="p">(</span><span class="nx">sub_cat</span><span class="p">.</span><span class="nx">getparent_id</span><span class="p">()</span> <span class="o">==</span> <span class="nx">cat_head</span><span class="p">.</span><span class="nx">getId</span><span class="p">())</span> <span class="p">{</span>
+					<span class="nx">child_Categories</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Frag_Settings_Categories</span><span class="p">(</span><span class="nx">sub_cat</span><span class="p">.</span><span class="nx">getid</span><span class="p">(),</span> <span class="nx">sub_cat</span><span class="p">.</span><span class="nx">getcategory_name</span><span class="p">(),</span> <span class="kc">false</span><span class="p">));</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+
+			<span class="c1">//for each HEAD CATEGORY - hang children</span>
+			<span class="nx">listDataChild</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">cat_head</span><span class="p">,</span> <span class="nx">child_Categories</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+</pre></table></code></div></div><p>```js //Frag_Settings_Categories_Adapter.java import java.util.HashMap; import java.util.List; import android.content.Context; import android.view.LayoutInflater; import android.view.View; import android.view.ViewGroup; import android.widget.BaseExpandableListAdapter; import android.widget.CheckBox; import android.widget.CompoundButton; import android.widget.CompoundButton.OnCheckedChangeListener; import android.widget.TextView;</p><p>public class Frag_Settings_Categories_Adapter extends BaseExpandableListAdapter {</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+</pre><td class="rouge-code"><pre>private List&lt;frag_settings_categories&gt; data;
+private HashMap&lt;frag_settings_categories,&gt;&lt;/frag_settings_categories,&gt;&lt;frag_settings_categories&gt;&gt; child;
+private Context context;
+
+public Frag_Settings_Categories_Adapter(Context context, List&lt;frag_settings_categories&gt; items, HashMap&lt;frag_settings_categories,&gt;&lt;/frag_settings_categories,&gt;&lt;frag_settings_categories&gt;&gt; listChildData) {
+	this.context = context;
+	this.data = items;
+	this.child = listChildData;
+
+}
+
+@Override
+public Object getChild(int groupPosition, int childPosititon) {
+	return this.child.get(this.data.get(groupPosition)).get(childPosititon);
+}
+
+@Override
+public long getChildId(int groupPosition, int childPosition) {
+	return childPosition;
+}
+
+// //////////////////// CHILD ITEM
+@Override
+public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+	if (convertView == null) {
+		LayoutInflater infalInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		convertView = infalInflater.inflate(R.layout.frag_settings_row_detail_02_categories_row, null);
+	}
+
+	ViewHolder holder;
+	holder = new ViewHolder();
+	holder.rowText = (TextView) convertView.findViewById(R.id.frag_settings_row_detail_02_categories_row_title);
+	holder.rowChk = (CheckBox) convertView.findViewById(R.id.frag_settings_row_detail_02_categories_row_check);
+
+	// http://stackoverflow.com/questions/12647001/listview-with-custom-adapter-containing-checkboxes
+	holder.rowChk.setTag(String.valueOf(groupPosition) +  "|" + String.valueOf(childPosition)); // store the List&lt;&gt;position in TAG
+
+	holder.rowChk.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+		public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+			String tag_txt = buttonView.getTag().toString();
+			int delimiter_pos =tag_txt.indexOf("|");
+
+			int head_id =Integer.parseInt(tag_txt.substring(0,delimiter_pos));
+			int child_id = Integer.parseInt(tag_txt.substring(delimiter_pos+1));
+
+			child.get(data.get(head_id)).get(child_id).setIs_selected(isChecked); // use of List&lt;&gt;position
+		}
+
+	});
+
+	// get CHILD items (search via HEAD item)
+	List&lt;frag_settings_categories&gt; single = child.get(data.get(groupPosition));
+
+	// &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; get - which item the view requires via childPosition
+	holder.rowText.setText(single.get(childPosition).getTitle());
+
+	if (single.get(childPosition).getIs_selected())
+		holder.rowChk.setChecked(true);
+	else
+		holder.rowChk.setChecked(false);
+
+	return convertView;
+}
+
+@Override
+public int getChildrenCount(int groupPosition) {
+	return this.child.get(this.data.get(groupPosition)).size();
+}
+
+@Override
+public Object getGroup(int groupPosition) {
+	return this.data.get(groupPosition);
+}
+
+@Override
+public int getGroupCount() {
+	return this.data.size();
+}
+
+@Override
+public long getGroupId(int groupPosition) {
+	return groupPosition;
+}
+
+// //////////////////// HEAD ITEM
+@Override
+public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+
+	if (convertView == null) {
+		LayoutInflater infalInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		convertView = infalInflater.inflate(R.layout.frag_settings_row_detail_02_categories_row, null);
+	}
+
+	ViewHolder holder;
+	holder = new ViewHolder();
+	holder.rowText = (TextView) convertView.findViewById(R.id.frag_settings_row_detail_02_categories_row_title);
+	holder.rowChk = (CheckBox) convertView.findViewById(R.id.frag_settings_row_detail_02_categories_row_check);
+
+	// http://stackoverflow.com/questions/12647001/listview-with-custom-adapter-containing-checkboxes
+	holder.rowChk.setTag(Integer.valueOf(groupPosition)); // store the List&lt;&gt;position in TAG
+
+	holder.rowChk.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+		public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+			data.get((Integer) buttonView.getTag()).setIs_selected(isChecked); // use of List&lt;&gt;position
+
+			notifyDataSetChanged(); //refresh view
+		}
+
+	});
+
+	holder.rowText.setText(data.get(groupPosition).getTitle());
+
+	if (data.get(groupPosition).getIs_selected()) {
+		holder.rowChk.setChecked(true);
+		manipulate_children_value((groupPosition),true);
+	} else {
+		holder.rowChk.setChecked(false);
+		manipulate_children_value(groupPosition,false);
+	}
+
+	return convertView;
+}
+
+private void manipulate_children_value(int head_position, Boolean val) { //		List&lt;frag_settings_categories&gt; x = child.get(data.get(head_position)); //		 //		for (int i = 0; i &lt; x.size();="" i++)="" {="" child.get(data.get(head_position)).get(i).setis_selected(val);="" }="" similar="" for="" (frag_settings_categories="" x="" :="" child.get(data.get(head_position)))="" {="" x.setis_selected(val);="" }="" }="" @override="" public="" void="" notifydatasetchanged()="" {="" super.notifydatasetchanged();="" }="" @override="" public="" boolean="" hasstableids()="" {="" http://stackoverflow.com/a/18217552/1320686="" return="" true;="" }="" @override="" public="" boolean="" ischildselectable(int="" groupposition,="" int="" childposition)="" {="" return="" true;="" }="" class="" viewholder="" {="" textview="" rowtext;="" checkbox="" rowchk;="" }="" }="" frag_settings_categories.java="" public="" class="" frag_settings_categories="" {="" private="" int="" id;="" private="" string="" title;="" private="" boolean="" is_selected;="" public="" frag_settings_categories(long="" id,string="" title,="" boolean="" is_selected){="" this.id="(int)" id;="" this.title="title;" this.is_selected="is_selected;" }="" public="" int="" getid()="" {="" return="" id;="" }="" public="" void="" setid(int="" id)="" {="" this.id="id;" }="" public="" string="" gettitle()="" {="" return="" title;="" }="" public="" void="" settitle(string="" title)="" {="" this.title="title;" }="" public="" boolean="" getis_selected()="" {="" return="" is_selected;="" }="" public="" void="" setis_selected(boolean="" is_selected)="" {="" this.is_selected="is_selected;" }="" }="" ```="" x.size();="" i++)="" {="" child.get(data.get(head_position)).get(i).setis_selected(val);="" }="" similar="" for="" (frag_settings_categories="" x="" :="" child.get(data.get(head_position)))="" {="" x.setis_selected(val);="" }="" }="" @override="" public="" void="" notifydatasetchanged()="" {="" super.notifydatasetchanged();="" }="" @override="" public="" boolean="" hasstableids()="" {="" http://stackoverflow.com/a/18217552/1320686="" return="" true;="" }="" @override="" public="" boolean="" ischildselectable(int="" groupposition,="" int="" childposition)="" {="" return="" true;="" }="" class="" viewholder="" {="" textview="" rowtext;="" checkbox="" rowchk;="" }="" }="" frag_settings_categories.java="" public="" class="" frag_settings_categories="" {="" private="" int="" id;="" private="" string="" title;="" private="" boolean="" is_selected;="" public="" frag_settings_categories(long="" id,string="" title,="" boolean="" is_selected){="" this.id="(int)" id;="" this.title="title;" this.is_selected="is_selected;" }="" public="" int="" getid()="" {="" return="" id;="" }="" public="" void="" setid(int="" id)="" {="" this.id="id;" }="" public="" string="" gettitle()="" {="" return="" title;="" }="" public="" void="" settitle(string="" title)="" {="" this.title="title;" }="" public="" boolean="" getis_selected()="" {="" return="" is_selected;="" }="" public="" void="" setis_selected(boolean="" is_selected)="" {="" this.is_selected="is_selected;" }="" }=""&gt;&lt;/frag_settings_categories&gt;&lt;/frag_settings_categories&gt;&lt;/frag_settings_categories&gt;&lt;/frag_settings_categories&gt;&lt;/frag_settings_categories&gt;&lt;/frag_settings_categories&gt;&lt;/frag_settings_categories&gt;&lt;/frag_settings_categories&gt;&lt;/frag_settings_categories&gt;&lt;/frag_settings_categories&gt;&lt;/frag_settings_categories&gt;&lt;/frag_settings_categories&gt;
+</pre></table></code></div></div><p>origin - http://www.pipiscrew.com/?p=4037 android-expandable-listview-with-checkboxes</p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/android/'>android</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=Expandable Listview with checkboxes - PipisCrew&url=/posts/expandable/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=Expandable Listview with checkboxes - PipisCrew&u=/posts/expandable/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=Expandable Listview with checkboxes - PipisCrew&url=/posts/expandable/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"></div><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/holo/"><div class="card-body"> <span class="timeago small" > Jun 23, 2017 <i class="unloaded">2017-06-23T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Holo</h3><div class="text-muted small"><p> Add holograms into your real-world. https://thisisholo.com/ https://play.google.com/store/apps/details?id=com.eighti.holo.android origin - http://www.pipiscrew.com/2017/06/holo/ holo</p></div></div></a></div><div class="card"> <a href="/posts/php-androi/"><div class="card-body"> <span class="timeago small" > Jun 24, 2017 <i class="unloaded">2017-06-24T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>o[php android .net] Encryption - AES128 PKCS7</h3><div class="text-muted small"><p> references : http://aesencryption.net/ https://zenu.wordpress.com/2011/09/21/aes-128bit-cross-platform-java-and-c-encryption-compatibility/ https://gist.github.com/jafetsanchez/1080133 http://vivav...</p></div></div></a></div><div class="card"> <a href="/posts/pushbullet/"><div class="card-body"> <span class="timeago small" > Jun 25, 2017 <i class="unloaded">2017-06-25T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Pushbullet - the most powerful -sharing app-</h3><div class="text-muted small"><p> https://www.pushbullet.com/ src - http://www.businessinsider.com/9-best-android-exclusive-apps-2017-6 origin - http://www.pipiscrew.com/?p=8706 pushbullet-the-most-powerful-sharing-app</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/dos-creat/" class="btn btn-outline-primary"><p>DOS - Create UT8 Textfile | Can be used also to read the ouput of console</p></a> <a href="/posts/gps-coordi/" class="btn btn-outline-primary"><p>GPS coordinates converter</p></a></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script> <script type="text/javascript"> const imgs = document.querySelectorAll('#post-wrapper img'); const observer = lozad(imgs); observer.observe(); </script><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2020 <a href="https://twitter.com/pipiscrew">pipiscrew</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy/" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-xl-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"><div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>{categories}</div><div><i class="fa fa-tag fa-fw"></i>{tags}</div></div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>' }); </script>

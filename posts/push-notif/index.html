@@ -1,0 +1,999 @@
+<!DOCTYPE html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="theme" content="Chirpy v2.6.2"><meta name="generator" content="Jekyll v4.1.1" /><meta property="og:title" content="push notification" /><meta name="author" content="PipisCrew" /><meta property="og:locale" content="en_US" /><meta name="description" content="Alright, I develop an application for a client, is time to implement the push notification for one more time :)" /><meta property="og:description" content="Alright, I develop an application for a client, is time to implement the push notification for one more time :)" /><link rel="canonical" href="/posts/push-notif/" /><meta property="og:url" content="/posts/push-notif/" /><meta property="og:site_name" content="PipisCrew" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2016-04-03T00:00:00+08:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="push notification" /><meta name="twitter:site" content="@pipiscrew" /><meta name="twitter:creator" content="@PipisCrew" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"@type":"BlogPosting","url":"/posts/push-notif/","headline":"push notification","dateModified":"2016-04-03T00:00:00+08:00","datePublished":"2016-04-03T00:00:00+08:00","author":{"@type":"Person","name":"PipisCrew"},"mainEntityOfPage":{"@type":"WebPage","@id":"/posts/push-notif/"},"description":"Alright, I develop an application for a client, is time to implement the push notification for one more time :)","@context":"https://schema.org"}</script><title>push notification | PipisCrew</title><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon.png"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon-precomposed.png"><link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/manifest.json"><meta name='msapplication-config' content='/assets/img/favicons/browserconfig.xml'><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/assets/img/favicons/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="cdn.jsdelivr.net"><link rel="dns-prefetch" href="cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"><link rel="preload" href="/assets/css/post.css" as="style"><link rel="stylesheet" href="/assets/css/post.css"><link rel="preload" as="style" href="/assets/css/lib/bootstrap-toc.min.css"><link rel="stylesheet" href="/assets/css/lib/bootstrap-toc.min.css" /> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="/assets/js/post.min.js"></script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column"><div id="nav-wrapper"><div id="profile-wrapper" class="d-flex flex-column"><div id="avatar" class="d-flex justify-content-center"> <a href="/" alt="avatar"> <img src="/assets/img/sample/avatar.jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="profile-text mt-3"><div class="site-title"> <a href="/">PipisCrew</a></div><div class="site-subtitle font-italic">A text-focused Jekyll theme.</div></div></div><ul class="nav flex-column"><li class="nav-item d-flex justify-content-center "> <a href="/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/categories/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/tags/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/archives/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/about/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul></div><div class="sidebar-bottom d-flex flex-wrap justify-content-around mt-4"> <span id="mode-toggle-wrapper"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.updateMermaid(); }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer) ) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } updateMermaid() { if (typeof mermaid !== "undefined") { let expectedTheme = (this.modeStatus === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } this.updateMermaid(); } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span> <span class="icon-border"></span> <a href="https://github.com/pipiscrew" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com/pipiscrew" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['example','doamin.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>push notification</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>push notification</h1><div class="post-meta text-muted d-flex flex-column"><div> Posted <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Sun, Apr 3, 2016, 12:00 AM +0800" > Apr 3, 2016 <i class="unloaded">2016-04-03T00:00:00+08:00</i> </span> by <span class="author"> PipisCrew </span></div></div><div class="post-content"><p>Alright, I develop an application for a client, is time to implement the push notification for one more time :)</p><p>At first download the latest <strong>google-play-services</strong> which is <b style="color:red">target:android-23**, seems that has some conflicts when tried to obfuscate it (using Eclipse / Android 6.0 for compile / ant) some of the errors :</b></p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>
+<span class="nx">com</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">android</span><span class="p">.</span><span class="nx">gms</span><span class="p">.</span><span class="nx">internal</span><span class="p">.</span><span class="nx">zzlh</span><span class="p">:</span> <span class="nx">can</span><span class="dl">'</span><span class="s1">t find dynamically referenced class com.facebook.FacebookSdk
+
+</span></pre></table></code></div></div><p>^wtf?</p><p>, whatever I restore back the <b style="color:red">target:android-16<strong>!! **Plays 100%</strong></b></p><p>the steps :</p><p><b style="color:red">1-**On androidmanifest.xml add inside application tag :</b></p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre><span class="c1">//androidmanifest.xml sample</span>
+<span class="o">&lt;</span><span class="nx">application</span> <span class="nx">android</span><span class="p">:</span><span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">.Dynomite</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">allowbackup</span><span class="o">=</span><span class="dl">"</span><span class="s2">true</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">icon</span><span class="o">=</span><span class="dl">"</span><span class="s2">@drawable/ic_launcher</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">label</span><span class="o">=</span><span class="dl">"</span><span class="s2">@string/app_name</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">logo</span><span class="o">=</span><span class="dl">"</span><span class="s2">@drawable/actionbar_logo_red</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">theme</span><span class="o">=</span><span class="dl">"</span><span class="s2">@style/AppTheme</span><span class="dl">"</span><span class="o">&gt;\</span>
+
+	<span class="o">&lt;</span><span class="nx">receiver</span> <span class="nx">android</span><span class="p">:</span><span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">com.test.gr.gcm.GcmBroadcastReceiver</span><span class="dl">"</span> <span class="nx">android</span><span class="p">:</span><span class="nx">permission</span><span class="o">=</span><span class="dl">"</span><span class="s2">com.google.android.c2dm.permission.SEND</span><span class="dl">"</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="nx">intent</span><span class="o">-</span><span class="nx">filter</span><span class="o">&gt;</span>
+
+			<span class="o">&lt;</span><span class="nx">action</span> <span class="nx">android</span><span class="p">:</span><span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">com.google.android.c2dm.intent.RECEIVE</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/action</span><span class="err">&gt;
+</span>
+			<span class="o">&lt;</span><span class="nx">category</span> <span class="nx">android</span><span class="p">:</span><span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">com.test.gr</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/category</span><span class="err">&gt;
+</span>		<span class="o">&lt;</span><span class="sr">/intent-filter</span><span class="err">&gt;
+</span>	<span class="o">&lt;</span><span class="sr">/receiver</span><span class="err">&gt;
+</span>	<span class="o">&lt;</span><span class="nx">service</span> <span class="nx">android</span><span class="p">:</span><span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">com.test.gr.gcm.GcmIntentService</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/service</span><span class="err">&gt;
+</span>
+<span class="o">&lt;</span><span class="sr">/application</span><span class="err">&gt;
+</span></pre></table></code></div></div><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://www.pipiscrew.com/wp-content/uploads/2016/04/snap120.png" alt="snap120" /></p><p>then add the needed files for into separate package I will name it gcm, so we have <strong>com.text.gr.gcm</strong></p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+</pre><td class="rouge-code"><pre><span class="c1">//GcmBroadcastReceiver.java</span>
+<span class="kr">package</span> <span class="nx">com</span><span class="p">.</span><span class="nx">test</span><span class="p">.</span><span class="nx">gr</span><span class="p">.</span><span class="nx">gcm</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">Activity</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">ComponentName</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">Context</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">Intent</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">support</span><span class="p">.</span><span class="nx">v4</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">WakefulBroadcastReceiver</span><span class="p">;</span>
+
+<span class="cm">/**
+ * This {@code WakefulBroadcastReceiver} takes care of creating and managing a
+ * partial wake lock for your app. It passes off the work of processing the GCM
+ * message to an {@code IntentService}, while ensuring that the device does not
+ * go back to sleep in the transition. The {@code IntentService} calls
+ * {@code GcmBroadcastReceiver.completeWakefulIntent()} when it is ready to
+ * release the wake lock.
+ */</span>
+
+<span class="kr">public</span> <span class="kd">class</span> <span class="nx">GcmBroadcastReceiver</span> <span class="kd">extends</span> <span class="nx">WakefulBroadcastReceiver</span> <span class="p">{</span>
+
+    <span class="p">@</span><span class="nd">Override</span>
+    <span class="kr">public</span> <span class="k">void</span> <span class="nx">onReceive</span><span class="p">(</span><span class="nx">Context</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">Intent</span> <span class="nx">intent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Explicitly specify that GcmIntentService will handle the intent.</span>
+        <span class="nx">ComponentName</span> <span class="nx">comp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ComponentName</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">getPackageName</span><span class="p">(),</span> <span class="nx">GcmIntentService</span><span class="p">.</span><span class="kd">class</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span>
+        <span class="c1">// Start the service, keeping the device awake while it is launching.</span>
+        <span class="nx">startWakefulService</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="p">(</span><span class="nx">intent</span><span class="p">.</span><span class="nx">setComponent</span><span class="p">(</span><span class="nx">comp</span><span class="p">)));</span>
+        <span class="nx">setResultCode</span><span class="p">(</span><span class="nx">Activity</span><span class="p">.</span><span class="nx">RESULT_OK</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//GcmIntentService.java</span>
+<span class="kr">package</span> <span class="nx">com</span><span class="p">.</span><span class="nx">test</span><span class="p">.</span><span class="nx">gr</span><span class="p">.</span><span class="nx">gcm</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">IntentService</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">NotificationManager</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">PendingIntent</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">Context</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">Intent</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">SharedPreferences</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">BitmapFactory</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">media</span><span class="p">.</span><span class="nx">RingtoneManager</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">Uri</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">os</span><span class="p">.</span><span class="nx">Bundle</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">preference</span><span class="p">.</span><span class="nx">PreferenceManager</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">support</span><span class="p">.</span><span class="nx">v4</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">NotificationCompat</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">android</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">Log</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">android</span><span class="p">.</span><span class="nx">gms</span><span class="p">.</span><span class="nx">gcm</span><span class="p">.</span><span class="nx">GoogleCloudMessaging</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">test</span><span class="p">.</span><span class="nx">gr</span><span class="p">.</span><span class="nx">MainActivity</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">com</span><span class="p">.</span><span class="nx">test</span><span class="p">.</span><span class="nx">gr</span><span class="p">.</span><span class="nx">R</span><span class="p">;</span>
+
+<span class="cm">/**
+ * This {@code IntentService} does the actual handling of the GCM message.
+ * {@code GcmBroadcastReceiver} (a {@code WakefulBroadcastReceiver}) holds a
+ * partial wake lock for this service while the service does its work. When the
+ * service is finished, it calls {@code completeWakefulIntent()} to release the
+ * wake lock.
+ */</span>
+<span class="kr">public</span> <span class="kd">class</span> <span class="nx">GcmIntentService</span> <span class="kd">extends</span> <span class="nx">IntentService</span> <span class="p">{</span>
+    <span class="kr">public</span> <span class="kd">static</span> <span class="nx">final</span> <span class="nx">int</span> <span class="nx">NOTIFICATION_ID</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kr">private</span> <span class="nx">NotificationManager</span> <span class="nx">mNotificationManager</span><span class="p">;</span>
+    <span class="nx">NotificationCompat</span><span class="p">.</span><span class="nx">Builder</span> <span class="nx">builder</span><span class="p">;</span>
+
+    <span class="kr">public</span> <span class="nx">GcmIntentService</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">(</span><span class="dl">"</span><span class="s2">GcmIntentService</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kr">private</span> <span class="nx">SharedPreferences</span> <span class="nx">preferences</span><span class="p">;</span>
+    <span class="kr">public</span> <span class="kd">static</span> <span class="nx">final</span> <span class="nb">String</span> <span class="nx">TAG</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">GCM CC</span><span class="dl">"</span><span class="p">;</span>
+
+    <span class="p">@</span><span class="nd">Override</span>
+    <span class="kr">protected</span> <span class="k">void</span> <span class="nx">onHandleIntent</span><span class="p">(</span><span class="nx">Intent</span> <span class="nx">intent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">Bundle</span> <span class="nx">extras</span> <span class="o">=</span> <span class="nx">intent</span><span class="p">.</span><span class="nx">getExtras</span><span class="p">();</span>
+        <span class="nx">GoogleCloudMessaging</span> <span class="nx">gcm</span> <span class="o">=</span> <span class="nx">GoogleCloudMessaging</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="c1">// The getMessageType() intent parameter must be the intent you received</span>
+        <span class="c1">// in your BroadcastReceiver.</span>
+        <span class="nb">String</span> <span class="nx">messageType</span> <span class="o">=</span> <span class="nx">gcm</span><span class="p">.</span><span class="nx">getMessageType</span><span class="p">(</span><span class="nx">intent</span><span class="p">);</span>
+
+        <span class="nx">preferences</span> <span class="o">=</span> <span class="nx">PreferenceManager</span><span class="p">.</span><span class="nx">getDefaultSharedPreferences</span><span class="p">(</span><span class="nx">getBaseContext</span><span class="p">());</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">extras</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">())</span> <span class="p">{</span>  <span class="c1">// has effect of unparcelling Bundle</span>
+            <span class="cm">/*
+             * Filter messages based on message type. Since it is likely that GCM will be
+             * extended in the future with new message types, just ignore any message types you're
+             * not interested in, or that you don't recognize.
+             */</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">GoogleCloudMessaging</span><span class="p">.</span><span class="nx">MESSAGE_TYPE_SEND_ERROR</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">messageType</span><span class="p">))</span> <span class="p">{</span>
+                <span class="nx">Log</span><span class="p">.</span><span class="nx">d</span><span class="p">(</span><span class="nx">TAG</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Send error: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">extras</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">GoogleCloudMessaging</span><span class="p">.</span><span class="nx">MESSAGE_TYPE_DELETED</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">messageType</span><span class="p">))</span> <span class="p">{</span>
+
+                <span class="nx">Log</span><span class="p">.</span><span class="nx">d</span><span class="p">(</span><span class="nx">TAG</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Deleted messages on server: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">extras</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+                <span class="c1">// If it's a regular GCM message, do some work.</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">GoogleCloudMessaging</span><span class="p">.</span><span class="nx">MESSAGE_TYPE_MESSAGE</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">messageType</span><span class="p">))</span> <span class="p">{</span>
+
+                <span class="c1">// Post notification of received message.</span>
+                <span class="nb">String</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">extras</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+                <span class="nb">String</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">extras</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+                <span class="nb">String</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">extras</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="dl">"</span><span class="s2">link</span><span class="dl">"</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+
+                <span class="nx">sendNotification</span><span class="p">(</span><span class="nx">title</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">link</span><span class="p">);</span>
+
+                <span class="nx">Log</span><span class="p">.</span><span class="nx">i</span><span class="p">(</span><span class="nx">TAG</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Received: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">extras</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="c1">// Release the wake lock provided by the WakefulBroadcastReceiver.</span>
+        <span class="nx">GcmBroadcastReceiver</span><span class="p">.</span><span class="nx">completeWakefulIntent</span><span class="p">(</span><span class="nx">intent</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Put the message into a notification and post it.</span>
+    <span class="c1">// This is just one simple example of what you might choose to do with</span>
+    <span class="c1">// a GCM message.</span>
+    <span class="kr">private</span> <span class="k">void</span> <span class="nx">sendNotification</span><span class="p">(</span><span class="nb">String</span> <span class="nx">title</span><span class="p">,</span> <span class="nb">String</span> <span class="nx">msg</span><span class="p">,</span> <span class="nb">String</span> <span class="nx">link</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">mNotificationManager</span> <span class="o">=</span> <span class="p">(</span><span class="nx">NotificationManager</span><span class="p">)</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">getSystemService</span><span class="p">(</span><span class="nx">Context</span><span class="p">.</span><span class="nx">NOTIFICATION_SERVICE</span><span class="p">);</span>
+
+        <span class="nx">Intent</span> <span class="nx">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Intent</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">MainActivity</span><span class="p">.</span><span class="kd">class</span><span class="p">);</span>
+        <span class="nx">intent</span><span class="p">.</span><span class="nx">putExtra</span><span class="p">(</span><span class="dl">"</span><span class="s2">link</span><span class="dl">"</span><span class="p">,</span> <span class="nx">link</span><span class="p">);</span>
+        <span class="nx">PendingIntent</span> <span class="nx">contentIntent</span> <span class="o">=</span> <span class="nx">PendingIntent</span><span class="p">.</span><span class="nx">getActivity</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">intent</span><span class="p">,</span> <span class="nx">PendingIntent</span><span class="p">.</span><span class="nx">FLAG_CANCEL_CURRENT</span><span class="p">);</span>
+
+        <span class="nx">NotificationCompat</span><span class="p">.</span><span class="nx">Builder</span> <span class="nx">mBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NotificationCompat</span><span class="p">.</span><span class="nx">Builder</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">setLargeIcon</span><span class="p">(</span><span class="nx">BitmapFactory</span><span class="p">.</span><span class="nx">decodeResource</span><span class="p">(</span><span class="nx">getBaseContext</span><span class="p">().</span><span class="nx">getResources</span><span class="p">(),</span> <span class="nx">R</span><span class="p">.</span><span class="nx">drawable</span><span class="p">.</span><span class="nx">ic_launcher</span><span class="p">))</span>
+                <span class="p">.</span><span class="nx">setSmallIcon</span><span class="p">(</span><span class="nx">R</span><span class="p">.</span><span class="nx">drawable</span><span class="p">.</span><span class="nx">ic_launcher</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">setContentTitle</span><span class="p">(</span><span class="nx">title</span><span class="p">)</span>
+                <span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="k">new</span> <span class="nx">NotificationCompat</span><span class="p">.</span><span class="nx">BigTextStyle</span><span class="p">()</span>
+                        <span class="p">.</span><span class="nx">bigText</span><span class="p">(</span><span class="nx">msg</span><span class="p">))</span>
+                <span class="p">.</span><span class="nx">setContentText</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+
+        <span class="c1">// Set the notification vibrate option</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">preferences</span><span class="p">.</span><span class="nx">getBoolean</span><span class="p">(</span><span class="dl">"</span><span class="s2">notifications_new_message_vibrate</span><span class="dl">"</span><span class="p">,</span> <span class="kc">true</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">mBuilder</span><span class="p">.</span><span class="nx">setVibrate</span><span class="p">(</span><span class="k">new</span> <span class="nx">long</span><span class="p">[]{</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">});</span>
+        <span class="p">}</span>
+        <span class="c1">// Set the notification ringtone</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">preferences</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="dl">"</span><span class="s2">notifications_new_message_ringtone</span><span class="dl">"</span><span class="p">,</span> <span class="kc">null</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">mBuilder</span><span class="p">.</span><span class="nx">setSound</span><span class="p">(</span><span class="nx">Uri</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">preferences</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="dl">"</span><span class="s2">notifications_new_message_ringtone</span><span class="dl">"</span><span class="p">,</span> <span class="kc">null</span><span class="p">)));</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">Uri</span> <span class="nx">alarmSound</span> <span class="o">=</span> <span class="nx">RingtoneManager</span><span class="p">.</span><span class="nx">getDefaultUri</span><span class="p">(</span><span class="nx">RingtoneManager</span><span class="p">.</span><span class="nx">TYPE_NOTIFICATION</span><span class="p">);</span>
+            <span class="nx">mBuilder</span><span class="p">.</span><span class="nx">setSound</span><span class="p">(</span><span class="nx">alarmSound</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Show only if the notification are enabled</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">preferences</span><span class="p">.</span><span class="nx">getBoolean</span><span class="p">(</span><span class="dl">"</span><span class="s2">notifications_new_message</span><span class="dl">"</span><span class="p">,</span> <span class="kc">true</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">mBuilder</span><span class="p">.</span><span class="nx">setContentIntent</span><span class="p">(</span><span class="nx">contentIntent</span><span class="p">);</span>
+            <span class="nx">mNotificationManager</span><span class="p">.</span><span class="nx">notify</span><span class="p">(</span><span class="nx">NOTIFICATION_ID</span><span class="p">,</span> <span class="nx">mBuilder</span><span class="p">.</span><span class="nx">build</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></table></code></div></div><p>On your mainactivity (does matter if your application has a splashscreen, this will be added to mainactivity)</p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+</pre><td class="rouge-code"><pre><span class="c1">//MainActivity.java</span>
+<span class="c1">// GCM</span>
+<span class="kr">public</span> <span class="kd">static</span> <span class="nx">final</span> <span class="nb">String</span> <span class="nx">PROPERTY_REG_ID</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">notifyId</span><span class="dl">"</span><span class="p">;</span>
+<span class="kr">private</span> <span class="kd">static</span> <span class="nx">final</span> <span class="nb">String</span> <span class="nx">PROPERTY_APP_VERSION</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">GoogleCloudMessaging</span> <span class="nx">gcm</span><span class="p">;</span>
+<span class="nx">SharedPreferences</span> <span class="nx">preferences</span><span class="p">;</span>
+<span class="nb">String</span> <span class="nx">reg_cgm_id</span><span class="p">;</span>
+<span class="kd">static</span> <span class="nx">final</span> <span class="nb">String</span> <span class="nx">TAG</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">MainActivity</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Override</span>
+<span class="kr">protected</span> <span class="k">void</span> <span class="nx">onCreate</span><span class="p">(</span><span class="nx">Bundle</span> <span class="nx">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">.</span>
+<span class="p">.</span>
+	<span class="c1">// //////////////////////////////////////////////////////////////</span>
+	<span class="c1">// GCM -</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">checkPlayServices</span><span class="p">())</span> <span class="p">{</span>
+		<span class="nx">gcm</span> <span class="o">=</span> <span class="nx">GoogleCloudMessaging</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">(</span><span class="nx">getApplicationContext</span><span class="p">());</span>
+		<span class="nb">String</span> <span class="nx">reg_cgm_id</span> <span class="o">=</span> <span class="nx">getRegistrationId</span><span class="p">(</span><span class="nx">getApplicationContext</span><span class="p">());</span>
+		<span class="nx">Log</span><span class="p">.</span><span class="nx">i</span><span class="p">(</span><span class="nx">TAG</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Play Services Ok.</span><span class="dl">"</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">reg_cgm_id</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">reg_cgm_id</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+			<span class="nx">Log</span><span class="p">.</span><span class="nx">i</span><span class="p">(</span><span class="nx">TAG</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Find Register ID.</span><span class="dl">"</span><span class="p">);</span>
+			<span class="nx">registerInBackground</span><span class="p">();</span>
+		<span class="p">}</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">Log</span><span class="p">.</span><span class="nx">i</span><span class="p">(</span><span class="nx">TAG</span><span class="p">,</span> <span class="dl">"</span><span class="s2">No valid Google Play Services APK found.</span><span class="dl">"</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Check the device to make sure it has the Google Play Services APK. If it
+ * doesn't, display a dialog that allows users to download the APK from the
+ * Google Play Store or enable it in the device's system settings.
+ */</span>
+<span class="kr">private</span> <span class="nx">boolean</span> <span class="nx">checkPlayServices</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">int</span> <span class="nx">resultCode</span> <span class="o">=</span> <span class="nx">GooglePlayServicesUtil</span><span class="p">.</span><span class="nx">isGooglePlayServicesAvailable</span><span class="p">(</span><span class="nx">MainActivity</span><span class="p">.</span><span class="k">this</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">resultCode</span> <span class="o">!=</span> <span class="nx">ConnectionResult</span><span class="p">.</span><span class="nx">SUCCESS</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">GooglePlayServicesUtil</span><span class="p">.</span><span class="nx">isUserRecoverableError</span><span class="p">(</span><span class="nx">resultCode</span><span class="p">))</span> <span class="p">{</span>
+			<span class="nx">GooglePlayServicesUtil</span><span class="p">.</span><span class="nx">getErrorDialog</span><span class="p">(</span><span class="nx">resultCode</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="mi">9000</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="nx">Log</span><span class="p">.</span><span class="nx">i</span><span class="p">(</span><span class="nx">TAG</span><span class="p">,</span> <span class="dl">"</span><span class="s2">This device is not supported.</span><span class="dl">"</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Gets the current registration ID for application on GCM service.
+ * If result is empty, the app needs to register.
+ */</span>
+<span class="kr">private</span> <span class="nb">String</span> <span class="nx">getRegistrationId</span><span class="p">(</span><span class="nx">Context</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nb">String</span> <span class="nx">registrationId</span> <span class="o">=</span> <span class="nx">General</span><span class="p">.</span><span class="nx">get_pref</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getString</span><span class="p">(</span><span class="nx">PROPERTY_REG_ID</span><span class="p">,</span> <span class="dl">""</span><span class="p">);</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="nx">registrationId</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+		<span class="nx">Log</span><span class="p">.</span><span class="nx">i</span><span class="p">(</span><span class="nx">TAG</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Registration not found.</span><span class="dl">"</span><span class="p">);</span>
+		<span class="k">return</span> <span class="dl">""</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="c1">// Check if app was updated; if so, it must clear the registration ID</span>
+	<span class="c1">// since the existing regID is not guaranteed to work with the new</span>
+	<span class="c1">// app version.</span>
+	<span class="nx">int</span> <span class="nx">registeredVersion</span> <span class="o">=</span> <span class="nx">General</span><span class="p">.</span><span class="nx">get_pref</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getInt</span><span class="p">(</span><span class="nx">PROPERTY_APP_VERSION</span><span class="p">,</span> <span class="nx">Integer</span><span class="p">.</span><span class="nx">MIN_VALUE</span><span class="p">);</span>
+	<span class="nx">int</span> <span class="nx">currentVersion</span> <span class="o">=</span> <span class="nx">getAppVersion</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">registeredVersion</span> <span class="o">!=</span> <span class="nx">currentVersion</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">Log</span><span class="p">.</span><span class="nx">i</span><span class="p">(</span><span class="nx">TAG</span><span class="p">,</span> <span class="dl">"</span><span class="s2">App version changed.</span><span class="dl">"</span><span class="p">);</span>
+		<span class="k">return</span> <span class="dl">""</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">registrationId</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Registers the application with GCM servers asynchronously.
+ */</span>
+<span class="kr">private</span> <span class="k">void</span> <span class="nx">registerInBackground</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">new</span> <span class="nx">AsyncTask</span><span class="o">&lt;</span><span class="k">void</span><span class="p">,</span> <span class="k">void</span><span class="p">,</span><span class="o">=</span><span class="dl">""</span> <span class="nx">string</span><span class="o">=</span><span class="dl">""</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+		<span class="p">@</span><span class="nd">Override</span>
+		<span class="kr">protected</span> <span class="nb">String</span> <span class="nx">doInBackground</span><span class="p">(</span><span class="nx">Void</span><span class="p">...</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nb">String</span> <span class="nx">msg</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+			<span class="k">try</span> <span class="p">{</span>
+				<span class="k">if</span> <span class="p">(</span><span class="nx">gcm</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+					<span class="nx">gcm</span> <span class="o">=</span> <span class="nx">GoogleCloudMessaging</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">(</span><span class="nx">MainActivity</span><span class="p">.</span><span class="k">this</span><span class="p">);</span>
+				<span class="p">}</span>
+
+				<span class="nx">reg_cgm_id</span> <span class="o">=</span> <span class="nx">gcm</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">**you project number**</span><span class="dl">"</span><span class="p">);</span>
+
+				<span class="nx">msg</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Device registered, registration ID=</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">reg_cgm_id</span><span class="p">;</span>
+				<span class="nx">Log</span><span class="p">.</span><span class="nx">d</span><span class="p">(</span><span class="nx">TAG</span><span class="p">,</span> <span class="dl">"</span><span class="s2">ID GCM: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">reg_cgm_id</span><span class="p">);</span>
+
+				<span class="c1">// You should send the registration ID to your server</span>
+				<span class="nx">sendRegistrationIdToBackend</span><span class="p">();</span>
+
+			<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">IOException</span> <span class="nx">ex</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nx">msg</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Error :</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">ex</span><span class="p">.</span><span class="nx">getMessage</span><span class="p">();</span>
+			<span class="p">}</span>
+			<span class="k">return</span> <span class="nx">msg</span><span class="p">;</span>
+		<span class="p">}</span>
+
+		<span class="p">@</span><span class="nd">Override</span>
+		<span class="kr">protected</span> <span class="k">void</span> <span class="nx">onPostExecute</span><span class="p">(</span><span class="nb">String</span> <span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+
+		<span class="p">}</span>
+	<span class="p">}.</span><span class="nx">execute</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Stores the registration ID and the app versionCode in the application SharedPreferences
+ */</span>
+<span class="kr">private</span> <span class="k">void</span> <span class="nx">storeRegistrationId</span><span class="p">(</span><span class="nx">Context</span> <span class="nx">context</span><span class="p">,</span> <span class="nb">String</span> <span class="nx">regId</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">int</span> <span class="nx">appVersion</span> <span class="o">=</span> <span class="nx">getAppVersion</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+	<span class="nx">Log</span><span class="p">.</span><span class="nx">i</span><span class="p">(</span><span class="nx">TAG</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Saving regId on app version </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">appVersion</span><span class="p">);</span>
+	<span class="nx">SharedPreferences</span><span class="p">.</span><span class="nx">Editor</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">General</span><span class="p">.</span><span class="nx">get_pref</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">edit</span><span class="p">();</span>
+	<span class="nx">editor</span><span class="p">.</span><span class="nx">putString</span><span class="p">(</span><span class="nx">PROPERTY_REG_ID</span><span class="p">,</span> <span class="nx">regId</span><span class="p">);</span>
+	<span class="nx">editor</span><span class="p">.</span><span class="nx">putInt</span><span class="p">(</span><span class="nx">PROPERTY_APP_VERSION</span><span class="p">,</span> <span class="nx">appVersion</span><span class="p">);</span>
+	<span class="nx">editor</span><span class="p">.</span><span class="nx">commit</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * Sends the registration ID to your server
+ */</span>
+<span class="kr">private</span> <span class="k">void</span> <span class="nx">sendRegistrationIdToBackend</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">//your own implementation to send the current device token (stored to public var reg_cgm_id) to your web server</span>
+	<span class="c1">//only when server got it, call the</span>
+	<span class="nx">storeRegistrationId</span><span class="p">(</span><span class="nx">MainActivity</span><span class="p">.</span><span class="k">this</span><span class="p">,</span> <span class="nx">reg_cgm_id</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * @return Application's version code from the {@code PackageManager}.
+ */</span>
+<span class="kr">private</span> <span class="kd">static</span> <span class="nx">int</span> <span class="nx">getAppVersion</span><span class="p">(</span><span class="nx">Context</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">try</span> <span class="p">{</span>
+		<span class="nx">PackageInfo</span> <span class="nx">packageInfo</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getPackageManager</span><span class="p">().</span><span class="nx">getPackageInfo</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">getPackageName</span><span class="p">(),</span> <span class="mi">0</span><span class="p">);</span>
+		<span class="k">return</span> <span class="nx">packageInfo</span><span class="p">.</span><span class="nx">versionCode</span><span class="p">;</span>
+	<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PackageManager</span><span class="p">.</span><span class="nx">NameNotFoundException</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+		<span class="c1">// should never happen</span>
+		<span class="k">throw</span> <span class="k">new</span> <span class="nx">RuntimeException</span><span class="p">(</span><span class="dl">"</span><span class="s2">Could not get package name: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">e</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+</pre></table></code></div></div><h2 id="proguard-rules">proguard rules</h2><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre><td class="rouge-code"><pre><span class="c1">//google-play-services_lib -- proguard-project.txt</span>
+<span class="o">-</span><span class="nx">dontskipnonpubliclibraryclassmembers</span>
+
+<span class="o">-</span><span class="nx">keep</span> <span class="kd">class</span> <span class="o">*</span> <span class="kd">extends</span> <span class="nx">java</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">ListResourceBundle</span> <span class="p">{</span>
+    <span class="kr">protected</span> <span class="nb">Object</span><span class="p">[][]</span> <span class="nx">getContents</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="err">#</span> <span class="nx">Keep</span> <span class="nx">SafeParcelable</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">needed</span> <span class="k">for</span> <span class="nx">reflection</span><span class="p">.</span> <span class="nx">This</span> <span class="nx">is</span> <span class="nx">required</span> <span class="nx">to</span> <span class="nx">support</span> <span class="nx">backwards</span>
+<span class="err">#</span> <span class="nx">compatibility</span> <span class="k">of</span> <span class="nx">some</span> <span class="nx">classes</span><span class="p">.</span>
+<span class="o">-</span><span class="nx">keep</span> <span class="kr">public</span> <span class="kd">class</span> <span class="nx">com</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">android</span><span class="p">.</span><span class="nx">gms</span><span class="p">.</span><span class="nx">common</span><span class="p">.</span><span class="nx">internal</span><span class="p">.</span><span class="nx">safeparcel</span><span class="p">.</span><span class="nx">SafeParcelable</span> <span class="p">{</span>
+    <span class="kr">public</span> <span class="kd">static</span> <span class="nx">final</span> <span class="o">***</span> <span class="nx">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="err">#</span> <span class="nx">Keep</span> <span class="nx">the</span> <span class="nx">names</span> <span class="k">of</span> <span class="nx">classes</span><span class="o">/</span><span class="nx">members</span> <span class="nx">we</span> <span class="nx">need</span> <span class="k">for</span> <span class="nx">client</span> <span class="nx">functionality</span><span class="p">.</span>
+<span class="o">-</span><span class="nx">keepnames</span> <span class="p">@</span><span class="nd">com</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">android</span><span class="p">.</span><span class="nx">gms</span><span class="p">.</span><span class="nx">common</span><span class="p">.</span><span class="nx">annotation</span><span class="p">.</span><span class="nx">KeepName</span> <span class="kd">class</span> <span class="o">*</span>
+<span class="o">-</span><span class="nx">keepclassmembernames</span> <span class="kd">class</span> <span class="o">*</span> <span class="p">{</span>
+    <span class="p">@</span><span class="nd">com</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">android</span><span class="p">.</span><span class="nx">gms</span><span class="p">.</span><span class="nx">common</span><span class="p">.</span><span class="nx">annotation</span><span class="p">.</span><span class="nx">KeepName</span> <span class="o">*</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="err">#</span> <span class="nx">Needed</span> <span class="k">for</span> <span class="nx">Parcelable</span><span class="o">/</span><span class="nx">SafeParcelable</span> <span class="nx">Creators</span> <span class="nx">to</span> <span class="nx">not</span> <span class="kd">get</span> <span class="nx">stripped</span>
+<span class="o">-</span><span class="nx">keepnames</span> <span class="kd">class</span> <span class="o">*</span> <span class="kr">implements</span> <span class="nx">android</span><span class="p">.</span><span class="nx">os</span><span class="p">.</span><span class="nx">Parcelable</span> <span class="p">{</span>
+    <span class="kr">public</span> <span class="kd">static</span> <span class="nx">final</span> <span class="o">**</span> <span class="nx">CREATOR</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//com.test.gr -- proguard-project.txt</span>
+<span class="err">#</span> <span class="nx">Keel</span> <span class="nx">all</span> <span class="nx">googleclasses</span>
+<span class="o">-</span><span class="nx">keep</span> <span class="kd">class</span> <span class="nx">com</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="o">**</span> <span class="p">{</span> <span class="o">*</span><span class="p">;</span> <span class="p">}</span>
+<span class="o">-</span><span class="nx">dontwarn</span> <span class="nx">com</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="o">**</span>
+</pre></table></code></div></div><h2 id="the-steps-for-google-cloud-platform">the steps for Google Cloud Platform</h2><p>you go to <a href="https://console.cloud.google.com/">https://console.cloud.google.com/</a>, create a project, this project will taken a <b style="solor:red">Project Number** write it down!</b></p><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://www.pipiscrew.com/wp-content/uploads/2016/04/snap121.png" alt="snap121" /></p><p>goto <b style="solor:red">Enable and manage APIs** select the Mobile &gt; Cloud messaging and enable it! <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://www.pipiscrew.com/wp-content/uploads/2016/04/snap122.png" alt="snap122" /></b></p><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://www.pipiscrew.com/wp-content/uploads/2016/04/snap123.png" alt="snap123" /></p><p>click credentials on ^left and create a server or browser key <a href="https://www.pipiscrew.com/wp-content/uploads/2016/04/snap124.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://www.pipiscrew.com/wp-content/uploads/2016/04/snap124.png" alt="snap124" /></a></p><p>I dont use the <strong>Domain Verification</strong> tab, I went to <a href="https://www.google.com/webmasters/tools/home">https://www.google.com/webmasters/tools/home</a> click <strong>add property</strong> and verify by html file, my domain. In this way I can use Server and Browser keys….</p><p>at the time of the article 3/4/2016, my old application (https://www.pipiscrew.com/works/gcm-push-tested/), works, but send empty message on the device : <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://www.pipiscrew.com/wp-content/uploads/2016/04/snap127.png" alt="snap127" /></p><p>but lets</p><h2 id="implement-the-php-version">implement the PHP version!</h2><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+</pre><td class="rouge-code"><pre><span class="c1">//index.php</span>
+<span class="o">&lt;</span><span class="p">?</span><span class="nx">php</span> <span class="k">if</span><span class="o">=</span><span class="dl">""</span> <span class="p">(</span><span class="nx">$_server</span><span class="p">[</span><span class="dl">'</span><span class="s1">request_method</span><span class="dl">'</span><span class="p">]</span><span class="o">=</span><span class="dl">"</span><span class="s2">==</span><span class="dl">"</span> <span class="dl">'</span><span class="s1">post</span><span class="dl">'</span><span class="p">)</span><span class="o">=</span><span class="dl">""</span> <span class="p">{</span><span class="o">=</span><span class="dl">""</span> <span class="nx">$password_string</span><span class="o">=</span><span class="dl">"</span><span class="s2">mysql_escape_string($_POST[</span><span class="dl">"</span> <span class="nx">password</span><span class="dl">"</span><span class="s2">]);</span><span class="dl">"</span><span class="o">=</span><span class="dl">""</span> <span class="k">if</span><span class="o">=</span><span class="dl">""</span> <span class="p">(</span><span class="nx">$password_string</span><span class="o">!=</span><span class="dl">"</span><span class="s2">yourpasswordhere</span><span class="dl">"</span> <span class="p">)</span><span class="o">=</span><span class="dl">""</span> <span class="nx">doesnt</span><span class="o">=</span><span class="dl">""</span> <span class="nx">compare</span><span class="o">=</span><span class="dl">""</span> <span class="nx">the</span><span class="o">=</span><span class="dl">""</span> <span class="nx">mail</span><span class="o">=</span><span class="dl">""</span> <span class="p">{</span><span class="o">=</span><span class="dl">""</span> <span class="nx">die</span><span class="p">(</span><span class="dl">"</span><span class="s2">error!</span><span class="dl">"</span><span class="p">);</span><span class="o">=</span><span class="dl">""</span> <span class="p">}</span><span class="o">=</span><span class="dl">""</span> <span class="k">else</span><span class="o">=</span><span class="dl">""</span> <span class="p">{</span><span class="o">=</span><span class="dl">""</span> <span class="nx">show</span><span class="o">=</span><span class="dl">""</span> <span class="nx">the</span><span class="o">=</span><span class="dl">""</span> <span class="nx">rest</span><span class="o">!=</span><span class="dl">""</span> <span class="p">}</span><span class="o">=</span><span class="dl">""</span> <span class="p">}</span><span class="o">=</span><span class="dl">""</span> <span class="k">else</span><span class="o">=</span><span class="dl">""</span> <span class="p">{</span><span class="o">=</span><span class="dl">""</span> <span class="nx">login</span><span class="o">=</span><span class="dl">""</span> <span class="nx">system</span><span class="o">=</span><span class="dl">""</span><span class="p">?</span><span class="o">&gt;</span>
+
+					<span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
+					    <span class="nx">body</span> <span class="p">{</span>
+					      <span class="nx">padding</span><span class="o">-</span><span class="nx">top</span><span class="p">:</span> <span class="mi">40</span><span class="nx">px</span><span class="p">;</span>
+					      <span class="nx">padding</span><span class="o">-</span><span class="nx">bottom</span><span class="p">:</span> <span class="mi">40</span><span class="nx">px</span><span class="p">;</span>
+					      <span class="nx">background</span><span class="o">-</span><span class="nx">color</span><span class="p">:</span> <span class="err">#</span><span class="nx">eee</span><span class="p">;</span>
+					    <span class="p">}</span>
+
+					    <span class="p">.</span><span class="nx">form</span><span class="o">-</span><span class="nx">signin</span> <span class="p">{</span>
+					      <span class="nx">max</span><span class="o">-</span><span class="nx">width</span><span class="p">:</span> <span class="mi">330</span><span class="nx">px</span><span class="p">;</span>
+					      <span class="nl">padding</span><span class="p">:</span> <span class="mi">15</span><span class="nx">px</span><span class="p">;</span>
+					      <span class="nl">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="nx">auto</span><span class="p">;</span>
+					    <span class="p">}</span>
+					    <span class="p">.</span><span class="nx">form</span><span class="o">-</span><span class="nx">signin</span> <span class="p">.</span><span class="nx">form</span><span class="o">-</span><span class="nx">signin</span><span class="o">-</span><span class="nx">heading</span><span class="p">,</span>
+					    <span class="p">.</span><span class="nx">form</span><span class="o">-</span><span class="nx">signin</span> <span class="p">.</span><span class="nx">checkbox</span> <span class="p">{</span>
+					      <span class="nx">margin</span><span class="o">-</span><span class="nx">bottom</span><span class="p">:</span> <span class="mi">10</span><span class="nx">px</span><span class="p">;</span>
+					    <span class="p">}</span>
+					    <span class="p">.</span><span class="nx">form</span><span class="o">-</span><span class="nx">signin</span> <span class="p">.</span><span class="nx">checkbox</span> <span class="p">{</span>
+					      <span class="nx">font</span><span class="o">-</span><span class="nx">weight</span><span class="p">:</span> <span class="nx">normal</span><span class="p">;</span>
+					    <span class="p">}</span>
+					    <span class="p">.</span><span class="nx">form</span><span class="o">-</span><span class="nx">signin</span> <span class="p">.</span><span class="nx">form</span><span class="o">-</span><span class="nx">control</span> <span class="p">{</span>
+					      <span class="nl">position</span><span class="p">:</span> <span class="nx">relative</span><span class="p">;</span>
+					      <span class="nl">height</span><span class="p">:</span> <span class="nx">auto</span><span class="p">;</span>
+					      <span class="o">-</span><span class="nx">webkit</span><span class="o">-</span><span class="nx">box</span><span class="o">-</span><span class="nx">sizing</span><span class="p">:</span> <span class="nx">border</span><span class="o">-</span><span class="nx">box</span><span class="p">;</span>
+					         <span class="o">-</span><span class="nx">moz</span><span class="o">-</span><span class="nx">box</span><span class="o">-</span><span class="nx">sizing</span><span class="p">:</span> <span class="nx">border</span><span class="o">-</span><span class="nx">box</span><span class="p">;</span>
+					              <span class="nx">box</span><span class="o">-</span><span class="nx">sizing</span><span class="p">:</span> <span class="nx">border</span><span class="o">-</span><span class="nx">box</span><span class="p">;</span>
+					      <span class="nl">padding</span><span class="p">:</span> <span class="mi">10</span><span class="nx">px</span><span class="p">;</span>
+					      <span class="nx">font</span><span class="o">-</span><span class="nx">size</span><span class="p">:</span> <span class="mi">16</span><span class="nx">px</span><span class="p">;</span>
+					    <span class="p">}</span>
+					    <span class="p">.</span><span class="nx">form</span><span class="o">-</span><span class="nx">signin</span> <span class="p">.</span><span class="nx">form</span><span class="o">-</span><span class="nx">control</span><span class="p">:</span><span class="nx">focus</span> <span class="p">{</span>
+					      <span class="nx">z</span><span class="o">-</span><span class="nx">index</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+					    <span class="p">}</span>
+					    <span class="p">.</span><span class="nx">form</span><span class="o">-</span><span class="nx">signin</span> <span class="nx">input</span><span class="p">[</span><span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">]</span> <span class="p">{</span>
+					      <span class="nx">margin</span><span class="o">-</span><span class="nx">bottom</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="nx">px</span><span class="p">;</span>
+					      <span class="nx">border</span><span class="o">-</span><span class="nx">bottom</span><span class="o">-</span><span class="nx">right</span><span class="o">-</span><span class="nx">radius</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+					      <span class="nx">border</span><span class="o">-</span><span class="nx">bottom</span><span class="o">-</span><span class="nx">left</span><span class="o">-</span><span class="nx">radius</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+					    <span class="p">}</span>
+					    <span class="p">.</span><span class="nx">form</span><span class="o">-</span><span class="nx">signin</span> <span class="nx">input</span><span class="p">[</span><span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">]</span> <span class="p">{</span>
+					      <span class="nx">margin</span><span class="o">-</span><span class="nx">bottom</span><span class="p">:</span> <span class="mi">10</span><span class="nx">px</span><span class="p">;</span>
+					      <span class="nx">border</span><span class="o">-</span><span class="nx">top</span><span class="o">-</span><span class="nx">left</span><span class="o">-</span><span class="nx">radius</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+					      <span class="nx">border</span><span class="o">-</span><span class="nx">top</span><span class="o">-</span><span class="nx">right</span><span class="o">-</span><span class="nx">radius</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+					    <span class="p">}</span>
+					<span class="o">&lt;</span><span class="sr">/style</span><span class="err">&gt;
+</span>
+					    <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">container</span><span class="dl">"</span><span class="o">&gt;</span>
+
+					      <span class="o">&lt;</span><span class="nx">form</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-signin</span><span class="dl">"</span> <span class="nx">method</span><span class="o">=</span><span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span> <span class="nx">action</span><span class="o">=</span><span class="dl">""</span><span class="o">&gt;</span>
+
+<span class="err">##</span> <span class="nx">Please</span> <span class="nx">sign</span> <span class="k">in</span>
+
+					        <span class="o">&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="dl">"</span><span class="s2">mail</span><span class="dl">"</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">sr-only</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Email</span> <span class="nx">address</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>					        <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">email</span><span class="dl">"</span> <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">mail</span><span class="dl">"</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-control</span><span class="dl">"</span> <span class="nx">placeholder</span><span class="o">=</span><span class="dl">"</span><span class="s2">Email address</span><span class="dl">"</span> <span class="nx">required</span><span class="o">=</span><span class="dl">""</span> <span class="nx">autofocus</span><span class="o">=</span><span class="dl">""</span><span class="o">&gt;</span>
+					        <span class="o">&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">sr-only</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Password</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>					        <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span> <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-control</span><span class="dl">"</span> <span class="nx">placeholder</span><span class="o">=</span><span class="dl">"</span><span class="s2">Password</span><span class="dl">"</span> <span class="nx">required</span><span class="o">=</span><span class="dl">""</span><span class="o">&gt;</span>
+
+					        <span class="o">&lt;</span><span class="nx">button</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">btn btn-lg btn-primary btn-block</span><span class="dl">"</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">submit</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Sign</span> <span class="k">in</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>					      <span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>
+					    <span class="o">&lt;</span><span class="sr">/div&gt;</span><span class="err"> 
+</span>
+<span class="o">&lt;</span><span class="p">?</span><span class="nx">php</span> <span class="nx">exit</span><span class="p">;</span><span class="o">=</span><span class="dl">""</span> <span class="p">}</span><span class="o">=</span><span class="dl">""</span><span class="p">?</span><span class="o">&gt;</span>
+
+     <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">container</span><span class="dl">"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">header clearfix</span><span class="dl">"</span><span class="o">&gt;</span>
+
+<span class="err">###</span> <span class="nx">Test</span> <span class="o">-</span> <span class="nx">Push</span> <span class="nx">Panel</span>
+
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">jumbotron</span><span class="dl">"</span><span class="o">&gt;</span>
+
+<span class="err">#</span> <span class="nx">Send</span> <span class="nx">a</span> <span class="nx">push</span> <span class="nx">notification</span>
+
+       <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">role</span><span class="o">=</span><span class="dl">"</span><span class="s2">form</span><span class="dl">"</span> <span class="nx">action</span><span class="o">=</span><span class="dl">"</span><span class="s2">push_users.php</span><span class="dl">"</span> <span class="nx">method</span><span class="o">=</span><span class="dl">"</span><span class="s2">post</span><span class="dl">"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-group</span><span class="dl">"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Title</span><span class="p">:</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">text</span><span class="dl">"</span> <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">title</span><span class="dl">"</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-control</span><span class="dl">"</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-group</span><span class="dl">"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">label</span> <span class="k">for</span><span class="o">=</span><span class="dl">"</span><span class="s2">msg</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Message</span><span class="p">:</span><span class="o">&lt;</span><span class="sr">/label</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">text</span><span class="dl">"</span> <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">message</span><span class="dl">"</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-control</span><span class="dl">"</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">msg</span><span class="dl">"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+  <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">submit</span><span class="dl">"</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">btn btn-primary</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Send</span> <span class="nx">now</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="sr">/div&gt;</span><span class="err"> 
+</span>
+<span class="c1">//push_users.php</span>
+<span class="o">&lt;</span><span class="p">?</span><span class="nx">php</span> <span class="nx">date_default_timezone_set</span><span class="p">(</span><span class="dl">"</span><span class="s2">utc</span><span class="dl">"</span><span class="p">);</span><span class="o">=</span><span class="dl">""</span> <span class="k">if</span><span class="o">=</span><span class="dl">""</span> <span class="p">(</span><span class="o">!</span><span class="nx">$_post</span><span class="p">)</span><span class="o">=</span><span class="dl">""</span> <span class="nx">die</span><span class="p">(</span><span class="dl">"</span><span class="s2">use=</span><span class="dl">""</span><span class="s2"> only=</span><span class="dl">""</span><span class="s2"> post=</span><span class="dl">""</span><span class="s2"> please</span><span class="dl">"</span><span class="p">);</span><span class="o">=</span><span class="dl">""</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">isset</span><span class="p">(</span><span class="nx">$_post</span><span class="p">[</span><span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">])</span><span class="o">=</span><span class="dl">""</span> <span class="o">||=</span><span class="dl">""</span> <span class="o">!</span><span class="nx">isset</span><span class="p">(</span><span class="nx">$_post</span><span class="p">[</span><span class="dl">"</span><span class="s2">message</span><span class="dl">"</span><span class="p">]))</span><span class="o">=</span><span class="dl">""</span> <span class="nx">die</span><span class="p">(</span><span class="dl">"</span><span class="s2">no=</span><span class="dl">""</span><span class="s2"> valid=</span><span class="dl">""</span><span class="s2"> variables</span><span class="dl">"</span><span class="p">);</span><span class="o">=</span><span class="dl">""</span> <span class="nx">require_once</span><span class="o">=</span><span class="dl">""</span> <span class="p">(</span><span class="dl">'</span><span class="s1">config.php</span><span class="dl">'</span><span class="p">);</span><span class="o">=</span><span class="dl">""</span> <span class="k">try</span><span class="o">=</span><span class="dl">""</span> <span class="p">{</span><span class="o">=</span><span class="dl">""</span> <span class="nx">$db</span><span class="o">=</span><span class="dl">"</span><span class="s2">connect_mysql();</span><span class="dl">"</span> <span class="p">}</span><span class="o">=</span><span class="dl">""</span> <span class="k">catch</span><span class="o">=</span><span class="dl">""</span> <span class="p">(</span><span class="nx">exception</span><span class="o">=</span><span class="dl">""</span> <span class="nx">$e</span><span class="p">)</span><span class="o">=</span><span class="dl">""</span> <span class="p">{</span><span class="o">=</span><span class="dl">""</span> <span class="nx">die</span><span class="p">(</span><span class="nx">$e</span><span class="o">-=</span><span class="dl">""</span><span class="p">?</span><span class="o">&gt;</span><span class="nx">getMessage</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="nx">$title</span> <span class="o">=</span> <span class="nx">$_POST</span><span class="p">[</span><span class="dl">'</span><span class="s1">title</span><span class="dl">'</span><span class="p">];</span>
+<span class="nx">$msg</span> <span class="o">=</span> <span class="nx">$_POST</span><span class="p">[</span><span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">];</span>
+
+<span class="kd">class</span> <span class="nx">GCM</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">__construct</span><span class="p">(){}</span>
+
+    <span class="kr">public</span> <span class="kd">function</span> <span class="nx">send_notification</span><span class="p">(</span><span class="nx">$registatoin_ids</span><span class="p">,</span><span class="nx">$data</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="c1">// GOOGLE API KEY</span>
+        <span class="nx">define</span><span class="p">(</span><span class="dl">"</span><span class="s2">GOOGLE_API_KEY</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">your_server_key</span><span class="dl">"</span><span class="p">);</span>
+        <span class="nx">$url</span><span class="o">=</span><span class="dl">"</span><span class="s2">https://android.googleapis.com/gcm/send</span><span class="dl">"</span><span class="p">;</span>
+        <span class="nx">$fields</span><span class="o">=</span><span class="nx">array</span><span class="p">(</span>
+            <span class="dl">"</span><span class="s2">registration_ids</span><span class="dl">"</span><span class="o">=&gt;</span><span class="nx">$registatoin_ids</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="o">=&gt;</span><span class="nx">$data</span><span class="p">,</span>
+        <span class="p">);</span>
+        <span class="c1">//var_dump($fields);</span>
+        <span class="nx">$headers</span><span class="o">=</span><span class="nx">array</span><span class="p">(</span>
+            <span class="dl">"</span><span class="s2">Authorization: key=</span><span class="dl">"</span><span class="p">.</span><span class="nx">GOOGLE_API_KEY</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">Content-Type: application/json</span><span class="dl">"</span>
+        <span class="p">);</span>
+        <span class="nx">$ch</span><span class="o">=</span><span class="nx">curl_init</span><span class="p">();</span>
+        <span class="nx">curl_setopt</span><span class="p">(</span><span class="nx">$ch</span><span class="p">,</span><span class="nx">CURLOPT_URL</span><span class="p">,</span><span class="nx">$url</span><span class="p">);</span>
+        <span class="nx">curl_setopt</span><span class="p">(</span><span class="nx">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POST</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+        <span class="nx">curl_setopt</span><span class="p">(</span><span class="nx">$ch</span><span class="p">,</span><span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span><span class="nx">$headers</span><span class="p">);</span>
+        <span class="nx">curl_setopt</span><span class="p">(</span><span class="nx">$ch</span><span class="p">,</span><span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+        <span class="nx">curl_setopt</span><span class="p">(</span><span class="nx">$ch</span><span class="p">,</span><span class="nx">CURLOPT_SSL_VERIFYPEER</span><span class="p">,</span><span class="kc">false</span><span class="p">);</span>
+        <span class="nx">curl_setopt</span><span class="p">(</span><span class="nx">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span><span class="nx">json_encode</span><span class="p">(</span><span class="nx">$fields</span><span class="p">));</span>
+        <span class="nx">$result_gcm</span><span class="o">=</span><span class="nx">curl_exec</span><span class="p">(</span><span class="nx">$ch</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">$result_gcm</span><span class="o">===</span><span class="nx">FALSE</span><span class="p">){</span>
+            <span class="nx">die</span><span class="p">(</span><span class="dl">"</span><span class="s2">Curl failed: </span><span class="dl">"</span><span class="p">.</span><span class="nx">curl_error</span><span class="p">(</span><span class="nx">$ch</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="nx">curl_close</span><span class="p">(</span><span class="nx">$ch</span><span class="p">);</span>
+
+        <span class="nx">var_dump</span><span class="p">(</span><span class="nx">$result_gcm</span><span class="p">);</span> <span class="c1">//for debug </span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//get user tokens by dbase records</span>
+<span class="nx">$tokens</span> <span class="o">=</span> <span class="nx">getSet</span><span class="p">(</span><span class="nx">$db</span><span class="p">,</span><span class="dl">"</span><span class="s2">select push_reg_id from users where push_reg_id IS NOT NULL</span><span class="dl">"</span><span class="p">,</span><span class="kc">null</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$tokens</span><span class="p">)</span>
+	<span class="nx">die</span><span class="p">(</span><span class="dl">"</span><span class="s2">there is no records</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">$android_tokens</span> <span class="o">=</span> <span class="nx">array</span><span class="p">();</span>
+<span class="nx">$x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="nx">foreach</span><span class="p">(</span><span class="nx">$tokens</span> <span class="k">as</span> <span class="nx">$tok</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">$android_tokens</span><span class="p">[]</span> <span class="o">=</span> <span class="nx">$tok</span><span class="p">[</span><span class="dl">"</span><span class="s2">push_reg_id</span><span class="dl">"</span><span class="p">];</span>
+	<span class="nx">$x</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">$android_tokens</span> <span class="o">!=</span> <span class="nx">array</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nx">$gcm</span><span class="o">=</span><span class="k">new</span> <span class="nx">GCM</span><span class="p">();</span>
+    <span class="nx">$data</span><span class="o">=</span><span class="nx">array</span><span class="p">(</span><span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="o">=&gt;</span><span class="nx">$title</span><span class="p">,</span><span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="o">=&gt;</span><span class="nx">$msg</span><span class="p">,</span><span class="dl">"</span><span class="s2">link</span><span class="dl">"</span><span class="o">=&gt;</span><span class="nx">$link</span><span class="p">);</span>
+    <span class="nx">$result_android</span><span class="o">=</span><span class="nx">$gcm</span><span class="o">-&gt;</span><span class="nx">send_notification</span><span class="p">(</span><span class="nx">$android_tokens</span><span class="p">,</span><span class="nx">$data</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">?</span><span class="o">&gt;</span>
+
+     <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">container</span><span class="dl">"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">header clearfix</span><span class="dl">"</span><span class="o">&gt;</span>
+
+<span class="err">###</span> <span class="nx">Test</span> <span class="o">-</span> <span class="nx">Push</span> <span class="nx">Panel</span>
+
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">jumbotron</span><span class="dl">"</span><span class="o">&gt;</span>
+
+<span class="err">#</span> <span class="nx">Good</span><span class="o">!</span>
+
+<span class="nx">You</span> <span class="nx">have</span> <span class="nx">sent</span> <span class="o">&lt;</span><span class="p">?</span><span class="nx">php</span> <span class="nx">echo</span><span class="o">=</span><span class="dl">""</span> <span class="nx">$x</span><span class="p">;?</span><span class="o">=</span><span class="dl">""</span><span class="p">?</span><span class="o">&gt;</span> <span class="nx">push</span> <span class="nx">notification</span><span class="p">.</span>
+
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="sr">/div&gt;</span><span class="err"> 
+</span>
+</pre></table></code></div></div><p>source - <a href="http://iconhandbook.co.uk/reference/chart/android/">http://iconhandbook.co.uk/reference/chart/android/</a></p><p><a href="https://www.pipiscrew.com/wp-content/uploads/2016/04/snap128.png"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://www.pipiscrew.com/wp-content/uploads/2016/04/snap128.png" alt="snap128" /></a>&lt;/b&gt;&lt;/b&gt;&lt;/void,&gt;&lt;/b&gt;&lt;/b&gt;&lt;/b&gt;</p><p>origin - http://www.pipiscrew.com/?p=4720 android-push-notification</p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/php/'>php</a>, <a href='/categories/android/'>android</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=push notification - PipisCrew&url=/posts/push-notif/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=push notification - PipisCrew&u=/posts/push-notif/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=push notification - PipisCrew&url=/posts/push-notif/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"></div><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/php-androi/"><div class="card-body"> <span class="timeago small" > Jun 24, 2017 <i class="unloaded">2017-06-24T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>o[php android .net] Encryption - AES128 PKCS7</h3><div class="text-muted small"><p> references : http://aesencryption.net/ https://zenu.wordpress.com/2011/09/21/aes-128bit-cross-platform-java-and-c-encryption-compatibility/ https://gist.github.com/jafetsanchez/1080133 http://vivav...</p></div></div></a></div><div class="card"> <a href="/posts/free-onlin/"><div class="card-body"> <span class="timeago small" > Oct 7, 2019 <i class="unloaded">2019-10-07T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>free online compilers</h3><div class="text-muted small"><p> [all] https://glot.io/ [all] http://ideone.com/ [all] http://codepad.org/ [all] https://www.jdoodle.com/ [all] https://www.codechef.com/ide [all] https://code.hackerearth.com [all] https://www.ideo...</p></div></div></a></div><div class="card"> <a href="/posts/android-ph/"><div class="card-body"> <span class="timeago small" > Feb 11, 2016 <i class="unloaded">2016-02-11T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Android PHP MCrypt</h3><div class="text-muted small"><p> reference - https://github.com/serpro/Android-PHP-Encrypt-Decrypt usage : /////////////////////// //JAVA /////////////////////// MCrypt mcrypt = new MCrypt(); /* Encrypt */ String encrypted = MC...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/paintbull/" class="btn btn-outline-primary"><p>Paintbull 9H</p></a> <a href="/posts/icij-offsh/" class="btn btn-outline-primary"><p>ICIJ Offshore leaks database</p></a></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script> <script type="text/javascript"> const imgs = document.querySelectorAll('#post-wrapper img'); const observer = lozad(imgs); observer.observe(); </script><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2020 <a href="https://twitter.com/pipiscrew">pipiscrew</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy/" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-xl-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"><div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>{categories}</div><div><i class="fa fa-tag fa-fw"></i>{tags}</div></div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>' }); </script>

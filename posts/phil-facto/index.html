@@ -1,0 +1,425 @@
+<!DOCTYPE html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="theme" content="Chirpy v2.6.2"><meta name="generator" content="Jekyll v4.1.1" /><meta property="og:title" content="Phil Factor - parseJSON function" /><meta name="author" content="PipisCrew" /><meta property="og:locale" content="en_US" /><meta name="description" content="microsoft.Mai Trọng Khánh writes :" /><meta property="og:description" content="microsoft.Mai Trọng Khánh writes :" /><link rel="canonical" href="/posts/phil-facto/" /><meta property="og:url" content="/posts/phil-facto/" /><meta property="og:site_name" content="PipisCrew" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2016-02-25T00:00:00+08:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Phil Factor - parseJSON function" /><meta name="twitter:site" content="@pipiscrew" /><meta name="twitter:creator" content="@PipisCrew" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"@type":"BlogPosting","url":"/posts/phil-facto/","headline":"Phil Factor - parseJSON function","dateModified":"2016-02-25T00:00:00+08:00","datePublished":"2016-02-25T00:00:00+08:00","author":{"@type":"Person","name":"PipisCrew"},"mainEntityOfPage":{"@type":"WebPage","@id":"/posts/phil-facto/"},"description":"microsoft.Mai Trọng Khánh writes :","@context":"https://schema.org"}</script><title>Phil Factor - parseJSON function | PipisCrew</title><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon.png"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon-precomposed.png"><link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/manifest.json"><meta name='msapplication-config' content='/assets/img/favicons/browserconfig.xml'><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/assets/img/favicons/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="cdn.jsdelivr.net"><link rel="dns-prefetch" href="cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"><link rel="preload" href="/assets/css/post.css" as="style"><link rel="stylesheet" href="/assets/css/post.css"><link rel="preload" as="style" href="/assets/css/lib/bootstrap-toc.min.css"><link rel="stylesheet" href="/assets/css/lib/bootstrap-toc.min.css" /> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="/assets/js/post.min.js"></script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column"><div id="nav-wrapper"><div id="profile-wrapper" class="d-flex flex-column"><div id="avatar" class="d-flex justify-content-center"> <a href="/" alt="avatar"> <img src="/assets/img/sample/avatar.jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="profile-text mt-3"><div class="site-title"> <a href="/">PipisCrew</a></div><div class="site-subtitle font-italic">A text-focused Jekyll theme.</div></div></div><ul class="nav flex-column"><li class="nav-item d-flex justify-content-center "> <a href="/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/categories/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/tags/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/archives/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/about/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul></div><div class="sidebar-bottom d-flex flex-wrap justify-content-around mt-4"> <span id="mode-toggle-wrapper"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.updateMermaid(); }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer) ) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } updateMermaid() { if (typeof mermaid !== "undefined") { let expectedTheme = (this.modeStatus === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } this.updateMermaid(); } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span> <span class="icon-border"></span> <a href="https://github.com/pipiscrew" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com/pipiscrew" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['example','doamin.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>Phil Factor - parseJSON function</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>Phil Factor - parseJSON function</h1><div class="post-meta text-muted d-flex flex-column"><div> Posted <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Thu, Feb 25, 2016, 12:00 AM +0800" > Feb 25, 2016 <i class="unloaded">2016-02-25T00:00:00+08:00</i> </span> by <span class="author"> PipisCrew </span></div></div><div class="post-content"><p>microsoft.Mai Trọng Khánh writes :</p><blockquote><p>The first question: Why do you need to parse JSON by SQL script? You can do it easily by C# or VB, or any PL. But I sure that if you search this keyword and reach this post, you already have your own reason. In my case, I got a task from Chris (my manager) in Microsoft, he want to migrate database, one of those step is parse about 100 k Json string and Insert into new table. I have tried with C#, it worked, but I don’t know how long, because I recognize that it is not a smart way and stop them ( program is running and thinking about C# solution). I try with SQL script.</p></blockquote><p>continue reading - <a href="http://mtkcode.blogspot.gr/2014/08/parse-json-string-by-sql-script.html">http://mtkcode.blogspot.gr/2014/08/parse-json-string-by-sql-script.html</a> the script to dropbox - <a href="https://www.dropbox.com/s/7ka7fbjt400i31k/ParseJSON-FUNCTION.sql">https://www.dropbox.com/s/7ka7fbjt400i31k/ParseJSON-FUNCTION.sql</a></p><h3 id="original-developer---phil-factor---blog-article">Original Developer - Phil Factor - blog article</h3><p><a href="https://www.simple-talk.com/sql/t-sql-programming/consuming-json-strings-in-sql-server/">https://www.simple-talk.com/sql/t-sql-programming/consuming-json-strings-in-sql-server/</a></p><p>at line 51 maybe is useful to make these replacements :</p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre>  <span class="nb">Set</span> <span class="p">@</span><span class="nd">JSON</span> <span class="o">=</span> <span class="nx">REPLACE</span><span class="p">(@</span><span class="nd">JSON</span><span class="p">,</span> <span class="dl">'</span><span class="s1">[</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">)</span>
+  <span class="nb">Set</span> <span class="p">@</span><span class="nd">JSON</span> <span class="o">=</span> <span class="nx">REPLACE</span><span class="p">(@</span><span class="nd">JSON</span><span class="p">,</span> <span class="dl">'</span><span class="s1">]</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">)</span>
+  <span class="nb">Set</span> <span class="p">@</span><span class="nd">JSON</span> <span class="o">=</span> <span class="nx">REPLACE</span><span class="p">(@</span><span class="nd">JSON</span><span class="p">,</span> <span class="nx">CHAR</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="dl">''</span><span class="p">)</span>
+  <span class="nb">Set</span> <span class="p">@</span><span class="nd">JSON</span> <span class="o">=</span> <span class="nx">REPLACE</span><span class="p">(@</span><span class="nd">JSON</span><span class="p">,</span> <span class="nx">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span> <span class="dl">''</span><span class="p">)</span>
+  <span class="nb">Set</span> <span class="p">@</span><span class="nd">JSON</span> <span class="o">=</span> <span class="nx">REPLACE</span><span class="p">(@</span><span class="nd">JSON</span><span class="p">,</span> <span class="nx">CHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="dl">''</span><span class="p">)</span>
+</pre></table></code></div></div><p>so we have :</p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+</pre><td class="rouge-code"><pre>
+<span class="nx">CREATE</span> <span class="nx">FUNCTION</span> <span class="p">[</span><span class="nx">dbo</span><span class="p">].[</span><span class="nx">parseJSON</span><span class="p">](</span> <span class="p">@</span><span class="nd">JSON</span> <span class="nx">NVARCHAR</span><span class="p">(</span><span class="nx">MAX</span><span class="p">))</span>
+<span class="cm">/*
+-- Create by Phil Factor	15 November 2010
+-- Update by Kaden Mai		21 August 2014
+-- How to Use	http://mtkcode.blogspot.com/2014/08/parse-json-string-by-sql-script.html
+*/</span>
+<span class="nx">RETURNS</span> <span class="p">@</span><span class="nd">hierarchy</span> <span class="nx">TABLE</span>
+  <span class="p">(</span>
+   <span class="nx">element_id</span> <span class="nx">INT</span> <span class="nx">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">NOT</span> <span class="nx">NULL</span><span class="p">,</span> <span class="cm">/* internal surrogate primary key gives the order of parsing and the list order */</span>
+   <span class="nx">sequenceNo</span> <span class="p">[</span><span class="nx">int</span><span class="p">]</span> <span class="nx">NULL</span><span class="p">,</span> <span class="cm">/* the place in the sequence for the element */</span>
+   <span class="nx">parent_ID</span> <span class="nx">INT</span><span class="p">,</span><span class="cm">/* if the element has a parent then it is in this column. The document is the ultimate parent, so you can get the structure from recursing from the document */</span>
+   <span class="nx">Object_ID</span> <span class="nx">INT</span><span class="p">,</span><span class="cm">/* each list or object has an object id. This ties all elements to a parent. Lists are treated as objects here */</span>
+   <span class="nx">NAME</span> <span class="nx">NVARCHAR</span><span class="p">(</span><span class="mi">2000</span><span class="p">),</span><span class="cm">/* the name of the object */</span>
+   <span class="nx">StringValue</span> <span class="nx">NVARCHAR</span><span class="p">(</span><span class="nx">MAX</span><span class="p">)</span> <span class="nx">NOT</span> <span class="nx">NULL</span><span class="p">,</span><span class="cm">/*the string representation of the value of the element. */</span>
+   <span class="nx">ValueType</span> <span class="nx">VARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="nx">NOT</span> <span class="kc">null</span> <span class="cm">/* the declared type of the value represented as a string in StringValue*/</span>
+  <span class="p">)</span>
+<span class="nx">AS</span>
+<span class="nx">BEGIN</span>
+  <span class="nx">DECLARE</span>
+    <span class="p">@</span><span class="nd">FirstObject</span> <span class="nx">INT</span><span class="p">,</span> <span class="o">--</span><span class="nx">the</span> <span class="nx">index</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">first</span> <span class="nx">open</span> <span class="nx">bracket</span> <span class="nx">found</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">JSON</span> <span class="nx">string</span>
+    <span class="p">@</span><span class="nd">OpenDelimiter</span> <span class="nx">INT</span><span class="p">,</span><span class="o">--</span><span class="nx">the</span> <span class="nx">index</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">next</span> <span class="nx">open</span> <span class="nx">bracket</span> <span class="nx">found</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">JSON</span> <span class="nx">string</span>
+    <span class="p">@</span><span class="nd">NextOpenDelimiter</span> <span class="nx">INT</span><span class="p">,</span><span class="o">--</span><span class="nx">the</span> <span class="nx">index</span> <span class="k">of</span> <span class="nx">subsequent</span> <span class="nx">open</span> <span class="nx">bracket</span> <span class="nx">found</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">JSON</span> <span class="nx">string</span>
+    <span class="p">@</span><span class="nd">NextCloseDelimiter</span> <span class="nx">INT</span><span class="p">,</span><span class="o">--</span><span class="nx">the</span> <span class="nx">index</span> <span class="k">of</span> <span class="nx">subsequent</span> <span class="nx">close</span> <span class="nx">bracket</span> <span class="nx">found</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">JSON</span> <span class="nx">string</span>
+    <span class="p">@</span><span class="nd">Type</span> <span class="nx">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="o">--</span><span class="nx">whether</span> <span class="nx">it</span> <span class="nx">denotes</span> <span class="nx">an</span> <span class="nx">object</span> <span class="nx">or</span> <span class="nx">an</span> <span class="nx">array</span>
+    <span class="p">@</span><span class="nd">NextCloseDelimiterChar</span> <span class="nx">CHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">--</span><span class="nx">either</span> <span class="nx">a</span> <span class="dl">'</span><span class="s1">}</span><span class="dl">'</span> <span class="nx">or</span> <span class="nx">a</span> <span class="dl">'</span><span class="s1">]</span><span class="dl">'</span>
+    <span class="p">@</span><span class="nd">Contents</span> <span class="nx">NVARCHAR</span><span class="p">(</span><span class="nx">MAX</span><span class="p">),</span> <span class="o">--</span><span class="nx">the</span> <span class="nx">unparsed</span> <span class="nx">contents</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">bracketed</span> <span class="nx">expression</span>
+    <span class="p">@</span><span class="nd">Start</span> <span class="nx">INT</span><span class="p">,</span> <span class="o">--</span><span class="nx">index</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">start</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">token</span> <span class="nx">that</span> <span class="nx">you</span> <span class="nx">are</span> <span class="nx">parsing</span>
+    <span class="p">@</span><span class="nd">end</span> <span class="nx">INT</span><span class="p">,</span><span class="o">--</span><span class="nx">index</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">end</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">token</span> <span class="nx">that</span> <span class="nx">you</span> <span class="nx">are</span> <span class="nx">parsing</span>
+    <span class="p">@</span><span class="nd">param</span> <span class="nx">INT</span><span class="p">,</span><span class="o">--</span><span class="nx">the</span> <span class="nx">parameter</span> <span class="nx">at</span> <span class="nx">the</span> <span class="nx">end</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">next</span> <span class="nb">Object</span><span class="o">/</span><span class="nb">Array</span> <span class="nx">token</span>
+    <span class="p">@</span><span class="nd">EndOfName</span> <span class="nx">INT</span><span class="p">,</span><span class="o">--</span><span class="nx">the</span> <span class="nx">index</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">start</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">parameter</span> <span class="nx">at</span> <span class="nx">end</span> <span class="k">of</span> <span class="nb">Object</span><span class="o">/</span><span class="nb">Array</span> <span class="nx">token</span>
+    <span class="p">@</span><span class="nd">token</span> <span class="nx">NVARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span><span class="o">--</span><span class="nx">either</span> <span class="nx">a</span> <span class="nx">string</span> <span class="nx">or</span> <span class="nx">object</span>
+    <span class="p">@</span><span class="nd">value</span> <span class="nx">NVARCHAR</span><span class="p">(</span><span class="nx">MAX</span><span class="p">),</span> <span class="o">--</span> <span class="nx">the</span> <span class="nx">value</span> <span class="k">as</span> <span class="nx">a</span> <span class="nx">string</span>
+    <span class="p">@</span><span class="nd">SequenceNo</span> <span class="nx">int</span><span class="p">,</span> <span class="o">--</span> <span class="nx">the</span> <span class="nx">sequence</span> <span class="nx">number</span> <span class="nx">within</span> <span class="nx">a</span> <span class="nx">list</span>
+    <span class="p">@</span><span class="nd">name</span> <span class="nx">NVARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span> <span class="o">--</span><span class="nx">the</span> <span class="nx">name</span> <span class="k">as</span> <span class="nx">a</span> <span class="nx">string</span>
+    <span class="p">@</span><span class="nd">parent_ID</span> <span class="nx">INT</span><span class="p">,</span><span class="o">--</span><span class="nx">the</span> <span class="nx">next</span> <span class="nx">parent</span> <span class="nx">ID</span> <span class="nx">to</span> <span class="nx">allocate</span>
+    <span class="p">@</span><span class="nd">lenJSON</span> <span class="nx">INT</span><span class="p">,</span><span class="o">--</span><span class="nx">the</span> <span class="nx">current</span> <span class="nx">length</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">JSON</span> <span class="nb">String</span>
+    <span class="p">@</span><span class="nd">characters</span> <span class="nx">NCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">),</span><span class="o">--</span><span class="nx">used</span> <span class="nx">to</span> <span class="nx">convert</span> <span class="nx">hex</span> <span class="nx">to</span> <span class="nx">decimal</span>
+    <span class="p">@</span><span class="nd">result</span> <span class="nx">BIGINT</span><span class="p">,</span><span class="o">--</span><span class="nx">the</span> <span class="nx">value</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">hex</span> <span class="nx">symbol</span> <span class="nx">being</span> <span class="nx">parsed</span>
+    <span class="p">@</span><span class="nd">index</span> <span class="nx">SMALLINT</span><span class="p">,</span><span class="o">--</span><span class="nx">used</span> <span class="k">for</span> <span class="nx">parsing</span> <span class="nx">the</span> <span class="nx">hex</span> <span class="nx">value</span>
+    <span class="p">@</span><span class="nd">Escape</span> <span class="nx">INT</span> <span class="o">--</span><span class="nx">the</span> <span class="nx">index</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">next</span> <span class="nx">escape</span> <span class="nx">character</span>
+
+  <span class="nx">DECLARE</span> <span class="p">@</span><span class="nd">Strings</span> <span class="nx">TABLE</span> <span class="cm">/* in this temporary table we keep all strings, even the names of the elements, since they are 'escaped' in a different way, and may contain, unescaped, brackets denoting objects or lists. These are replaced in the JSON string by tokens representing the string */</span>
+    <span class="p">(</span>
+     <span class="nx">String_ID</span> <span class="nx">INT</span> <span class="nx">IDENTITY</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+     <span class="nx">StringValue</span> <span class="nx">NVARCHAR</span><span class="p">(</span><span class="nx">MAX</span><span class="p">)</span>
+    <span class="p">)</span>
+
+  <span class="o">--</span><span class="nx">replacements</span>
+  <span class="nb">Set</span> <span class="p">@</span><span class="nd">JSON</span> <span class="o">=</span> <span class="nx">REPLACE</span><span class="p">(@</span><span class="nd">JSON</span><span class="p">,</span> <span class="dl">'</span><span class="s1">[</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">)</span>
+  <span class="nb">Set</span> <span class="p">@</span><span class="nd">JSON</span> <span class="o">=</span> <span class="nx">REPLACE</span><span class="p">(@</span><span class="nd">JSON</span><span class="p">,</span> <span class="dl">'</span><span class="s1">]</span><span class="dl">'</span><span class="p">,</span> <span class="dl">''</span><span class="p">)</span>
+  <span class="nb">Set</span> <span class="p">@</span><span class="nd">JSON</span> <span class="o">=</span> <span class="nx">REPLACE</span><span class="p">(@</span><span class="nd">JSON</span><span class="p">,</span> <span class="nx">CHAR</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="dl">''</span><span class="p">)</span>
+  <span class="nb">Set</span> <span class="p">@</span><span class="nd">JSON</span> <span class="o">=</span> <span class="nx">REPLACE</span><span class="p">(@</span><span class="nd">JSON</span><span class="p">,</span> <span class="nx">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span> <span class="dl">''</span><span class="p">)</span>
+  <span class="nb">Set</span> <span class="p">@</span><span class="nd">JSON</span> <span class="o">=</span> <span class="nx">REPLACE</span><span class="p">(@</span><span class="nd">JSON</span><span class="p">,</span> <span class="nx">CHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="dl">''</span><span class="p">)</span>
+
+  <span class="nx">SELECT</span><span class="o">--</span><span class="nx">initialise</span> <span class="nx">the</span> <span class="nx">characters</span> <span class="nx">to</span> <span class="nx">convert</span> <span class="nx">hex</span> <span class="nx">to</span> <span class="nx">ascii</span>
+    <span class="p">@</span><span class="nd">characters</span><span class="o">=</span><span class="dl">'</span><span class="s1">0123456789abcdefghijklmnopqrstuvwxyz</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">@</span><span class="nd">SequenceNo</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">--</span><span class="kd">set</span> <span class="nx">the</span> <span class="nx">sequence</span> <span class="nx">no</span><span class="p">.</span> <span class="nx">to</span> <span class="nx">something</span> <span class="nx">sensible</span><span class="p">.</span>
+  <span class="cm">/* firstly we process all strings. This is done because [{} and ] aren't escaped in strings, which complicates an iterative parse. */</span>
+    <span class="p">@</span><span class="nd">parent_ID</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="nx">WHILE</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span> <span class="o">--</span><span class="nx">forever</span> <span class="nx">until</span> <span class="nx">there</span> <span class="nx">is</span> <span class="nx">nothing</span> <span class="nx">more</span> <span class="nx">to</span> <span class="k">do</span>
+    <span class="nx">BEGIN</span>
+      <span class="nx">SELECT</span>
+        <span class="p">@</span><span class="nd">start</span><span class="o">=</span><span class="nx">PATINDEX</span><span class="p">(</span><span class="dl">'</span><span class="s1">%[^a-zA-Z]["]%</span><span class="dl">'</span><span class="p">,</span> <span class="p">@</span><span class="nd">json</span> <span class="nx">collate</span> <span class="nx">SQL_Latin1_General_CP850_Bin</span><span class="p">);</span><span class="o">--</span><span class="nx">next</span> <span class="nx">delimited</span> <span class="nx">string</span>
+      <span class="nx">IF</span> <span class="p">@</span><span class="nd">start</span><span class="o">=</span><span class="mi">0</span> <span class="nx">BREAK</span> <span class="o">--</span><span class="nx">no</span> <span class="nx">more</span> <span class="nx">so</span> <span class="nx">drop</span> <span class="nx">through</span> <span class="nx">the</span> <span class="nx">WHILE</span> <span class="nx">loop</span>
+      <span class="nx">IF</span> <span class="nx">SUBSTRING</span><span class="p">(@</span><span class="nd">json</span><span class="p">,</span> <span class="p">@</span><span class="nd">start</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">=</span><span class="dl">'</span><span class="s1">"</span><span class="dl">'</span>
+        <span class="nx">BEGIN</span> <span class="o">--</span><span class="nx">Delimited</span> <span class="nx">Name</span>
+          <span class="nx">SET</span> <span class="p">@</span><span class="nd">start</span><span class="o">=</span><span class="p">@</span><span class="nd">Start</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+          <span class="nx">SET</span> <span class="p">@</span><span class="nd">end</span><span class="o">=</span><span class="nx">PATINDEX</span><span class="p">(</span><span class="dl">'</span><span class="s1">%[^</span><span class="se">\</span><span class="s1">]["]%</span><span class="dl">'</span><span class="p">,</span> <span class="nx">RIGHT</span><span class="p">(@</span><span class="nd">json</span><span class="p">,</span> <span class="nx">LEN</span><span class="p">(@</span><span class="nd">json</span><span class="o">+</span><span class="dl">'</span><span class="s1">|</span><span class="dl">'</span><span class="p">)</span><span class="o">-</span><span class="p">@</span><span class="nd">start</span><span class="p">)</span> <span class="nx">collate</span> <span class="nx">SQL_Latin1_General_CP850_Bin</span><span class="p">);</span>
+        <span class="nx">END</span>
+      <span class="nx">IF</span> <span class="p">@</span><span class="nd">end</span><span class="o">=</span><span class="mi">0</span> <span class="o">--</span><span class="nx">no</span> <span class="nx">end</span> <span class="nx">delimiter</span> <span class="nx">to</span> <span class="nx">last</span> <span class="nx">string</span>
+        <span class="nx">BREAK</span> <span class="o">--</span><span class="nx">no</span> <span class="nx">more</span>
+      <span class="nx">SELECT</span> <span class="p">@</span><span class="nd">token</span><span class="o">=</span><span class="nx">SUBSTRING</span><span class="p">(@</span><span class="nd">json</span><span class="p">,</span> <span class="p">@</span><span class="nd">start</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="p">@</span><span class="nd">end</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+      <span class="o">--</span><span class="nx">now</span> <span class="nx">put</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">escaped</span> <span class="nx">control</span> <span class="nx">characters</span>
+      <span class="nx">SELECT</span> <span class="p">@</span><span class="nd">token</span><span class="o">=</span><span class="nx">REPLACE</span><span class="p">(@</span><span class="nd">token</span><span class="p">,</span> <span class="nx">FROMString</span><span class="p">,</span> <span class="nx">TOString</span><span class="p">)</span>
+      <span class="nx">FROM</span>
+        <span class="p">(</span><span class="nx">SELECT</span>
+          <span class="dl">'</span><span class="se">\</span><span class="s1">"</span><span class="dl">'</span> <span class="nx">AS</span> <span class="nx">FromString</span><span class="p">,</span> <span class="dl">'</span><span class="s1">"</span><span class="dl">'</span> <span class="nx">AS</span> <span class="nx">ToString</span>
+         <span class="nx">UNION</span> <span class="nx">ALL</span> <span class="nx">SELECT</span> <span class="dl">'</span><span class="se">\\</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="se">\'</span><span class="s1">
+         UNION ALL SELECT </span><span class="dl">'</span><span class="err">\</span><span class="o">/</span><span class="dl">'</span><span class="s1">, </span><span class="dl">'</span><span class="o">/</span><span class="dl">'</span><span class="s1">
+         UNION ALL SELECT </span><span class="dl">'</span><span class="err">\</span><span class="nx">b</span><span class="dl">'</span><span class="s1">, CHAR(08)
+         UNION ALL SELECT </span><span class="dl">'</span><span class="err">\</span><span class="nx">f</span><span class="dl">'</span><span class="s1">, CHAR(12)
+         UNION ALL SELECT </span><span class="dl">'</span><span class="err">\</span><span class="nx">n</span><span class="dl">'</span><span class="s1">, CHAR(10)
+         UNION ALL SELECT </span><span class="dl">'</span><span class="err">\</span><span class="nx">r</span><span class="dl">'</span><span class="s1">, CHAR(13)
+         UNION ALL SELECT </span><span class="dl">'</span><span class="err">\</span><span class="nx">t</span><span class="dl">'</span><span class="s1">, CHAR(09)
+        ) substitutions
+      SELECT @result=0, @escape=1
+  --Begin to take out any hex escape codes
+      WHILE @escape&gt;0
+        BEGIN
+          SELECT @index=0,
+          --find the next hex escape sequence
+          @escape=PATINDEX(</span><span class="dl">'</span><span class="o">%</span><span class="err">\</span><span class="nx">x</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="nx">a</span><span class="o">-</span><span class="nx">f</span><span class="p">][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="nx">a</span><span class="o">-</span><span class="nx">f</span><span class="p">][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="nx">a</span><span class="o">-</span><span class="nx">f</span><span class="p">][</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="nx">a</span><span class="o">-</span><span class="nx">f</span><span class="p">]</span><span class="o">%</span><span class="dl">'</span><span class="s1">, @token collate SQL_Latin1_General_CP850_Bin)
+          IF @escape&gt;0 --if there is one
+            BEGIN
+              WHILE @index&lt;4 --there="" are="" always="" four="" digits="" to="" a="" </span><span class="se">\</span><span class="s1">x="" sequence="" begin="" select="" --determine="" its="" value="" @result="@result+POWER(16," @index)="" *(charindex(substring(@token,="" @escape+2+3-@index,="" 1),="" @characters)-1),="" @index="@index+1" ;="" end="" --="" and="" replace="" the="" hex="" sequence="" by="" its="" unicode="" value="" select="" @token="STUFF(@token," @escape,="" 6,="" nchar(@result))="" end="" end="" --now="" store="" the="" string="" away="" insert="" into="" @strings="" (stringvalue)="" select="" @token="" --="" and="" replace="" the="" string="" with="" a="" token="" select="" @json="STUFF(@json," @start,="" @end+1,="" </span><span class="dl">'</span><span class="p">@</span><span class="nd">string</span><span class="dl">'</span><span class="s1">+convert(nvarchar(5),="" @@identity))="" end="" --="" all="" strings="" are="" now="" removed.="" now="" we="" find="" the="" first="" leaf.="" while="" 1="1" --forever="" until="" there="" is="" nothing="" more="" to="" do="" begin="" select="" @parent_id="@parent_ID+1" --find="" the="" first="" object="" or="" list="" by="" looking="" for="" the="" open="" bracket="" select="" @firstobject="PATINDEX(</span><span class="dl">'</span><span class="o">%</span><span class="p">[{[[]</span><span class="o">%</span><span class="dl">'</span><span class="s1">," @json="" collate="" sql_latin1_general_cp850_bin)--object="" or="" array="" if="" @firstobject="0" break="" if="" (substring(@json,="" @firstobject,="" 1)=</span><span class="dl">'</span><span class="p">{</span><span class="dl">'</span><span class="s1"> )="" select="" @nextclosedelimiterchar=</span><span class="dl">'</span><span class="p">}</span><span class="dl">'</span><span class="s1"> ,="" @type=</span><span class="dl">'</span><span class="nx">object</span><span class="dl">'</span><span class="s1"> else="" select="" @nextclosedelimiterchar=</span><span class="dl">'</span><span class="p">]</span><span class="dl">'</span><span class="s1"> ,="" @type=</span><span class="dl">'</span><span class="nx">array</span><span class="dl">'</span><span class="s1"> select="" @opendelimiter="@firstObject" while="" 1="1" --find="" the="" innermost="" object="" or="" list...="" begin="" select="" @lenjson="LEN(@JSON+</span><span class="dl">'</span><span class="o">|</span><span class="dl">'</span><span class="s1">)-1" --find="" the="" matching="" close-delimiter="" proceeding="" after="" the="" open-delimiter="" select="" @nextclosedelimiter="CHARINDEX(@NextCloseDelimiterChar," @json,="" @opendelimiter+1)="" --is="" there="" an="" intervening="" open-delimiter="" of="" either="" type="" select="" @nextopendelimiter="PATINDEX(</span><span class="dl">'</span><span class="o">%</span><span class="p">[{[[]</span><span class="o">%</span><span class="dl">'</span><span class="s1">," right(@json,="" @lenjson-@opendelimiter)collate="" sql_latin1_general_cp850_bin)--object="" if="" @nextopendelimiter="0" break="" select="" @nextopendelimiter="@NextOpenDelimiter+@OpenDelimiter" if=""&gt;&lt;/4&gt;&lt;@nextopendelimiter break="" if="" substring(@json,="" @nextopendelimiter,="" 1)=</span><span class="dl">'</span><span class="p">{</span><span class="dl">'</span><span class="s1"> select="" @nextclosedelimiterchar=</span><span class="dl">'</span><span class="p">}</span><span class="dl">'</span><span class="s1"> ,="" @type=</span><span class="dl">'</span><span class="nx">object</span><span class="dl">'</span><span class="s1"> else="" select="" @nextclosedelimiterchar=</span><span class="dl">'</span><span class="p">]</span><span class="dl">'</span><span class="s1"> ,="" @type=</span><span class="dl">'</span><span class="nx">array</span><span class="dl">'</span><span class="s1"> select="" @opendelimiter="@NextOpenDelimiter" end="" ---and="" parse="" out="" the="" list="" or="" name/value="" pairs="" select="" @contents="SUBSTRING(@json," @opendelimiter+1,="" @nextclosedelimiter-@opendelimiter-1)="" select="" @json="STUFF(@json," @opendelimiter,="" @nextclosedelimiter-@opendelimiter+1,="" </span><span class="dl">'</span><span class="p">@</span><span class="dl">'</span><span class="s1">+@type+convert(nvarchar(5),="" @parent_id))="" while="" (patindex(</span><span class="dl">'</span><span class="o">%</span><span class="p">[</span><span class="nx">a</span><span class="o">-</span><span class="nx">za</span><span class="o">-</span><span class="nx">z0</span><span class="o">-</span><span class="mi">9</span><span class="p">@</span><span class="o">+</span><span class="p">.</span><span class="nx">e</span><span class="p">]</span><span class="o">%</span><span class="dl">'</span><span class="s1">,="" @contents="" collate=""&gt;&lt;/@nextopendelimiter&gt;&lt;&gt;0
+    BEGIN
+      IF @Type=</span><span class="dl">'</span><span class="nb">Object</span><span class="dl">'</span><span class="s1"> --it will be a 0-n list containing a string followed by a string, number,boolean, or null
+        BEGIN
+          SELECT
+            @SequenceNo=0,@end=CHARINDEX(</span><span class="dl">'</span><span class="p">:</span><span class="dl">'</span><span class="s1">, </span><span class="dl">'</span> <span class="dl">'</span><span class="s1">+@contents)--if there is anything, it will be a string-based name.
+          SELECT  @start=PATINDEX(</span><span class="dl">'</span><span class="o">%</span><span class="p">[</span><span class="o">^</span><span class="nx">A</span><span class="o">-</span><span class="nx">Za</span><span class="o">-</span><span class="nx">z</span><span class="p">@][@]</span><span class="o">%</span><span class="dl">'</span><span class="s1">, </span><span class="dl">'</span> <span class="dl">'</span><span class="s1">+@contents collate SQL_Latin1_General_CP850_Bin)--AAAAAAAA
+          SELECT @token=SUBSTRING(</span><span class="dl">'</span> <span class="dl">'</span><span class="s1">+@contents, @start+1, @End-@Start-1),
+            @endofname=PATINDEX(</span><span class="dl">'</span><span class="o">%</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">%</span><span class="dl">'</span><span class="s1">, @token collate SQL_Latin1_General_CP850_Bin),
+            @param=RIGHT(@token, LEN(@token)-@endofname+1)
+          SELECT
+            @token=LEFT(@token, @endofname-1),
+            @Contents=RIGHT(</span><span class="dl">'</span> <span class="dl">'</span><span class="s1">+@contents, LEN(</span><span class="dl">'</span> <span class="dl">'</span><span class="s1">+@contents+</span><span class="dl">'</span><span class="o">|</span><span class="dl">'</span><span class="s1">)-@end-1)
+          SELECT  @name=stringvalue FROM @strings
+            WHERE string_id=@param --fetch the name
+        END
+      ELSE
+        SELECT @Name=null,@SequenceNo=@SequenceNo+1
+      SELECT
+        @end=CHARINDEX(</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">, @contents)-- a string-token, object-token, list-token, number,boolean, or null
+      IF @end=0
+        SELECT  @end=PATINDEX(</span><span class="dl">'</span><span class="o">%</span><span class="p">[</span><span class="nx">A</span><span class="o">-</span><span class="nx">Za</span><span class="o">-</span><span class="nx">z0</span><span class="o">-</span><span class="mi">9</span><span class="p">@</span><span class="o">+</span><span class="p">.</span><span class="nx">e</span><span class="p">][</span><span class="o">^</span><span class="nx">A</span><span class="o">-</span><span class="nx">Za</span><span class="o">-</span><span class="nx">z0</span><span class="o">-</span><span class="mi">9</span><span class="p">@</span><span class="o">+</span><span class="p">.</span><span class="nx">e</span><span class="p">]</span><span class="o">%</span><span class="dl">'</span><span class="s1">, @Contents+</span><span class="dl">'</span> <span class="dl">'</span><span class="s1"> collate SQL_Latin1_General_CP850_Bin)
+          +1
+       SELECT
+         @start=PATINDEX(</span><span class="dl">'</span><span class="o">%</span><span class="p">[</span><span class="o">^</span><span class="nx">A</span><span class="o">-</span><span class="nx">Za</span><span class="o">-</span><span class="nx">z0</span><span class="o">-</span><span class="mi">9</span><span class="p">@</span><span class="o">+</span><span class="p">.</span><span class="nx">e</span><span class="p">][</span><span class="nx">A</span><span class="o">-</span><span class="nx">Za</span><span class="o">-</span><span class="nx">z0</span><span class="o">-</span><span class="mi">9</span><span class="p">@</span><span class="o">+</span><span class="p">.</span><span class="nx">e</span><span class="p">][</span><span class="err">\</span><span class="o">-</span><span class="p">]</span><span class="o">%</span><span class="dl">'</span><span class="s1">, </span><span class="dl">'</span> <span class="dl">'</span><span class="s1">+@contents collate SQL_Latin1_General_CP850_Bin)
+		-- Edited: add more condition [</span><span class="se">\</span><span class="s1">-] in order to detect negative number 08-20-2014
+      --select @start,@end, LEN(@contents+</span><span class="dl">'</span><span class="o">|</span><span class="dl">'</span><span class="s1">), @contents 
+      SELECT
+        @Value=RTRIM(SUBSTRING(@contents, @start, @End-@Start)),
+        @Contents=RIGHT(@contents+</span><span class="dl">'</span> <span class="dl">'</span><span class="s1">, LEN(@contents+</span><span class="dl">'</span><span class="o">|</span><span class="dl">'</span><span class="s1">)-@end)
+      IF SUBSTRING(@value, 1, 7)=</span><span class="dl">'</span><span class="p">@</span><span class="nd">object</span><span class="dl">'</span><span class="s1">
+        INSERT INTO @hierarchy
+          (NAME, SequenceNo, parent_ID, StringValue, Object_ID, ValueType)
+          SELECT @name, @SequenceNo, @parent_ID, SUBSTRING(@value, 8, 5),
+            SUBSTRING(@value, 8, 5), </span><span class="dl">'</span><span class="nx">object</span><span class="dl">'</span><span class="s1">
+      ELSE
+        IF SUBSTRING(@value, 1, 6)=</span><span class="dl">'</span><span class="p">@</span><span class="nd">array</span><span class="dl">'</span><span class="s1">
+          INSERT INTO @hierarchy
+            (NAME, SequenceNo, parent_ID, StringValue, Object_ID, ValueType)
+            SELECT @name, @SequenceNo, @parent_ID, SUBSTRING(@value, 7, 5),
+              SUBSTRING(@value, 7, 5), </span><span class="dl">'</span><span class="nx">array</span><span class="dl">'</span><span class="s1">
+        ELSE
+          IF SUBSTRING(@value, 1, 7)=</span><span class="dl">'</span><span class="p">@</span><span class="nd">string</span><span class="dl">'</span><span class="s1">
+            INSERT INTO @hierarchy
+              (NAME, SequenceNo, parent_ID, StringValue, ValueType)
+              SELECT @name, @SequenceNo, @parent_ID, stringvalue, </span><span class="dl">'</span><span class="nx">string</span><span class="dl">'</span><span class="s1">
+              FROM @strings
+              WHERE string_id=SUBSTRING(@value, 8, 5)
+          ELSE
+            IF @value IN (</span><span class="dl">'</span><span class="kc">true</span><span class="dl">'</span><span class="s1">, </span><span class="dl">'</span><span class="kc">false</span><span class="dl">'</span><span class="s1">)
+              INSERT INTO @hierarchy
+                (NAME, SequenceNo, parent_ID, StringValue, ValueType)
+                SELECT @name, @SequenceNo, @parent_ID, @value, </span><span class="dl">'</span><span class="nx">boolean</span><span class="dl">'</span><span class="s1">
+            ELSE
+              IF @value=</span><span class="dl">'</span><span class="kc">null</span><span class="dl">'</span><span class="s1">
+                INSERT INTO @hierarchy
+                  (NAME, SequenceNo, parent_ID, StringValue, ValueType)
+                  SELECT @name, @SequenceNo, @parent_ID, @value, </span><span class="dl">'</span><span class="kc">null</span><span class="dl">'</span><span class="s1">
+              ELSE
+                IF PATINDEX(</span><span class="dl">'</span><span class="o">%</span><span class="p">[</span><span class="o">^</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span><span class="o">%</span><span class="dl">'</span><span class="s1">, @value collate SQL_Latin1_General_CP850_Bin)&gt;0
+                  INSERT INTO @hierarchy
+                    (NAME, SequenceNo, parent_ID, StringValue, ValueType)
+                    SELECT @name, @SequenceNo, @parent_ID, @value, </span><span class="dl">'</span><span class="nx">real</span><span class="dl">'</span><span class="s1">
+                ELSE
+                  INSERT INTO @hierarchy
+                    (NAME, SequenceNo, parent_ID, StringValue, ValueType)
+                    SELECT @name, @SequenceNo, @parent_ID, @value, </span><span class="dl">'</span><span class="nx">int</span><span class="dl">'</span><span class="s1">
+      if @Contents=</span><span class="dl">'</span> <span class="dl">'</span><span class="s1"> Select @SequenceNo=0
+    END
+  END
+INSERT INTO @hierarchy (NAME, SequenceNo, parent_ID, StringValue, Object_ID, ValueType)
+  SELECT </span><span class="dl">'</span><span class="o">-</span><span class="dl">'</span><span class="s1">,1, NULL, </span><span class="dl">''</span><span class="s1">, @parent_id-1, @type
+--
+   RETURN
+END
+
+</span></pre></table></code></div></div><h2 id="example-of-call">example of call</h2><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre><span class="nx">select</span> <span class="o">*</span> <span class="k">from</span> 
+<span class="nx">ParseJSON</span> <span class="p">(</span><span class="dl">'</span><span class="s1">{
+   "time": "11:46:21 AM",
+   "milliseconds_since_epoch": 1456400781421,
+   "date": "02-25-2016"
+}</span><span class="dl">'</span><span class="p">)</span>
+</pre></table></code></div></div><h2 id="example-of-temporary-table-use">example of temporary table use</h2><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre><td class="rouge-code"><pre><span class="o">--</span><span class="k">if</span> <span class="nx">temporary</span> <span class="nx">table</span> <span class="nx">exists</span> <span class="nx">drop</span> <span class="nx">it</span>
+<span class="nx">IF</span> <span class="nx">object_id</span><span class="p">(</span><span class="dl">'</span><span class="s1">tempdb..#RESULTSET</span><span class="dl">'</span><span class="p">)</span> <span class="nx">IS</span> <span class="nx">NOT</span> <span class="nx">NULL</span>
+<span class="nx">BEGIN</span>
+	<span class="nx">DROP</span> <span class="nx">TABLE</span> <span class="err">#</span><span class="nx">RESULTSET</span>
+<span class="nx">END</span>
+
+<span class="o">--</span><span class="nx">create</span> <span class="nx">temporary</span> <span class="nx">table</span>
+<span class="nx">CREATE</span> <span class="nx">TABLE</span> <span class="err">#</span><span class="nx">RESULTSET</span> <span class="p">(</span>
+	<span class="nx">NAME</span> <span class="nx">NVARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+	<span class="p">,</span><span class="nx">txt</span> <span class="nx">NVARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="o">--</span><span class="nx">insert</span> <span class="nx">to</span> <span class="nx">temporary</span> <span class="nx">table</span>
+<span class="nx">INSERT</span> <span class="nx">INTO</span> <span class="p">[</span><span class="err">#</span><span class="nx">RESULTSET</span><span class="p">]</span>
+<span class="nx">SELECT</span> <span class="nx">NAME</span>
+	<span class="p">,</span><span class="nx">StringValue</span>
+<span class="nx">FROM</span> <span class="nx">ParseJSON</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"name":"$test1","typee":"button","caption":"MainMenu","author":"PipisCrew"},{"name":"$test2","typee":"checkbox","caption":"Online","author":"PipisCrew}</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="o">--</span><span class="nx">select</span> <span class="nx">by</span> <span class="nx">temporary</span> <span class="nx">table</span>
+<span class="nx">SELECT</span> <span class="o">*</span>
+<span class="nx">FROM</span> <span class="err">#</span><span class="nx">RESULTSET</span>
+</pre></table></code></div></div><h2 id="example-of-table-use">example of table use</h2><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://www.pipiscrew.com/wp-content/uploads/2016/01/snap184.png" alt="snap184" /></p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="o">--</span><span class="nx">insert</span> <span class="nx">to</span> <span class="nx">temporary</span> <span class="nx">table</span>
+<span class="nx">INSERT</span> <span class="nx">INTO</span> <span class="p">[</span><span class="nx">a_test</span><span class="p">]</span>
+<span class="nx">SELECT</span> <span class="nx">NAME</span>
+	<span class="p">,</span><span class="nx">StringValue</span>
+<span class="nx">FROM</span> <span class="nx">ParseJSON</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"name":"$test1","typee":"button","caption":"MainMenu","author":"PipisCrew"},{"name":"$test2","typee":"checkbox","caption":"Online","author":"PipisCrew}</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="o">--</span><span class="nx">select</span> <span class="nx">by</span> <span class="nx">temporary</span> <span class="nx">table</span>
+<span class="nx">SELECT</span> <span class="o">*</span>
+<span class="nx">FROM</span> <span class="p">[</span><span class="nx">a_test</span><span class="p">]</span>
+</pre></table></code></div></div><p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://www.pipiscrew.com/wp-content/uploads/2016/01/snap185.png" alt="snap185" /></p><p>origin - http://www.pipiscrew.com/?p=3197 sql-phil-factor-parsejson-function</p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/sql/'>sql</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=Phil Factor - parseJSON function - PipisCrew&url=/posts/phil-facto/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=Phil Factor - parseJSON function - PipisCrew&u=/posts/phil-facto/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=Phil Factor - parseJSON function - PipisCrew&url=/posts/phil-facto/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"></div><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/proper-con/"><div class="card-body"> <span class="timeago small" > Jun 23, 2017 <i class="unloaded">2017-06-23T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Proper convert UTC to Browser time</h3><div class="text-muted small"><p> 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 //src - //https://stackoverfl...</p></div></div></a></div><div class="card"> <a href="/posts/literate-s/"><div class="card-body"> <span class="timeago small" > Jun 25, 2017 <i class="unloaded">2017-06-25T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Literate SQL</h3><div class="text-muted small"><p> http://modern-sql.com/use-case/literate-sql origin - http://www.pipiscrew.com/?p=8694 literate-sql</p></div></div></a></div><div class="card"> <a href="/posts/ssl-securi/"><div class="card-body"> <span class="timeago small" > May 25 <i class="unloaded">2020-05-25T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>SSL Security Error for Microsoft SQL Driver</h3><div class="text-muted small"><p> We commonly see the following error from customers that migrate to us from providers that use an older SQL driver: [Microsoft][ODBC SQL Server Driver][DBNETLIB]SSL Security error or TCP P...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/odata-4-ty/" class="btn btn-outline-primary"><p>OData 4 / TypeScript / AngularJs / CRUD Sample</p></a> <a href="/posts/rebuild-fu/" class="btn btn-outline-primary"><p>Rebuild FullText</p></a></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script> <script type="text/javascript"> const imgs = document.querySelectorAll('#post-wrapper img'); const observer = lozad(imgs); observer.observe(); </script><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2020 <a href="https://twitter.com/pipiscrew">pipiscrew</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy/" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-xl-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"><div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>{categories}</div><div><i class="fa fa-tag fa-fw"></i>{tags}</div></div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>' }); </script>

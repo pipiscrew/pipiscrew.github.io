@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="theme" content="Chirpy v2.6.2"><meta name="generator" content="Jekyll v4.1.1" /><meta property="og:title" content="o[asp.net] usercontrol - ascx" /><meta name="author" content="PipisCrew" /><meta property="og:locale" content="en_US" /><meta name="description" content="Compile ASP.NET WebForms .ascx UserControls into Assembly for Re-Use" /><meta property="og:description" content="Compile ASP.NET WebForms .ascx UserControls into Assembly for Re-Use" /><link rel="canonical" href="/posts/aspnet-use/" /><meta property="og:url" content="/posts/aspnet-use/" /><meta property="og:site_name" content="PipisCrew" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2016-02-04T00:00:00+08:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="o[asp.net] usercontrol - ascx" /><meta name="twitter:site" content="@pipiscrew" /><meta name="twitter:creator" content="@PipisCrew" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"@type":"BlogPosting","url":"/posts/aspnet-use/","headline":"o[asp.net] usercontrol - ascx","dateModified":"2016-02-04T00:00:00+08:00","datePublished":"2016-02-04T00:00:00+08:00","author":{"@type":"Person","name":"PipisCrew"},"mainEntityOfPage":{"@type":"WebPage","@id":"/posts/aspnet-use/"},"description":"Compile ASP.NET WebForms .ascx UserControls into Assembly for Re-Use","@context":"https://schema.org"}</script><title>o[asp.net] usercontrol - ascx | PipisCrew</title><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon.png"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon-precomposed.png"><link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/manifest.json"><meta name='msapplication-config' content='/assets/img/favicons/browserconfig.xml'><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/assets/img/favicons/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="cdn.jsdelivr.net"><link rel="dns-prefetch" href="cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"><link rel="preload" href="/assets/css/post.css" as="style"><link rel="stylesheet" href="/assets/css/post.css"><link rel="preload" as="style" href="/assets/css/lib/bootstrap-toc.min.css"><link rel="stylesheet" href="/assets/css/lib/bootstrap-toc.min.css" /> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="/assets/js/post.min.js"></script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column"><div id="nav-wrapper"><div id="profile-wrapper" class="d-flex flex-column"><div id="avatar" class="d-flex justify-content-center"> <a href="/" alt="avatar"> <img src="/assets/img/sample/avatar.jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="profile-text mt-3"><div class="site-title"> <a href="/">PipisCrew</a></div><div class="site-subtitle font-italic">A text-focused Jekyll theme.</div></div></div><ul class="nav flex-column"><li class="nav-item d-flex justify-content-center "> <a href="/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/categories/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/tags/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/archives/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/about/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul></div><div class="sidebar-bottom d-flex flex-wrap justify-content-around mt-4"> <span id="mode-toggle-wrapper"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.updateMermaid(); }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer) ) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } updateMermaid() { if (typeof mermaid !== "undefined") { let expectedTheme = (this.modeStatus === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } this.updateMermaid(); } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span> <span class="icon-border"></span> <a href="https://github.com/pipiscrew" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com/pipiscrew" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['example','doamin.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>o[asp.net] usercontrol - ascx</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>o[asp.net] usercontrol - ascx</h1><div class="post-meta text-muted d-flex flex-column"><div> Posted <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Thu, Feb 4, 2016, 12:00 AM +0800" > Feb 4, 2016 <i class="unloaded">2016-02-04T00:00:00+08:00</i> </span> by <span class="author"> PipisCrew </span></div></div><div class="post-content"><h3 id="compile-aspnet-webforms-ascx-usercontrols-into-assembly-for-re-use">Compile ASP.NET WebForms .ascx UserControls into Assembly for Re-Use</h3><p><a href="https://kocubinski.wordpress.com/2013/05/06/compile-asp-net-webforms-ascx-usercontrols-into-assembly-for-re-use/">https://kocubinski.wordpress.com/2013/05/06/compile-asp-net-webforms-ascx-usercontrols-into-assembly-for-re-use/</a></p><h3 id="compile-web-application-project-ascx-into-dll">Compile web application project ascx into dll</h3><p><a href="http://stackoverflow.com/a/6899945">http://stackoverflow.com/a/6899945</a></p><p>FYI <strong>ascx</strong> everytime ‘loaded’ compiled..</p><hr /><h3 id="compiling-ascx-files-into-a-class-library">Compiling ASCX files into a class library</h3><p><a href="http://rossipedia.com/blog/2012/07/compiling-ascx-files-into-a-class-library/">http://rossipedia.com/blog/2012/07/compiling-ascx-files-into-a-class-library/</a></p><p>CodeFile vs CodeBehind - <a href="http://stackoverflow.com/a/954873">http://stackoverflow.com/a/954873</a></p><p>You’ll need to make sure you download and install ILMerge in order for this to work. These steps assume the default install location.</p><p>Start with an empty C# class library project, and add a reference to System.Web.</p><p>Add your control. For this example I’m just going to use the following super basic control (named MyControl.ascx):</p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre><span class="c1">//MyControl.ascx</span>
+<span class="o">&lt;%</span><span class="p">@</span> <span class="nx">Control</span> <span class="nx">Language</span><span class="o">=</span><span class="dl">"</span><span class="s2">C#</span><span class="dl">"</span> <span class="nx">ClassName</span><span class="o">=</span><span class="dl">"</span><span class="s2">ControlTest.MyControl</span><span class="dl">"</span>
+<span class="nx">CodeFile</span><span class="o">=</span><span class="dl">"</span><span class="s2">MyControl.ascx.cs</span><span class="dl">"</span> <span class="nx">Inherits</span><span class="o">=</span><span class="dl">"</span><span class="s2">ControlTest.MyControlCode</span><span class="dl">"</span>
+<span class="nx">AutoEventWireup</span><span class="o">=</span><span class="dl">"</span><span class="s2">true</span><span class="dl">"</span> <span class="o">%&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">asp</span><span class="p">:</span><span class="nx">multiview</span> <span class="nx">runat</span><span class="o">=</span><span class="dl">"</span><span class="s2">server</span><span class="dl">"</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">mvName</span><span class="dl">"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">views</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="nx">asp</span><span class="p">:</span><span class="nx">view</span> <span class="nx">runat</span><span class="o">=</span><span class="dl">"</span><span class="s2">server</span><span class="dl">"</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">vwDisplay</span><span class="dl">"</span><span class="o">&gt;</span>
+       <span class="nx">Your</span> <span class="nx">name</span> <span class="nx">is</span> <span class="o">&lt;</span><span class="nx">asp</span><span class="p">:</span><span class="nx">label</span> <span class="nx">runat</span><span class="o">=</span><span class="dl">"</span><span class="s2">server</span><span class="dl">"</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">lblName</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/asp:label</span><span class="err">&gt;
+</span>       <span class="o">&lt;</span><span class="nx">asp</span><span class="p">:</span><span class="nx">button</span> <span class="nx">runat</span><span class="o">=</span><span class="dl">"</span><span class="s2">server</span><span class="dl">"</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">btnReset</span><span class="dl">"</span> <span class="nx">onclick</span><span class="o">=</span><span class="dl">"</span><span class="s2">ResetButtonClick</span><span class="dl">"</span> <span class="nx">text</span><span class="o">=</span><span class="dl">"</span><span class="s2">Reset Name</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/asp:button</span><span class="err">&gt;
+</span>   <span class="o">&lt;</span><span class="sr">/asp:view</span><span class="err">&gt;
+</span>   <span class="o">&lt;</span><span class="nx">asp</span><span class="p">:</span><span class="nx">view</span> <span class="nx">runat</span><span class="o">=</span><span class="dl">"</span><span class="s2">server</span><span class="dl">"</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">vwInput</span><span class="dl">"</span><span class="o">&gt;</span>
+       <span class="nx">Enter</span> <span class="nx">your</span> <span class="nx">name</span><span class="p">:</span> <span class="o">&lt;</span><span class="nx">asp</span><span class="p">:</span><span class="nx">textbox</span> <span class="nx">runat</span><span class="o">=</span><span class="dl">"</span><span class="s2">server</span><span class="dl">"</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">txtName</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/asp:textbox</span><span class="err">&gt;
+</span>       <span class="o">&lt;</span><span class="nx">asp</span><span class="p">:</span><span class="nx">button</span> <span class="nx">runat</span><span class="o">=</span><span class="dl">"</span><span class="s2">server</span><span class="dl">"</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">btnSet</span><span class="dl">"</span> <span class="nx">onclick</span><span class="o">=</span><span class="dl">"</span><span class="s2">SetButtonClick</span><span class="dl">"</span> <span class="nx">text</span><span class="o">=</span><span class="dl">"</span><span class="s2">Set Name</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/asp:button</span><span class="err">&gt;
+</span>   <span class="o">&lt;</span><span class="sr">/asp:view</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/views</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/asp:multiview</span><span class="err">&gt;
+</span></pre></table></code></div></div><p>Note: You’ll have to add this by selecting “Text File” as Class Library projects don’t give you the web control templates.</p><p>A couple of important things to note:</p><p>The CodeFile attribute is used instead of the CodeBehind attribute. This is due to the fact that the ASP.NET compiler ignores files referenced by CodeBehind. The ClassName attribute is used so that we can specify what class name we want (including the namespace). Otherwise, we’d have to resort to using silly things like . And that’s just silly. Here’s the contents of my MyControl.ascx.cs file:</p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre><td class="rouge-code"><pre><span class="c1">//MyControl.ascx.cs</span>
+<span class="nx">namespace</span> <span class="nx">ControlTest</span>
+<span class="p">{</span>
+    <span class="nx">using</span> <span class="nx">System</span><span class="p">;</span>
+    <span class="nx">using</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Web</span><span class="p">.</span><span class="nx">UI</span><span class="p">;</span>
+
+    <span class="kr">public</span> <span class="nx">partial</span> <span class="kd">class</span> <span class="nx">MyControlCode</span> <span class="p">:</span> <span class="nx">UserControl</span>
+    <span class="p">{</span>
+        <span class="kr">public</span> <span class="k">void</span> <span class="nx">Page_Load</span><span class="p">(</span><span class="nx">object</span> <span class="nx">sender</span><span class="p">,</span> <span class="nx">EventArgs</span> <span class="nx">e</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">IsPostBack</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="k">this</span><span class="p">.</span><span class="nx">mvName</span><span class="p">.</span><span class="nx">SetActiveView</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">vwInput</span><span class="p">);</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kr">public</span> <span class="k">void</span> <span class="nx">SetButtonClick</span><span class="p">(</span><span class="nx">object</span> <span class="nx">sender</span><span class="p">,</span> <span class="nx">EventArgs</span> <span class="nx">e</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">lblName</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">txtName</span><span class="p">.</span><span class="nx">Text</span><span class="p">;</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">mvName</span><span class="p">.</span><span class="nx">SetActiveView</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">vwDisplay</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="kr">public</span> <span class="k">void</span> <span class="nx">ResetButtonClick</span><span class="p">(</span><span class="nx">object</span> <span class="nx">sender</span><span class="p">,</span> <span class="nx">EventArgs</span> <span class="nx">e</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">lblName</span><span class="p">.</span><span class="nx">Text</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">Empty</span><span class="p">;</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">mvName</span><span class="p">.</span><span class="nx">SetActiveView</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">vwInput</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></table></code></div></div><hr /><h2 id="load-dynamic-ascx">Load dynamic .ascx</h2><p>method into page w/ parent System.Web.UI.Page</p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre><td class="rouge-code"><pre><span class="kr">public</span> <span class="nx">partial</span> <span class="kd">class</span> <span class="nx">_Default</span> <span class="p">:</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Web</span><span class="p">.</span><span class="nx">UI</span><span class="p">.</span><span class="nx">Page</span>
+<span class="p">{</span>
+    <span class="kr">protected</span> <span class="k">void</span> <span class="nx">Page_Load</span><span class="p">(</span><span class="nx">object</span> <span class="nx">sender</span><span class="p">,</span> <span class="nx">EventArgs</span> <span class="nx">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">GetDynamicPageCodeFromFile</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kr">public</span> <span class="k">void</span> <span class="nx">GetDynamicPageCodeFromFile</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">UserControl</span> <span class="nx">viewControl</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">try</span>
+        <span class="p">{</span>
+            <span class="nx">viewControl</span> <span class="o">=</span> <span class="p">(</span><span class="nx">UserControl</span><span class="p">)</span><span class="k">this</span><span class="p">.</span><span class="nx">LoadControl</span><span class="p">(</span><span class="dl">"</span><span class="s2">~/WebUserControl1.ascx</span><span class="dl">"</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span><span class="p">)</span>        <span class="p">{</span>        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">viewControl</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">Controls</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">viewControl</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></table></code></div></div><p>method in diff class (using inheritance)</p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre><td class="rouge-code"><pre><span class="c1">//General.cs</span>
+<span class="kr">public</span> <span class="kd">class</span> <span class="nx">General</span> <span class="p">:</span> <span class="nx">System</span><span class="p">.</span><span class="nx">Web</span><span class="p">.</span><span class="nx">UI</span><span class="p">.</span><span class="nx">Page</span>
+<span class="p">{</span>
+	<span class="kr">public</span> <span class="k">void</span> <span class="nx">GetDynamicPageCodeFromFile</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="nx">UserControl</span> <span class="nx">viewControl</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+		<span class="k">try</span>
+		<span class="p">{</span>
+			<span class="nx">viewControl</span> <span class="o">=</span> <span class="p">(</span><span class="nx">UserControl</span><span class="p">)</span><span class="k">this</span><span class="p">.</span><span class="nx">LoadControl</span><span class="p">(</span><span class="dl">"</span><span class="s2">~/WebUserControl1.ascx</span><span class="dl">"</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span><span class="p">)</span>        <span class="p">{</span>        <span class="p">}</span>
+
+		<span class="k">if</span> <span class="p">(</span><span class="nx">viewControl</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">Controls</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">viewControl</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//Default2.aspx.cs</span>
+<span class="kr">public</span> <span class="nx">partial</span> <span class="kd">class</span> <span class="nx">Default2</span> <span class="p">:</span> <span class="nx">General</span>
+<span class="p">{</span>
+    <span class="kr">protected</span> <span class="k">void</span> <span class="nx">Page_Load</span><span class="p">(</span><span class="nx">object</span> <span class="nx">sender</span><span class="p">,</span> <span class="nx">EventArgs</span> <span class="nx">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">GetDynamicPageCodeFromFile</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//Default2.aspx (remains as is)</span>
+<span class="o">&lt;%</span><span class="p">@</span> <span class="nx">Page</span> <span class="nx">Language</span><span class="o">=</span><span class="dl">"</span><span class="s2">C#</span><span class="dl">"</span> <span class="nx">AutoEventWireup</span><span class="o">=</span><span class="dl">"</span><span class="s2">true</span><span class="dl">"</span> <span class="nx">CodeFile</span><span class="o">=</span><span class="dl">"</span><span class="s2">Default2.aspx.cs</span><span class="dl">"</span> <span class="nx">Inherits</span><span class="o">=</span><span class="dl">"</span><span class="s2">Default2</span><span class="dl">"</span> <span class="o">%&gt;</span>
+</pre></table></code></div></div><hr /><h2 id="use-ascx-on-aspx">Use .ascx on .aspx</h2><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre><span class="c1">//WebUserControl1.ascx</span>
+<span class="o">&lt;%</span><span class="p">@</span> <span class="nx">Control</span> <span class="nx">Language</span><span class="o">=</span><span class="dl">"</span><span class="s2">C#</span><span class="dl">"</span> <span class="nx">AutoEventWireup</span><span class="o">=</span><span class="dl">"</span><span class="s2">true</span><span class="dl">"</span> <span class="nx">CodeBehind</span><span class="o">=</span><span class="dl">"</span><span class="s2">WebUserControl1.ascx.cs</span><span class="dl">"</span> <span class="nx">Inherits</span><span class="o">=</span><span class="dl">"</span><span class="s2">WebApplication6ascx.WebUserControl1</span><span class="dl">"</span> <span class="o">%&gt;</span>
+
+<span class="o">**------------------------------------------**</span>
+<span class="o">~~</span><span class="nx">TEST</span><span class="o">~~</span>
+<span class="o">**------------------------------------------**</span>
+
+<span class="c1">//WebForm1.aspx</span>
+<span class="o">&lt;%</span><span class="p">@</span> <span class="nx">Page</span> <span class="nx">Language</span><span class="o">=</span><span class="dl">"</span><span class="s2">C#</span><span class="dl">"</span> <span class="nx">AutoEventWireup</span><span class="o">=</span><span class="dl">"</span><span class="s2">true</span><span class="dl">"</span> <span class="nx">CodeBehind</span><span class="o">=</span><span class="dl">"</span><span class="s2">WebForm1.aspx.cs</span><span class="dl">"</span> <span class="nx">Inherits</span><span class="o">=</span><span class="dl">"</span><span class="s2">WebApplication6ascx.WebForm1</span><span class="dl">"</span> <span class="o">%&gt;</span>
+
+<span class="o">&lt;%</span><span class="p">@</span> <span class="nx">Register</span> <span class="nx">TagPrefix</span><span class="o">=</span><span class="dl">"</span><span class="s2">uc</span><span class="dl">"</span> <span class="nx">TagName</span><span class="o">=</span><span class="dl">"</span><span class="s2">Spinner</span><span class="dl">"</span> 
+    <span class="nx">Src</span><span class="o">=</span><span class="dl">"</span><span class="s2">~/WebUserControl1.ascx</span><span class="dl">"</span> <span class="o">%&gt;</span>
+
+    <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">Form1</span><span class="dl">"</span> <span class="nx">runat</span><span class="o">=</span><span class="dl">"</span><span class="s2">server</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">uc</span><span class="p">:</span><span class="nx">spinner</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">Spinner1</span><span class="dl">"</span> <span class="nx">runat</span><span class="o">=</span><span class="dl">"</span><span class="s2">server</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/uc:spinner</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>
+</pre></table></code></div></div><p>origin - http://www.pipiscrew.com/?p=3465 asp-net-usercontrol-ascx</p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/asp-net/'>asp.net</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=o[asp.net] usercontrol - ascx - PipisCrew&url=/posts/aspnet-use/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=o[asp.net] usercontrol - ascx - PipisCrew&u=/posts/aspnet-use/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=o[asp.net] usercontrol - ascx - PipisCrew&url=/posts/aspnet-use/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"></div><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/iis-symbo/"><div class="card-body"> <span class="timeago small" > May 30 <i class="unloaded">2020-05-30T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>IIS - Symbols not loaded</h3><div class="text-muted small"><p> Story : ASPX / MVC / WebAPI, is not hitting the breakpoint. Normally when you compile the PRJ the dlls built on bin/debug folder.. Once you navigate to website, the IIS copies all dlls to C:\Wind...</p></div></div></a></div><div class="card"> <a href="/posts/revisiting/"><div class="card-body"> <span class="timeago small" > Jul 6, 2017 <i class="unloaded">2017-07-06T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Revisiting Script Injection</h3><div class="text-muted small"><p> https://www.simple-talk.com/dotnet/asp-net/revisiting-script-injection-asp-net/ origin - http://www.pipiscrew.com/2017/07/revisiting-script-injection/ revisiting-script-injection</p></div></div></a></div><div class="card"> <a href="/posts/how-to-use/"><div class="card-body"> <span class="timeago small" > Jul 26, 2017 <i class="unloaded">2017-07-26T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>How to Use the SQL Helper Class to Create Web APIs</h3><div class="text-muted small"><p> https://dzone.com/articles/learn-web-api-using-sql-helper-class origin - http://www.pipiscrew.com/2017/07/how-to-use-the-sql-helper-class-to-create-web-apis/ how-to-use-the-sql-helper-class-to-cre...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/a-funny-th/" class="btn btn-outline-primary"><p>A funny thing happened to set up Mirroring</p></a> <a href="/posts/cs-script/" class="btn btn-outline-primary"><p>CS-Script for Notepad++</p></a></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script> <script type="text/javascript"> const imgs = document.querySelectorAll('#post-wrapper img'); const observer = lozad(imgs); observer.observe(); </script><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2020 <a href="https://twitter.com/pipiscrew">pipiscrew</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy/" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-xl-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"><div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>{categories}</div><div><i class="fa fa-tag fa-fw"></i>{tags}</div></div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>' }); </script>

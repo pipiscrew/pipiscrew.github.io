@@ -1,0 +1,517 @@
+<!DOCTYPE html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="theme" content="Chirpy v2.6.2"><meta name="generator" content="Jekyll v4.1.1" /><meta property="og:title" content="o[php+android] secure connection with session variable" /><meta name="author" content="PipisCrew" /><meta property="og:locale" content="en_US" /><meta name="description" content="references : http://www.lightrains.com/blog/simple-tip-session-handling-android http://www.programering.com/a/MTMwATNwATg.html or http://www.cnblogs.com/kross/p/3615695.html http://www.yoyong.com/archives/178 or link2 or link3 http://www.capri-soft.de/blog/?p=652 http://stackoverflow.com/a/5948059/1320686 http://stackoverflow.com/questions/3587254/how-do-i-manage-cookies-with-httpclient-in-android-and-or-java" /><meta property="og:description" content="references : http://www.lightrains.com/blog/simple-tip-session-handling-android http://www.programering.com/a/MTMwATNwATg.html or http://www.cnblogs.com/kross/p/3615695.html http://www.yoyong.com/archives/178 or link2 or link3 http://www.capri-soft.de/blog/?p=652 http://stackoverflow.com/a/5948059/1320686 http://stackoverflow.com/questions/3587254/how-do-i-manage-cookies-with-httpclient-in-android-and-or-java" /><link rel="canonical" href="/posts/phpandroid/" /><meta property="og:url" content="/posts/phpandroid/" /><meta property="og:site_name" content="PipisCrew" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2015-07-03T00:00:00+08:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="o[php+android] secure connection with session variable" /><meta name="twitter:site" content="@pipiscrew" /><meta name="twitter:creator" content="@PipisCrew" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"@type":"BlogPosting","url":"/posts/phpandroid/","headline":"o[php+android] secure connection with session variable","dateModified":"2015-07-03T00:00:00+08:00","datePublished":"2015-07-03T00:00:00+08:00","author":{"@type":"Person","name":"PipisCrew"},"mainEntityOfPage":{"@type":"WebPage","@id":"/posts/phpandroid/"},"description":"references : http://www.lightrains.com/blog/simple-tip-session-handling-android http://www.programering.com/a/MTMwATNwATg.html or http://www.cnblogs.com/kross/p/3615695.html http://www.yoyong.com/archives/178 or link2 or link3 http://www.capri-soft.de/blog/?p=652 http://stackoverflow.com/a/5948059/1320686 http://stackoverflow.com/questions/3587254/how-do-i-manage-cookies-with-httpclient-in-android-and-or-java","@context":"https://schema.org"}</script><title>o[php+android] secure connection with session variable | PipisCrew</title><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon.png"><link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon-precomposed.png"><link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicons/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/manifest.json"><meta name='msapplication-config' content='/assets/img/favicons/browserconfig.xml'><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/assets/img/favicons/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="cdn.jsdelivr.net"><link rel="dns-prefetch" href="cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"><link rel="preload" href="/assets/css/post.css" as="style"><link rel="stylesheet" href="/assets/css/post.css"><link rel="preload" as="style" href="/assets/css/lib/bootstrap-toc.min.css"><link rel="stylesheet" href="/assets/css/lib/bootstrap-toc.min.css" /> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script defer src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="/assets/js/post.min.js"></script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column"><div id="nav-wrapper"><div id="profile-wrapper" class="d-flex flex-column"><div id="avatar" class="d-flex justify-content-center"> <a href="/" alt="avatar"> <img src="/assets/img/sample/avatar.jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="profile-text mt-3"><div class="site-title"> <a href="/">PipisCrew</a></div><div class="site-subtitle font-italic">A text-focused Jekyll theme.</div></div></div><ul class="nav flex-column"><li class="nav-item d-flex justify-content-center "> <a href="/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/categories/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/tags/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/archives/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/about/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul></div><div class="sidebar-bottom d-flex flex-wrap justify-content-around mt-4"> <span id="mode-toggle-wrapper"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.updateMermaid(); }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer) ) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } updateMermaid() { if (typeof mermaid !== "undefined") { let expectedTheme = (this.modeStatus === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } this.updateMermaid(); } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span> <span class="icon-border"></span> <a href="https://github.com/pipiscrew" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com/pipiscrew" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['example','doamin.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>o[php+android] secure connection with session variable</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>o[php+android] secure connection with session variable</h1><div class="post-meta text-muted d-flex flex-column"><div> Posted <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Fri, Jul 3, 2015, 12:00 AM +0800" > Jul 3, 2015 <i class="unloaded">2015-07-03T00:00:00+08:00</i> </span> by <span class="author"> PipisCrew </span></div></div><div class="post-content"><p>references : <a href="http://www.lightrains.com/blog/simple-tip-session-handling-android">http://www.lightrains.com/blog/simple-tip-session-handling-android</a> <a href="http://www.programering.com/a/MTMwATNwATg.html">http://www.programering.com/a/MTMwATNwATg.html</a> <em>or</em> <a href="http://www.cnblogs.com/kross/p/3615695.html">http://www.cnblogs.com/kross/p/3615695.html</a> <a href="http://www.yoyong.com/archives/178">http://www.yoyong.com/archives/178</a> <em>or</em> <a href="http://www.apkbus.com/android-5908-1.html">link2</a> <em>or</em> <a href="http://www.apkway.com/thread-6670-1-1.html">link3</a> <a href="http://www.capri-soft.de/blog/?p=652">http://www.capri-soft.de/blog/?p=652</a> <a href="http://stackoverflow.com/a/5948059/1320686">http://stackoverflow.com/a/5948059/1320686</a> <a href="http://stackoverflow.com/questions/3587254/how-do-i-manage-cookies-with-httpclient-in-android-and-or-java">http://stackoverflow.com/questions/3587254/how-do-i-manage-cookies-with-httpclient-in-android-and-or-java</a></p><p>the prototypes referenced are by <strong>cnblogs.com</strong></p><font size="6">Prototype 1 - using DefaultHttpClient</font><p><span style="color: #ff0000;"><strong>//JAVA - Activity button</strong></span></p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+</pre><td class="rouge-code"><pre>	<span class="kr">public</span> <span class="k">void</span> <span class="nx">btnAdd2_Click</span><span class="p">(</span><span class="nx">View</span> <span class="nx">view</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="nx">StrictMode</span><span class="p">.</span><span class="nx">ThreadPolicy</span> <span class="nx">policy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">StrictMode</span><span class="p">.</span><span class="nx">ThreadPolicy</span><span class="p">.</span><span class="nx">Builder</span><span class="p">().</span><span class="nx">permitAll</span><span class="p">().</span><span class="nx">build</span><span class="p">();</span>
+		<span class="nx">StrictMode</span><span class="p">.</span><span class="nx">setThreadPolicy</span><span class="p">(</span><span class="nx">policy</span><span class="p">);</span>
+
+		<span class="k">try</span> <span class="p">{</span>
+			<span class="nx">NetClient</span> <span class="nx">n</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NetClient</span><span class="p">();</span>
+
+			<span class="nb">String</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="dl">"</span><span class="s2">http://x.com/testAREA/securetrans/login.php</span><span class="dl">"</span><span class="p">);</span>
+			<span class="nx">Log</span><span class="p">.</span><span class="nx">w</span><span class="p">(</span><span class="dl">"</span><span class="s2">login result</span><span class="dl">"</span><span class="p">,</span> <span class="nx">k</span><span class="p">);</span>
+
+			<span class="nb">String</span> <span class="nx">l</span> <span class="o">=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="dl">"</span><span class="s2">http://x.com/testAREA/securetrans/content.php</span><span class="dl">"</span><span class="p">);</span>
+			<span class="nx">Log</span><span class="p">.</span><span class="nx">w</span><span class="p">(</span><span class="dl">"</span><span class="s2">ask if logged in</span><span class="dl">"</span><span class="p">,</span> <span class="nx">l</span><span class="p">);</span>
+
+		<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">ClientProtocolException</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+			<span class="c1">// TODO Auto-generated catch block</span>
+			<span class="nx">e</span><span class="p">.</span><span class="nx">printStackTrace</span><span class="p">();</span>
+		<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">IOException</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+			<span class="c1">// TODO Auto-generated catch block</span>
+			<span class="nx">e</span><span class="p">.</span><span class="nx">printStackTrace</span><span class="p">();</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="s2">```&lt;span style="color: #ff0000;"&gt;**//JAVA Class**&lt;/span&gt;
+
+```</span><span class="nx">js</span>
+<span class="k">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">BufferedReader</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">IOException</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">InputStreamReader</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">ArrayList</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">HttpResponse</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">NameValuePair</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nx">ClientProtocolException</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nx">HttpClient</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nx">entity</span><span class="p">.</span><span class="nx">UrlEncodedFormEntity</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nx">methods</span><span class="p">.</span><span class="nx">HttpPost</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">impl</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nx">DefaultHttpClient</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">message</span><span class="p">.</span><span class="nx">BasicNameValuePair</span><span class="p">;</span>
+
+<span class="kr">public</span> <span class="kd">class</span> <span class="nx">NetClient</span> <span class="p">{</span>
+
+    <span class="kr">private</span> <span class="nx">HttpClient</span> <span class="nx">client</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+    <span class="kr">public</span> <span class="nx">NetClient</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DefaultHttpClient</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kr">public</span> <span class="nb">String</span> <span class="nx">request</span><span class="p">(</span><span class="nb">String</span> <span class="nx">url</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">ClientProtocolException</span><span class="p">,</span> <span class="nx">IOException</span> <span class="p">{</span>
+        <span class="nx">HttpPost</span> <span class="nx">post</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpPost</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+        <span class="nx">HttpResponse</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">post</span><span class="p">);</span>
+
+        <span class="nx">BufferedReader</span> <span class="nx">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="nx">InputStreamReader</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">getEntity</span><span class="p">().</span><span class="nx">getContent</span><span class="p">()));</span>
+        <span class="nb">String</span> <span class="nx">data</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+        <span class="nb">String</span> <span class="nx">line</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">((</span><span class="nx">line</span> <span class="o">=</span> <span class="nx">br</span><span class="p">.</span><span class="nx">readLine</span><span class="p">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+             <span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span> <span class="o">+</span> <span class="nx">line</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">public</span> <span class="nb">String</span> <span class="nx">login</span><span class="p">(</span><span class="nb">String</span> <span class="nx">url</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">ClientProtocolException</span><span class="p">,</span> <span class="nx">IOException</span> <span class="p">{</span>
+        <span class="nx">HttpPost</span> <span class="nx">post</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpPost</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+
+        <span class="nx">ArrayList</span> <span class="nx">pa</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayList</span><span class="p">();</span>
+        <span class="nx">pa</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="k">new</span> <span class="nx">BasicNameValuePair</span><span class="p">(</span> <span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">admin</span><span class="dl">"</span><span class="p">));</span>
+        <span class="nx">pa</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="k">new</span> <span class="nx">BasicNameValuePair</span><span class="p">(</span> <span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">admin</span><span class="dl">"</span><span class="p">));</span>
+        <span class="nx">post</span><span class="p">.</span><span class="nx">setEntity</span><span class="p">(</span> <span class="k">new</span> <span class="nx">UrlEncodedFormEntity</span><span class="p">(</span><span class="nx">pa</span><span class="p">,</span> <span class="dl">"</span><span class="s2">UTF-8</span><span class="dl">"</span><span class="p">));</span>
+
+        <span class="nx">HttpResponse</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">post</span><span class="p">);</span>
+
+        <span class="nx">BufferedReader</span> <span class="nx">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="nx">InputStreamReader</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">getEntity</span><span class="p">().</span><span class="nx">getContent</span><span class="p">()));</span>
+        <span class="nb">String</span> <span class="nx">data</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+        <span class="nb">String</span> <span class="nx">line</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">((</span><span class="nx">line</span> <span class="o">=</span> <span class="nx">br</span><span class="p">.</span><span class="nx">readLine</span><span class="p">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+             <span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span> <span class="o">+</span> <span class="nx">line</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></table></code></div></div><p><span style="color: #ff0000;"><strong>//A login form post itself when browse normally (from browser)</strong></span> <span style="color: #ff0000;"> <strong>//login.php</strong></span></p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="o">&lt;</span><span class="p">?</span><span class="nx">php</span> <span class="nx">session_start</span><span class="p">();</span><span class="o">=</span><span class="dl">""</span> <span class="k">if</span><span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nx">$_post</span><span class="p">[</span><span class="dl">'</span><span class="s1">username</span><span class="dl">'</span><span class="p">]))</span><span class="o">=</span><span class="dl">""</span> <span class="p">{</span><span class="o">=</span><span class="dl">""</span> <span class="nx">$username</span><span class="o">=</span><span class="dl">"</span><span class="s2">$_POST['username'];</span><span class="dl">"</span> <span class="nx">$password</span><span class="o">=</span><span class="dl">"</span><span class="s2">$_POST['password'];</span><span class="dl">"</span> <span class="k">if</span><span class="p">(</span><span class="nx">$username</span><span class="o">=</span><span class="dl">"</span><span class="s2">=</span><span class="dl">"</span> <span class="dl">'</span><span class="s1">admin</span><span class="dl">'</span><span class="o">=</span><span class="dl">""</span> <span class="o">&amp;&amp;=</span><span class="dl">""</span> <span class="nx">$password</span><span class="o">=</span><span class="dl">"</span><span class="s2">=</span><span class="dl">"</span> <span class="dl">'</span><span class="s1">admin</span><span class="dl">'</span><span class="p">)</span><span class="o">=</span><span class="dl">""</span> <span class="p">{</span><span class="o">=</span><span class="dl">""</span> <span class="nx">$_session</span><span class="p">[</span><span class="dl">'</span><span class="s1">username</span><span class="dl">'</span><span class="p">]</span><span class="o">=</span><span class="dl">"</span><span class="s2">$username;</span><span class="dl">"</span> <span class="nx">echo</span><span class="o">=</span><span class="dl">""</span> <span class="dl">"</span><span class="s2">admin=</span><span class="dl">""</span><span class="s2"> setted</span><span class="dl">"</span><span class="p">;</span><span class="o">=</span><span class="dl">""</span> <span class="nx">exit</span><span class="p">;</span><span class="o">=</span><span class="dl">""</span> <span class="p">}</span><span class="o">=</span><span class="dl">""</span> <span class="k">else</span><span class="o">=</span><span class="dl">""</span> <span class="p">{</span><span class="o">=</span><span class="dl">""</span> <span class="nx">echo</span><span class="o">=</span><span class="dl">""</span> <span class="dl">"</span><span class="s2">-1</span><span class="dl">"</span><span class="p">;</span><span class="o">=</span><span class="dl">""</span> <span class="p">}</span><span class="o">=</span><span class="dl">""</span> <span class="p">}</span><span class="o">=</span><span class="dl">""</span><span class="p">?</span><span class="o">&gt;</span>
+
+		<span class="o">&lt;</span><span class="nx">form</span> <span class="nx">action</span><span class="o">=</span><span class="dl">""</span> <span class="nx">method</span><span class="o">=</span><span class="dl">"</span><span class="s2">post</span><span class="dl">"</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">text</span><span class="dl">"</span> <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span> <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">submit</span><span class="dl">"</span> <span class="nx">name</span><span class="o">=</span><span class="dl">"</span><span class="s2">submit</span><span class="dl">"</span> <span class="nx">value</span><span class="o">=</span><span class="dl">"</span><span class="s2">submit</span><span class="dl">"</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>
+</pre></table></code></div></div><p><span style="color: #ff0000;"><strong>//the result page</strong></span> <span style="color: #ff0000;"> <strong>//content.php</strong></span></p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="o">&lt;</span><span class="p">?</span><span class="nx">php</span> <span class="nx">session_start</span><span class="p">();</span><span class="o">=</span><span class="dl">""</span> <span class="k">if</span><span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nx">$_session</span><span class="p">[</span><span class="dl">'</span><span class="s1">username</span><span class="dl">'</span><span class="p">]))</span><span class="o">=</span><span class="dl">""</span> <span class="p">{</span><span class="o">=</span><span class="dl">""</span> <span class="nx">echo</span><span class="o">=</span><span class="dl">""</span> <span class="dl">"</span><span class="s2">login=</span><span class="dl">""</span><span class="s2"> ok</span><span class="dl">"</span><span class="p">;</span><span class="o">=</span><span class="dl">""</span> <span class="p">}</span><span class="o">=</span><span class="dl">""</span> <span class="k">else</span><span class="o">=</span><span class="dl">""</span> <span class="p">{</span><span class="o">=</span><span class="dl">""</span> <span class="nx">echo</span><span class="o">=</span><span class="dl">""</span> <span class="dl">"</span><span class="s2">not=</span><span class="dl">""</span><span class="s2"> login</span><span class="dl">"</span><span class="p">;</span><span class="o">=</span><span class="dl">""</span> <span class="p">}</span><span class="o">=</span><span class="dl">""</span><span class="p">?</span><span class="o">&gt;</span>
+</pre></table></code></div></div><p>By the result, we understand that the session variable <strong>$_SESSION[‘username’]</strong> retained from <strong>login.php</strong> to <strong>content.php</strong> : <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://www.pipiscrew.com/wp-content/uploads/2014/11/snap222.png" alt="" title="snap222" /></p><p>thats nice :), time to develop!</p><hr /> <center><font size="6">Prototype1 - MixUP!</font></center><blockquote><p>proper way - sample android java project + PHP files -create an application class -create custom http class, using application context DefaultHttpClient</p></blockquote><center>[![](https://www.pipiscrew.com/wp-content/uploads/2014/11/download_button.png "download")](https://pipiscrew.com/Downloads/doc_securetrans.zip)</center><hr /> <center><font size="6">Prototype 2 - Using cookie method</font></center><p>using the same code as Prototype1, we replace NetClient class with NetHelper and the referenced calls. We make it work without the need of class shared <strong>DefaultHttpClient</strong>.</p><blockquote><p>Yahel writes :Your Php script uses a session token to identify the visitor when you browse the site via a browser. Ususally its stored in a PHPSESSID variable. If you want your Android application to stay authenticated on the server side you need to fetch that id after the first connection and then send it in the headers of all your subsequent requests.</p></blockquote><p>line <strong>54-55</strong> = fetch PHPSESSID and store it for later calls aka <strong>login()</strong> function, run only once, then on all the other calls use the <strong>request()</strong>. Check line <strong>22</strong> which using the <strong>sessionId</strong>.</p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+</pre><td class="rouge-code"><pre><span class="k">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">BufferedReader</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">IOException</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">InputStreamReader</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">HttpURLConnection</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">java</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nx">URL</span><span class="p">;</span>
+
+<span class="kr">public</span> <span class="kd">class</span> <span class="nx">NetHelper</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * SESSIONID
+     * */</span>
+    <span class="kr">private</span> <span class="nb">String</span> <span class="nx">sessionId</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+
+    <span class="cm">/**
+     * Send a request, the content in a string
+     * @param The address of the URL request
+     * @return The content returned
+     * */</span>
+    <span class="kr">public</span> <span class="nb">String</span> <span class="nx">request</span><span class="p">(</span><span class="nb">String</span> <span class="nx">url</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">IOException</span> <span class="p">{</span>
+        <span class="nx">URL</span> <span class="nx">uUrl</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+        <span class="nx">HttpURLConnection</span> <span class="nx">huc</span> <span class="o">=</span> <span class="p">(</span><span class="nx">HttpURLConnection</span><span class="p">)</span> <span class="nx">uUrl</span><span class="p">.</span><span class="nx">openConnection</span><span class="p">();</span>
+        <span class="nx">huc</span><span class="p">.</span><span class="nx">addRequestProperty</span><span class="p">(</span><span class="dl">"</span><span class="s2">Cookie</span><span class="dl">"</span><span class="p">,</span> <span class="nx">sessionId</span><span class="p">);</span>    <span class="c1">//Why is "Cookie", open Chrome press F12 and check!</span>
+        <span class="nx">huc</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+        <span class="nx">BufferedReader</span> <span class="nx">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="nx">InputStreamReader</span><span class="p">(</span><span class="nx">huc</span><span class="p">.</span><span class="nx">getInputStream</span><span class="p">()));</span>
+        <span class="nb">String</span> <span class="nx">data</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+        <span class="nb">String</span> <span class="nx">line</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">((</span><span class="nx">line</span> <span class="o">=</span> <span class="nx">br</span><span class="p">.</span><span class="nx">readLine</span><span class="p">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+             <span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span> <span class="o">+</span> <span class="nx">line</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**
+     * Sends the login request, and the SESSIONID store
+     * @param The URL login request
+     * @return The content returned
+     * */</span>
+    <span class="kr">public</span> <span class="nb">String</span> <span class="nx">login</span><span class="p">(</span><span class="nb">String</span> <span class="nx">url</span><span class="p">)</span> <span class="nx">throws</span> <span class="nx">IOException</span> <span class="p">{</span>
+        <span class="nx">URL</span> <span class="nx">uUrl</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+        <span class="nx">HttpURLConnection</span> <span class="nx">huc</span> <span class="o">=</span> <span class="p">(</span><span class="nx">HttpURLConnection</span><span class="p">)</span> <span class="nx">uUrl</span><span class="p">.</span><span class="nx">openConnection</span><span class="p">();</span>
+
+        <span class="c1">//Set the request</span>
+        <span class="nx">huc</span><span class="p">.</span><span class="nx">setRequestMethod</span><span class="p">(</span><span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">);</span>
+
+        <span class="c1">//Set the post parameters</span>
+        <span class="nx">StringBuffer</span> <span class="nx">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">StringBuffer</span><span class="p">();</span>
+        <span class="nx">params</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">username=</span><span class="dl">"</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">admin</span><span class="dl">"</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">&amp;</span><span class="dl">"</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">password=</span><span class="dl">"</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">admin</span><span class="dl">"</span><span class="p">);</span>
+        <span class="nx">byte</span><span class="p">[]</span> <span class="nx">bytes</span> <span class="o">=</span> <span class="nx">params</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">getBytes</span><span class="p">();</span>
+        <span class="nx">huc</span><span class="p">.</span><span class="nx">getOutputStream</span><span class="p">().</span><span class="nx">write</span><span class="p">(</span><span class="nx">bytes</span><span class="p">);</span>
+
+        <span class="nx">huc</span><span class="p">.</span><span class="nx">connect</span><span class="p">();</span>
+
+        <span class="c1">//Take out, from the headers the ID segmentation, open Chrome press F12 and check!</span>
+        <span class="nb">String</span><span class="p">[]</span> <span class="nx">aaa</span> <span class="o">=</span> <span class="nx">huc</span><span class="p">.</span><span class="nx">getHeaderField</span><span class="p">(</span><span class="dl">"</span><span class="s2">Set-Cookie</span><span class="dl">"</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2">;</span><span class="dl">"</span><span class="p">);</span>
+        <span class="nx">sessionId</span> <span class="o">=</span> <span class="nx">aaa</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+        <span class="nx">BufferedReader</span> <span class="nx">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BufferedReader</span><span class="p">(</span><span class="k">new</span> <span class="nx">InputStreamReader</span><span class="p">(</span><span class="nx">huc</span><span class="p">.</span><span class="nx">getInputStream</span><span class="p">()));</span>
+        <span class="nb">String</span> <span class="nx">data</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+        <span class="nb">String</span> <span class="nx">line</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">((</span><span class="nx">line</span> <span class="o">=</span> <span class="nx">br</span><span class="p">.</span><span class="nx">readLine</span><span class="p">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+             <span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span> <span class="o">+</span> <span class="nx">line</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></table></code></div></div><hr /> <center><font size="6">Prototype2 - MixUP!</font></center><blockquote><p>proper way - sample android java project + PHP files -create an application class -create custom http class, using application context php_session_id</p></blockquote><center>[![](https://www.pipiscrew.com/wp-content/uploads/2014/11/download_button.png "download")](https://pipiscrew.com/Downloads/doc_securetrans.zip)</center><hr /><p>in CSharp</p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre><td class="rouge-code"><pre>        <span class="kr">private</span> <span class="k">void</span> <span class="nx">button1_Click</span><span class="p">(</span><span class="nx">object</span> <span class="nx">sender</span><span class="p">,</span> <span class="nx">EventArgs</span> <span class="nx">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">//http://stackoverflow.com/a/931030</span>
+
+            <span class="c1">// NOTE: This is the URL the form POSTs to, not the URL of the form (you can find this in the "action" attribute of the HTML's form tag</span>
+            <span class="nx">string</span> <span class="nx">formUrl</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">http://www.x.com/api/login.php</span><span class="dl">"</span><span class="p">;</span>
+            <span class="nx">string</span> <span class="nx">formParams</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">Format</span><span class="p">(</span><span class="dl">"</span><span class="s2">email={0}&amp;pass={1}&amp;submit={2}</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">c@x.com</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">543654364</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">test</span><span class="dl">"</span><span class="p">);</span>
+            <span class="nx">string</span> <span class="nx">cookieHeader</span><span class="p">;</span>
+            <span class="nx">WebRequest</span> <span class="nx">req</span> <span class="o">=</span> <span class="nx">WebRequest</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="nx">formUrl</span><span class="p">);</span>
+            <span class="nx">req</span><span class="p">.</span><span class="nx">ContentType</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">application/x-www-form-urlencoded</span><span class="dl">"</span><span class="p">;</span>
+            <span class="nx">req</span><span class="p">.</span><span class="nx">Method</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">;</span>
+            <span class="nx">byte</span><span class="p">[]</span> <span class="nx">bytes</span> <span class="o">=</span> <span class="nx">Encoding</span><span class="p">.</span><span class="nx">ASCII</span><span class="p">.</span><span class="nx">GetBytes</span><span class="p">(</span><span class="nx">formParams</span><span class="p">);</span>
+            <span class="nx">req</span><span class="p">.</span><span class="nx">ContentLength</span> <span class="o">=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Length</span><span class="p">;</span>
+            <span class="nx">using</span> <span class="p">(</span><span class="nx">Stream</span> <span class="nx">os</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">GetRequestStream</span><span class="p">())</span>
+            <span class="p">{</span>
+                <span class="nx">os</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">bytes</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Length</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="nx">WebResponse</span> <span class="nx">resp</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">GetResponse</span><span class="p">();</span>
+            <span class="nx">cookieHeader</span> <span class="o">=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Headers</span><span class="p">[</span><span class="dl">"</span><span class="s2">Set-cookie</span><span class="dl">"</span><span class="p">];</span>
+            <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">cookieHeader</span><span class="p">);</span> <span class="c1">//read PHPSESSID</span>
+
+            <span class="nx">StreamReader</span> <span class="nx">sr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">StreamReader</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">GetResponseStream</span><span class="p">());</span>
+            <span class="nx">Console</span><span class="p">.</span><span class="nx">WriteLine</span><span class="p">(</span><span class="nx">sr</span><span class="p">.</span><span class="nx">ReadToEnd</span><span class="p">());</span> <span class="c1">//read RESPONSE</span>
+        <span class="p">}</span>
+</pre></table></code></div></div><p>GET request to a page that you need to be logged in.</p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre><td class="rouge-code"><pre><span class="nx">string</span> <span class="nx">pageSource</span><span class="p">;</span>
+<span class="nx">string</span> <span class="nx">getUrl</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">http://www.x.com/where.session.validated.at.php.side.php</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">WebRequest</span> <span class="nx">getRequest</span> <span class="o">=</span> <span class="nx">WebRequest</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="nx">getUrl</span><span class="p">);</span>
+<span class="nx">getRequest</span><span class="p">.</span><span class="nx">Method</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">;</span> <span class="c1">//we can make a POST request!</span>
+<span class="c1">//must be as example #PHPSESSID=assssbj6tb30ljttm4q4olpjn0#, warning no spaces!</span>
+<span class="nx">getRequest</span><span class="p">.</span><span class="nx">Headers</span><span class="p">[</span><span class="dl">"</span><span class="s2">Cookie</span><span class="dl">"</span><span class="p">]</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">PHPSESSID=</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">php_sessid</span><span class="p">;</span>
+<span class="c1">// working also - getRequest.Headers.Add("Cookie",  "PHPSESSID=" + php_sessid);</span>
+<span class="nx">WebResponse</span> <span class="nx">getResponse</span> <span class="o">=</span> <span class="nx">getRequest</span><span class="p">.</span><span class="nx">GetResponse</span><span class="p">();</span>
+<span class="nx">using</span> <span class="p">(</span><span class="nx">StreamReader</span> <span class="nx">sr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">StreamReader</span><span class="p">(</span><span class="nx">getResponse</span><span class="p">.</span><span class="nx">GetResponseStream</span><span class="p">()))</span>
+<span class="p">{</span>
+    <span class="nx">pageSource</span> <span class="o">=</span> <span class="nx">sr</span><span class="p">.</span><span class="nx">ReadToEnd</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></table></code></div></div><hr /><h2 id="persistent-sessions-with-php">PERSISTENT SESSIONS WITH PHP</h2><p><a href="http://www.paulsrichards.com/2008/07/29/persistent-sessions-with-php/">http://www.paulsrichards.com/2008/07/29/persistent-sessions-with-php/</a></p><p>source - <a href="http://www.amazon.co.uk/Essential-PHP-Security-Chris-Shiflett/dp/059600656X/">http://www.amazon.co.uk/Essential-PHP-Security-Chris-Shiflett/dp/059600656X/</a></p><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre><td class="rouge-code"><pre><span class="c1">//Outline Example</span>
+<span class="c1">//Ok, you’ve authenticated your users username and password and they’ve indicated that they wish to remain logged in for one week.</span>
+
+<span class="c1">// This examples assumes you have already connected to a MySQL database</span>
+<span class="nx">$salt</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">pAulR2</span><span class="dl">"</span><span class="p">;</span>
+<span class="cm">/*
+  You must create a identifier for every user and store it in the database prior implementing this.
+  $identifier = md5( $salt . md5($username . $salt ) );
+*/</span>
+<span class="c1">// retrieve the $identifier from the database, I'm going to assume its in a variable called</span>
+<span class="c1">// $user['identifier']</span>
+<span class="nx">$identifier</span> <span class="o">=</span> <span class="nx">$user</span><span class="p">[</span><span class="dl">'</span><span class="s1">identifier</span><span class="dl">'</span><span class="p">];</span>
+
+<span class="c1">// create a random key</span>
+<span class="nx">$key</span> <span class="o">=</span> <span class="nx">md5</span><span class="p">(</span><span class="nx">uniqid</span><span class="p">(</span><span class="nx">rand</span><span class="p">(),</span> <span class="kc">true</span><span class="p">);</span>
+<span class="c1">// calculate the time in 7 days ahead for expiry date</span>
+<span class="nx">$timeout</span> <span class="o">=</span> <span class="nx">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">7</span><span class="p">;</span>
+
+<span class="c1">// Set the cookie with information</span>
+<span class="nx">setcookie</span><span class="p">(</span><span class="dl">'</span><span class="s1">authentication</span><span class="dl">'</span><span class="p">,</span> <span class="dl">"</span><span class="s2">$identifier:$key</span><span class="dl">"</span><span class="p">,</span> <span class="nx">$timeout</span><span class="p">);</span>
+<span class="c1">// now update the database with the new information</span>
+<span class="nx">$result</span> <span class="o">=</span> <span class="nx">mysql_query</span><span class="p">(</span><span class="dl">"</span><span class="s2">UPDATE user SET key = '$key', timeout = '$timeout'
+WHERE username = '$username'</span><span class="dl">"</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">die</span><span class="p">(</span><span class="dl">'</span><span class="s1">Invalid query: </span><span class="dl">'</span> <span class="p">.</span> <span class="nx">mysql_error</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></table></code></div></div><div class="language-js highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+</pre><td class="rouge-code"><pre><span class="c1">//Right that takes care of setting the cookie but know we must authorise it when its been detected when the user comes back to the site. On the users first visit you need to implement code like the following:</span>
+
+<span class="nx">$salt</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">pAulR2</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nx">$_COOKIE</span><span class="p">[</span><span class="dl">'</span><span class="s1">authentication</span><span class="dl">'</span><span class="p">]))</span> <span class="p">{</span>
+    <span class="c1">// cookie is set, lets see if its vailed and log someone in</span>
+    <span class="nx">$clean</span> <span class="o">=</span> <span class="nx">array</span><span class="p">();</span>
+    <span class="nx">$mysql</span> <span class="o">=</span> <span class="nx">array</span><span class="p">();</span>
+
+    <span class="nx">$now</span> <span class="o">=</span> <span class="nx">time</span><span class="p">();</span>
+
+    <span class="nx">list</span><span class="p">(</span><span class="nx">$identifier</span><span class="p">,</span> <span class="nx">$token</span><span class="p">)</span> <span class="o">=</span> <span class="nx">explode</span><span class="p">(</span><span class="dl">'</span><span class="s1">:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">$_COOKIE</span><span class="p">[</span><span class="dl">'</span><span class="s1">authentication</span><span class="dl">'</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">ctype_alnum</span><span class="p">(</span><span class="nx">$identifier</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">ctype_alnum</span><span class="p">(</span><span class="nx">$token</span><span class="p">))</span> <span class="p">{</span>
+	<span class="nx">$clean</span><span class="p">[</span><span class="dl">'</span><span class="s1">identifier</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">$identifier</span><span class="p">;</span>
+	<span class="nx">$clean</span><span class="p">[</span><span class="dl">'</span><span class="s1">key</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">$key</span><span class="p">;</span>
+
+	<span class="nx">$mysql</span><span class="p">[</span><span class="dl">'</span><span class="s1">identifier</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">mysql_real_escape_string</span><span class="p">(</span><span class="nx">$clean</span><span class="p">[</span><span class="dl">'</span><span class="s1">identifier</span><span class="dl">'</span><span class="p">]);</span>
+
+	<span class="nx">$result</span> <span class="o">=</span> <span class="nx">mysql_query</span><span class="p">(</span><span class="dl">"</span><span class="s2">SELECT * FROM user
+                                       WHERE identifier = '{$mysql['identifier']}'</span><span class="dl">"</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">mysql_num_rows</span><span class="p">(</span><span class="nx">$result</span><span class="p">))</span> <span class="p">{</span>
+		<span class="nx">$record</span> <span class="o">=</span> <span class="nx">mysql_fetch_assoc</span><span class="p">(</span><span class="nx">$result</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">$clean</span><span class="p">[</span><span class="dl">'</span><span class="s1">key</span><span class="dl">'</span><span class="p">]</span> <span class="o">!=</span> <span class="nx">$record</span><span class="p">[</span><span class="dl">'</span><span class="s1">key</span><span class="dl">'</span><span class="p">])</span> <span class="p">{</span>
+			<span class="c1">// fail because the key doesn't match</span>
+		<span class="p">}</span><span class="nx">elseif</span> <span class="p">(</span><span class="nx">$now</span> <span class="o">&gt;</span> <span class="nx">$record</span><span class="p">[</span><span class="dl">'</span><span class="s1">timeout</span><span class="dl">'</span><span class="p">]){</span>
+			<span class="c1">// fail because the cookie has expired</span>
+		<span class="p">}</span><span class="nx">elseif</span> <span class="p">(</span><span class="nx">$clean</span><span class="p">[</span><span class="dl">'</span><span class="s1">identifier</span><span class="dl">'</span><span class="p">]</span> <span class="o">!=</span> <span class="nx">md5</span><span class="p">(</span><span class="nx">$salt</span><span class="p">.</span><span class="nx">md5</span><span class="p">(</span><span class="nx">$record</span><span class="p">[</span><span class="dl">'</span><span class="s1">userID</span><span class="dl">'</span><span class="p">].</span><span class="nx">$salt</span><span class="p">))){</span>
+			<span class="c1">// fail because the identifiers does not match</span>
+		<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+			<span class="cm">/*
+                          Success everything matches, now you can process
+                          your login functions. The key must be re generated
+                          for the next login. But don't increase the timeout to
+                          ensure that the user must login in once the time
+                          period has passed.
+                       */</span>
+	        <span class="p">}</span>
+	<span class="p">}</span>
+	<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+			<span class="cm">/* failed because the information is not in the
+                            correct format in the cookie */</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></table></code></div></div><p>origin - http://www.pipiscrew.com/?p=1754 phpandroid-secure-connection-with-session-variable</p></div><div class="post-tail-wrapper text-muted"><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=o[php+android] secure connection with session variable - PipisCrew&url=/posts/phpandroid/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=o[php+android] secure connection with session variable - PipisCrew&u=/posts/phpandroid/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=o[php+android] secure connection with session variable - PipisCrew&url=/posts/phpandroid/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"></div><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/treesize/"><div class="card-body"> <span class="timeago small" > Dec 11 <i class="unloaded">2020-12-11T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Treesize - shows recursive disk usage in current directory</h3><div class="text-muted small"><p> 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69...</p></div></div></a></div><div class="card"> <a href="/posts/study-offe/"><div class="card-body"> <span class="timeago small" > Dec 11 <i class="unloaded">2020-12-11T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Study offers new clues for treating brain cancer in children</h3><div class="text-muted small"><p> The recurrence of cancer months or even years after successful treatment is an all too common phenomenon, and scientists have been chipping away at understanding how undetectable cells can once aga...</p></div></div></a></div><div class="card"> <a href="/posts/some-docto/"><div class="card-body"> <span class="timeago small" > Dec 11 <i class="unloaded">2020-12-11T00:00:00+08:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Some doctors, therapists get Health Canada permission to use magic mushrooms</h3><div class="text-muted small"><p> Four months after it allowed a handful of palliative care patients to use psilocybin as a way to relieve end-of-life suffering, Health Canada has cleared the way for more than a dozen health profes...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/programmin/" class="btn btn-outline-primary"><p>Programming, Motherfucker</p></a> <a href="/posts/uglifyjs/" class="btn btn-outline-primary"><p>UglifyJS</p></a></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script> <script type="text/javascript"> const imgs = document.querySelectorAll('#post-wrapper img'); const observer = lozad(imgs); observer.observe(); </script><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2020 <a href="https://twitter.com/pipiscrew">pipiscrew</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy/" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-xl-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"><div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>{categories}</div><div><i class="fa fa-tag fa-fw"></i>{tags}</div></div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>' }); </script>
